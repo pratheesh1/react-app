@@ -3,6 +3,15 @@
   z-index: 1;
 }
 
+.navbar-toggle-wrapper {
+  margin: 0px !important;
+}
+
+.navbar-toggler-div {
+  border: 0 !important;
+  color: white !important;
+}
+
 .custom-navbar-icon {
   background-image: url("../images/hamburger-icon.png") !important;
 }
@@ -14,4 +23,47 @@
 #navbar-logo {
   height: 50px;
   margin: 0 10px 0 0;
+}
+
+.button-wrapper {
+  padding-top: 3px;
+}
+
+.button-wrapper button {
+  max-height: 38px;
+}
+
+.btn-signup {
+  background-color: #1ba1f2;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bolder;
+  line-height: 18px;
+  letter-spacing: -0.06em;
+  margin-right: 15px;
+  min-width: 80px;
+}
+
+.btn-login {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bolder;
+  line-height: 18px;
+  letter-spacing: -0.06em;
+  border-width: 2px;
+  border-color: black;
+  padding: 6px 15px 6px 16px;
+  min-width: 80px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .btn-signup {
+    background-color: #f8f9fa;
+    color: #4a69b9;
+    margin-right: 20px;
+  }
 }
