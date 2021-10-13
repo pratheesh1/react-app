@@ -72,12 +72,14 @@ function NavBar() {
               </ul>
             </div>
           </div>
+          {/* logo */}
           <div className="col-4 d-flex justify-content-center">
             <div className="navbar-brand navbar-brand-wrapper">
               <img id="navbar-logo" src={logo} aria-label="logo" />
               <span id="navbar-logo-text">Trails</span>
             </div>
           </div>
+          {/* buttons */}
           <div className="button-wrapper col-4 d-flex flex-row justify-content-end">
             <a
               className="nav-link disabled d-none d-md-block mx-4"

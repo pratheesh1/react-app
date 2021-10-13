@@ -6,6 +6,7 @@ function SearchBar() {
     <React.Fragment>
       <nav className="navbar searchbar-wrapper navbar-expand-lg navbar-light bg-light">
         <div className="row p-0 m-0 w-100">
+          {/* search */}
           <div className="col-6 order-1 order-lg-2 searchbar-col-1 ">
             <div className="search-wrapper d-flex">
               <input
@@ -19,6 +20,7 @@ function SearchBar() {
               </button>
             </div>
           </div>
+          {/* menu */}
           <div className="col-6 order-2 order-lg-1 searchbar-col-2 p-lg-0">
             <button
               className="navbar-toggler searchbar-toggler-div"

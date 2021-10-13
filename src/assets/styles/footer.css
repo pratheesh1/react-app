@@ -1,0 +1,21 @@
+.footer-wrapper {
+  background-color: #e2e2e2;
+}
+
+#footer-logo {
+  height: 85px;
+  width: 85px;
+  margin-right: 15px;
+}
+
+#footer-logo-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 35px;
+
+  letter-spacing: 0.05em;
+
+  color: #c4c4c4;
+}
