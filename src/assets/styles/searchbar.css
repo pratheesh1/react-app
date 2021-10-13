@@ -1,3 +1,35 @@
 .searchbar-wrapper {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+  min-height: 60px;
+}
+
+.searchbar-col-1 {
+  text-align: start;
+}
+
+.searchbar-col-2 {
+  text-align: end;
+}
+
+.searchbar-toggler-div {
+  border: 0 !important;
+  color: white !important;
+}
+
+.custom-searchbar-icon {
+  background-image: url("../images/filter-icon.png") !important;
+}
+
+.star {
+  color: rgb(211, 211, 15);
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .searchbar-col-1 {
+    text-align: end;
+  }
+
+  .searchbar-col-2 {
+    text-align: start;
+  }
 }
