@@ -6,10 +6,20 @@ function SearchBar() {
     <React.Fragment>
       <nav className="navbar searchbar-wrapper navbar-expand-lg navbar-light bg-light">
         <div className="row p-0 m-0 w-100">
-          <div className="col-6 order-1 order-lg-2 bg-primary searchbar-col-1">
-            Two
+          <div className="col-6 order-1 order-lg-2 searchbar-col-1 ">
+            <div className="search-wrapper d-flex">
+              <input
+                type="text"
+                id="search-text-box"
+                placeholder="Type to search"
+                aria-label="search box"
+              />
+              <button id="search-btn" aria-label="search">
+                Search
+              </button>
+            </div>
           </div>
-          <div className="col-6 order-2 order-lg-1 searchbar-col-2">
+          <div className="col-6 order-2 order-lg-1 searchbar-col-2 p-lg-0">
             <button
               className="navbar-toggler searchbar-toggler-div"
               type="button"
@@ -27,7 +37,7 @@ function SearchBar() {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 {/* Difficulty */}
-                <li className="nav-item dropdown">
+                <li className="nav-item dropdown search-nav-item">
                   <a
                     className="nav-link dropdown-toggle active"
                     href="#difficulty"
@@ -97,7 +107,7 @@ function SearchBar() {
                   </ul>
                 </li>
                 {/* Length */}
-                <li className="nav-item dropdown">
+                <li className="nav-item dropdown search-nav-item">
                   <a
                     className="nav-link dropdown-toggle active"
                     href="#length"
@@ -163,7 +173,8 @@ function SearchBar() {
                     </li>
                   </ul>
                 </li>
-                <li className="nav-item dropdown">
+                {/* Rating */}
+                <li className="nav-item dropdown search-nav-item">
                   <a
                     className="nav-link dropdown-toggle active"
                     href="#length"

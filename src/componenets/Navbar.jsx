@@ -8,7 +8,7 @@ function NavBar() {
       <nav className="navbar navbar-wrapper navbar-expand-lg navbar-light bg-light">
         {/* Navbar toogle */}
         <div className="row d-flex flex-row w-100 navbar-toggle-wrapper">
-          <div className="col-4 ">
+          <div className="col-4 p-0">
             <button
               className="navbar-toggler navbar-toggler-div"
               type="button"
