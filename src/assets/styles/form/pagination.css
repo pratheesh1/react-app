@@ -1,0 +1,41 @@
+.page-hr {
+  padding: 4px 0 0 0;
+  border-radius: 5px;
+  margin: 8px 5px 8px 0;
+}
+
+.active-hr {
+  color: #5469d4;
+  opacity: 100;
+}
+
+.done-hr {
+  color: #646474;
+  opacity: 100;
+}
+
+.active-icon {
+  color: #5469d4;
+}
+
+.page-text {
+  font-size: 13px;
+}
+
+.page-text-disbled {
+  display: none;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .page-text-disbled {
+    display: inline-block;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .page-text {
+    font-size: 15px;
+  }
+}

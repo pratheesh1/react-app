@@ -1,0 +1,33 @@
+.form-wrapper {
+  min-height: 87.1vh;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.from-content-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.form-heading {
+  margin-top: 50px !important;
+}
+
+.form-subheading {
+  font-size: 13px;
+}
+
+.pagination {
+  margin-top: 10px;
+}
+
+.form-hr {
+  padding: 0 5px 0 5px;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .form-subheading {
+    font-size: 15px;
+  }
+}
