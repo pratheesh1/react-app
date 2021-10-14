@@ -1,5 +1,9 @@
 import "../assets/styles/footer.css";
 import logo from "../assets/images/brand-logo.png";
+import instagram from "../assets/images/instagram-icon.png";
+import twitter from "../assets/images/twitter-icon.png";
+import facebook from "../assets/images/facebook-icon.png";
+import pinterest from "../assets/images/pinterest-icon.png";
 
 function Footer() {
   return (
@@ -21,8 +25,10 @@ function Footer() {
                 className="accordion accordion-flush col-12 col-lg-3 footer-accordian"
                 id="accordion-explore"
               >
-                <div className="accordion-item">
-                  <h3 className="d-none d-lg-block mx-3">Explore</h3>
+                <div className="accordion-item subsections">
+                  <h3 className="d-none d-lg-block mx-3 footer-heading">
+                    Explore
+                  </h3>
                   <h1 className="accordion-header d-lg-none" id="flush-explore">
                     <button
                       className="accordion-button collapsed"
@@ -32,7 +38,7 @@ function Footer() {
                       aria-expanded="true"
                       aria-controls="flush-collapseExplore"
                     >
-                      Explore
+                      <span className="footer-heading"> Explore</span>
                     </button>
                   </h1>
                   <div
@@ -56,8 +62,10 @@ function Footer() {
                 className="accordion accordion-flush col-12 col-lg-3 footer-accordian"
                 id="accordion-discover-gear"
               >
-                <div className="accordion-item">
-                  <h3 className="d-none d-lg-block mx-3">Discover Gear</h3>
+                <div className="accordion-item subsections">
+                  <h3 className="d-none d-lg-block mx-3 footer-heading">
+                    Discover Gear
+                  </h3>
                   <h1
                     className="accordion-header d-lg-none"
                     id="flush-discover-gear"
@@ -70,7 +78,7 @@ function Footer() {
                       aria-expanded="true"
                       aria-controls="flush-collapseDiscoverGear"
                     >
-                      Discover Gear
+                      <span className="footer-heading"> Discover Gear</span>
                     </button>
                   </h1>
                   <div
@@ -94,8 +102,10 @@ function Footer() {
                 className="accordion accordion-flush col-12 col-lg-2 footer-accordian"
                 id="accordion-help"
               >
-                <div className="accordion-item">
-                  <h3 className="d-none d-lg-block mx-3">Help</h3>
+                <div className="accordion-item subsections">
+                  <h3 className="d-none d-lg-block mx-3 footer-heading">
+                    Help
+                  </h3>
                   <h1 className="accordion-header d-lg-none" id="flush-help">
                     <button
                       className="accordion-button collapsed"
@@ -105,7 +115,7 @@ function Footer() {
                       aria-expanded="true"
                       aria-controls="flush-collapseHelp"
                     >
-                      Help
+                      <span className="footer-heading"> Help</span>
                     </button>
                   </h1>
                   <div
@@ -122,17 +132,39 @@ function Footer() {
                 </div>
               </div>
               {/* Social */}
-              <div className="col-lg-4">
-                <h3>Connect with us</h3>
-                <div className="d-flex flex-row">
-                  <div className="col-4"></div>
-                  <div className="col-4"></div>
-                  <div className="col-4"></div>
-                  <div className="col-4"></div>
-                </div>
+              <div className="col-lg-4 text-center text-lg-start socials-wrapper">
+                <h3 className="footer-heading socials-heading">
+                  Connect with us
+                </h3>
+                <img
+                  src={instagram}
+                  aria-label="instagram icon"
+                  className="instagram-icon"
+                />
+                <img
+                  src={twitter}
+                  aria-label="twitter icon"
+                  className="twitter-icon"
+                />
+                <img
+                  src={facebook}
+                  aria-label="facebook icon"
+                  className="facebook-icon"
+                />
+                <img
+                  src={pinterest}
+                  aria-label="pinterest icon"
+                  className="pinterest-icon"
+                />
               </div>
             </div>
           </div>
+        </div>
+        <div className="row px-4">
+          <hr className="d-none d-lg-block m-2" />
+          <span className="small py-3 py-lg-2 text-secondary">
+            &copy; {new Date().getFullYear()} - Trails App, All Rights Reserved
+          </span>
         </div>
       </div>
     </footer>

@@ -82,7 +82,7 @@ function NavBar() {
           {/* buttons */}
           <div className="button-wrapper col-4 d-flex flex-row justify-content-end">
             <a
-              className="nav-link disabled d-none d-md-block mx-4"
+              className="nav-link text-secondary d-none d-md-block mx-4"
               href="#help"
               aria-disabled="true"
             >

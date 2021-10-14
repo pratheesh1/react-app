@@ -10,7 +10,7 @@ function App() {
       <SearchBar />
       <div
         className="w-100 p-0 m-0"
-        style={{ "min-height": "20vh", border: "1px solid grey" }}
+        style={{ "min-height": "50vh", border: "1px solid grey" }}
       >
         Remove Me! I am in App.js
       </div>
