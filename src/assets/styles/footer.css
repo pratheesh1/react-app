@@ -19,3 +19,10 @@
 
   color: #c4c4c4;
 }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .footer-accordian {
+    margin-bottom: 10px;
+  }
+}
