@@ -23,25 +23,64 @@ function Form1() {
                 <Pagination page={"page1"} />
                 <hr className="bg-secondary form-hr" />
               </div>
-              {/* Buttons */}
               <div className="row p-0 m-0">
-                {/* TODO: Start here with buttons */}
-                <div class="col-12 col-md-6 bg-success">Hello</div>
-                <div class="col-12 col-md-6 bg-warning">Hello</div>
+                {/* Form */}
+                <div className="col-12 p-0">
+                  <div className="row p-0 m-0 my-lg-3 form-row">
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">first name</p>
+                      <input
+                        type="text"
+                        className="filed-input-small"
+                        placeholder="First name"
+                      />
+                    </div>
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">last name</p>
+                      <input
+                        type="text"
+                        className="filed-input-small"
+                        placeholder="Last name"
+                      />
+                    </div>
+                  </div>
+                  <div className="row p-0 m-0 my-lg-3 form-row">
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">email</p>
+                      <input
+                        type="text"
+                        className="filed-input-small"
+                        placeholder="Email ID"
+                      />
+                    </div>
+                  </div>
+                  <div className="row p-0 m-0 my-lg-3 form-row">
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">
+                        tell us more about you
+                      </p>
+                      <textarea
+                        className="filed-input-large"
+                        placeholder="I am very into hiking and trail running. I enjoy connecting with..."
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="row m-0">
-                <div class="col-6 d-flex justify-content-start">
+                {/* Buttons */}
+                <div className="col-6 d-flex justify-content-start">
                   <button
                     type="button"
-                    class="btn my-2 btn-cancel align-middle"
+                    className="btn my-2 btn-cancel align-middle"
                   >
                     Cancel
                   </button>
                 </div>
-                <div class="col-6 d-flex justify-content-end">
+                <div className="col-6 d-flex justify-content-end">
                   <button
                     type="button"
-                    class="btn my-2 btn-previous align-middle"
+                    className="btn my-2 btn-previous align-middle"
                   >
                     Previous
                   </button>

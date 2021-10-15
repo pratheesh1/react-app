@@ -10,7 +10,7 @@
 }
 
 .form-heading {
-  margin-top: 50px !important;
+  margin-top: 30px !important;
 }
 
 .form-subheading {
@@ -28,7 +28,6 @@
 .btn-cancel {
   background-color: #c4c4c4;
   color: black;
-  width: 79px;
   border-radius: 4px;
 }
 
@@ -40,7 +39,7 @@
   letter-spacing: -0.06em;
   border-width: 2px;
   border-color: black;
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .btn-continue {
@@ -51,9 +50,57 @@
   letter-spacing: -0.06em;
 }
 
+.field-heading {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #3c4858;
+  padding-bottom: 5px;
+}
+
+.filed-input-small {
+  height: 48px;
+  min-width: 343px;
+  border: 1px solid #3c4858;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+.filed-input-large {
+  height: 88px;
+  min-width: 343px;
+  border: 1px solid #3c4858;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .form-subheading {
     font-size: 15px;
+  }
+
+  .btn-cancel,
+  .btn-previous,
+  .btn-continue {
+    width: 90px;
+  }
+  .btn-previous {
+    margin-right: 20px;
+  }
+
+  .form-heading {
+    margin-top: 50px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .form-row {
+    margin-bottom: 55px !important;
   }
 }
