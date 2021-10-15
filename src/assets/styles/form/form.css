@@ -25,6 +25,32 @@
   padding: 0 5px 0 5px;
 }
 
+.btn-cancel {
+  background-color: #c4c4c4;
+  color: black;
+  width: 79px;
+  border-radius: 4px;
+}
+
+.btn-previous {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  font-weight: bolder;
+  letter-spacing: -0.06em;
+  border-width: 2px;
+  border-color: black;
+  margin-right: 20px;
+}
+
+.btn-continue {
+  background-color: #1ba1f2;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bolder;
+  letter-spacing: -0.06em;
+}
+
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .form-subheading {
