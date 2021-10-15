@@ -55,53 +55,65 @@ function SearchBar() {
                     aria-labelledby="difficulty"
                   >
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="level-easy"
                         />
-                        <label class="form-check-label" for="level-easy">
+                        <label
+                          className="form-check-label"
+                          htmlFor="level-easy"
+                        >
                           Easy
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="level-medium"
                         />
-                        <label class="form-check-label" for="level-medium">
+                        <label
+                          className="form-check-label"
+                          htmlFor="level-medium"
+                        >
                           Medium
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="level-hard"
                         />
-                        <label class="form-check-label" for="level-hard">
+                        <label
+                          className="form-check-label"
+                          htmlFor="level-hard"
+                        >
                           Hard
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="level-challenging"
                         />
-                        <label class="form-check-label" for="level-challenging">
+                        <label
+                          className="form-check-label"
+                          htmlFor="level-challenging"
+                        >
                           Challenging
                         </label>
                       </div>
@@ -122,53 +134,59 @@ function SearchBar() {
                   </a>
                   <ul className="dropdown-menu px-3" aria-labelledby="length">
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="under-5km"
                         />
-                        <label class="form-check-label" for="under-5km">
+                        <label className="form-check-label" htmlFor="under-5km">
                           Under 5km
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="under-10km"
                         />
-                        <label class="form-check-label" for="under-10km">
+                        <label
+                          className="form-check-label"
+                          htmlFor="under-10km"
+                        >
                           Under 10km
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="under-20km"
                         />
-                        <label class="form-check-label" for="under-20km">
+                        <label
+                          className="form-check-label"
+                          htmlFor="under-20km"
+                        >
                           Under 20km
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="over-20km"
                         />
-                        <label class="form-check-label" for="over-20km">
+                        <label className="form-check-label" htmlFor="over-20km">
                           Over 20km
                         </label>
                       </div>
@@ -189,77 +207,80 @@ function SearchBar() {
                   </a>
                   <ul className="dropdown-menu px-3" aria-labelledby="rating">
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="one-star"
                         />
-                        <label class="form-check-label" for="one-star">
-                          <i class="fas fa-star star"></i>
+                        <label className="form-check-label" htmlFor="one-star">
+                          <i className="fas fa-star star"></i>
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="two-star"
                         />
-                        <label class="form-check-label" for="two-star">
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
+                        <label className="form-check-label" htmlFor="two-star">
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="three-star"
                         />
-                        <label class="form-check-label" for="three-star">
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
+                        <label
+                          className="form-check-label"
+                          htmlFor="three-star"
+                        >
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="four-star"
                         />
-                        <label class="form-check-label" for="four-star">
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
+                        <label className="form-check-label" htmlFor="four-star">
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
                         </label>
                       </div>
                     </li>
                     <li>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           value=""
                           id="five-star"
                         />
-                        <label class="form-check-label" for="five-star">
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
-                          <i class="fas fa-star star"></i>
+                        <label className="form-check-label" htmlFor="five-star">
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
+                          <i className="fas fa-star star"></i>
                         </label>
                       </div>
                     </li>

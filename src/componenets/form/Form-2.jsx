@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 
-function Form1() {
+function Form2() {
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -19,7 +19,7 @@ function Form1() {
               {/* non-responsive pagination */}
               <div className="row p-0 m-0 pagination">
                 <div className="row p-0 m-0"></div>
-                <Pagination page={"page1"} />
+                <Pagination page={"page2"} />
                 <hr className="bg-secondary form-hr" />
               </div>
               <div className="row p-0 m-0">
@@ -27,40 +27,52 @@ function Form1() {
                 <div className="col-12 p-0">
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">first name</p>
+                      <p className="field-heading m-0">trail name</p>
                       <input
                         type="text"
                         className="filed-input-small"
-                        placeholder="First name"
-                      />
-                    </div>
-                    <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">last name</p>
-                      <input
-                        type="text"
-                        className="filed-input-small"
-                        placeholder="Last name"
+                        placeholder="Trail name"
                       />
                     </div>
                   </div>
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">email</p>
+                      <p className="field-heading m-0">difficulty level</p>
+                      <select className="filed-input-small">
+                        <option value="" disabled="true" selected="true">
+                          Select
+                        </option>
+                        <option value="1">Easy</option>
+                        <option value="2">Medium</option>
+                        <option value="3">Hard</option>
+                        <option value="4">Challenging</option>
+                      </select>
+                    </div>
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">distance (in m)</p>
                       <input
                         type="text"
                         className="filed-input-small"
-                        placeholder="Email ID"
+                        placeholder="800.5"
                       />
                     </div>
                   </div>
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">
-                        tell us more about you
-                      </p>
+                      <p className="field-heading m-0">short description</p>
                       <textarea
                         className="filed-input-large"
-                        placeholder="I am very into hiking and trail running. I enjoy connecting with..."
+                        placeholder="This trail is fantastic for anyone looking to get into the more challenging routes ...."
+                      />
+                    </div>
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">
+                        avg. time for completion (in hours)
+                      </p>
+                      <input
+                        type="text"
+                        className="filed-input-small"
+                        placeholder="1.5"
                       />
                     </div>
                   </div>
@@ -99,4 +111,4 @@ function Form1() {
   );
 }
 
-export default Form1;
+export default Form2;

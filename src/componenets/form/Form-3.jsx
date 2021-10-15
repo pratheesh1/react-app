@@ -2,7 +2,7 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 
-function Form1() {
+function Form3() {
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -19,49 +19,30 @@ function Form1() {
               {/* non-responsive pagination */}
               <div className="row p-0 m-0 pagination">
                 <div className="row p-0 m-0"></div>
-                <Pagination page={"page1"} />
+                <Pagination page={"page3"} />
                 <hr className="bg-secondary form-hr" />
               </div>
               <div className="row p-0 m-0">
                 {/* Form */}
                 <div className="col-12 p-0">
                   <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">first name</p>
-                      <input
-                        type="text"
-                        className="filed-input-small"
-                        placeholder="First name"
-                      />
-                    </div>
-                    <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">last name</p>
-                      <input
-                        type="text"
-                        className="filed-input-small"
-                        placeholder="Last name"
-                      />
-                    </div>
-                  </div>
-                  <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">email</p>
-                      <input
-                        type="text"
-                        className="filed-input-small"
-                        placeholder="Email ID"
-                      />
-                    </div>
-                  </div>
-                  <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">
-                        tell us more about you
-                      </p>
+                    <div className="col-12 my-3 my-lg-0">
+                      <p className="field-heading m-0">describe the trail</p>
                       <textarea
-                        className="filed-input-large"
-                        placeholder="I am very into hiking and trail running. I enjoy connecting with..."
+                        className="filed-input-xlarge"
+                        placeholder="Detailed post on the trail"
                       />
+                    </div>
+                  </div>
+                  <div className="row p-0 m-0 my-lg-3 form-row">
+                    <div className="col-12 my-3 my-lg-0">
+                      <div class="row m-0 p-0">
+                        <p className="field-heading m-0 p-0">Upload image</p>
+                        <div className="col-12 col-lg-7 p-0 "></div>
+                        <div className="col-12 col-lg-5 p-0 bg-success">
+                          Hello
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -99,4 +80,4 @@ function Form1() {
   );
 }
 
-export default Form1;
+export default Form3;
