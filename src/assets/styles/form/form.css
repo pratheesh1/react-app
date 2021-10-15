@@ -50,6 +50,19 @@
   letter-spacing: -0.06em;
 }
 
+.btn-choose-file {
+  min-width: 100px;
+}
+
+.btn-discard {
+  background-color: #f44d6b;
+  color: white;
+  border-radius: 5px;
+  font-weight: bolder;
+  letter-spacing: -0.06em;
+  margin-right: 5px;
+}
+
 .field-heading {
   font-family: Bebas Neue;
   font-style: normal;
@@ -91,16 +104,40 @@
   font-size: 14px !important;
 }
 
+.upload-wrapper {
+  margin-bottom: 5px;
+}
+
+/* for File-Upload.jsx */
+.file-upload {
+  min-height: 80px;
+  border: 1px solid #3c4858;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 150px;
+}
+
+.upload-file-logo {
+  height: 3rem;
+  width: 4.3rem;
+}
+
+.upload-file-text {
+  font-size: 12px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-  .filed-input-xlarge {
+  .filed-input-xlarge,
+  .file-upload {
     width: 80vw;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .filed-input-xlarge {
+  .filed-input-xlarge,
+  .file-upload {
     width: 65vw;
   }
 }
@@ -113,15 +150,21 @@
 
   .btn-cancel,
   .btn-previous,
-  .btn-continue {
+  .btn-continue,
+  .btn-cancel {
     width: 90px;
   }
-  .btn-previous {
+  .btn-previous,
+  .btn-cancel {
     margin-right: 20px;
   }
 
   .form-heading {
     margin-top: 50px !important;
+  }
+
+  .file-upload {
+    width: auto;
   }
 }
 

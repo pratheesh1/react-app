@@ -1,6 +1,7 @@
 import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
+import MyDropzone from "./File-Upload";
 
 function Form3() {
   return (
@@ -35,12 +36,32 @@ function Form3() {
                     </div>
                   </div>
                   <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 my-3 my-lg-0">
-                      <div class="row m-0 p-0">
-                        <p className="field-heading m-0 p-0">Upload image</p>
-                        <div className="col-12 col-lg-7 p-0 "></div>
-                        <div className="col-12 col-lg-5 p-0 bg-success">
-                          Hello
+                    <div className="col-12 my-1 my-lg-0">
+                      <div className="row m-0 p-0">
+                        <p className="field-heading m-0 p-0 my-lg-2">
+                          Upload image
+                        </p>
+                        <div className="col-12 col-lg-7 p-0 upload-wrapper">
+                          {/* File upload */}
+                          <MyDropzone />
+                        </div>
+                        <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
+                          <div class="col-6 col-lg-12 px-lg-3">
+                            <button
+                              type="button"
+                              className="btn btn-previous btn-choose-file align-middle px-0"
+                            >
+                              Choose File
+                            </button>
+                          </div>
+                          <div class="col-6 col-lg-12 px-lg-3 d-flex d-md-block justify-content-end">
+                            <button
+                              type="button"
+                              className="btn my-lg-2 btn-discard align-middle"
+                            >
+                              Discard File
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
