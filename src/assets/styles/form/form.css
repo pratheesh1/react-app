@@ -142,6 +142,57 @@
   font-size: 12px;
 }
 
+.confirmation-wrapper {
+  min-height: 60vh;
+}
+
+.banner-wrapper {
+  width: 248px;
+}
+
+.banner-header {
+  height: 33px;
+}
+
+.success-banner {
+  background-color: #27ae60;
+}
+
+.error-banner {
+  background-color: #eb5757;
+}
+
+#success-img {
+  width: 150px;
+  height: 128px;
+}
+
+#error-img {
+  width: 150px;
+  height: 128px;
+  opacity: 80%;
+}
+
+#status-message {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.btn-confirmation {
+  width: 189px;
+  height: 36px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: white;
+}
+
+.banner-body {
+  height: 314px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .filed-input-xlarge,
