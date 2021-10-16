@@ -1,8 +1,9 @@
 import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
+import FormType from "./Form-Type";
 
-function Form2() {
+function Form2(props) {
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -10,12 +11,7 @@ function Form2() {
           <div className="container from-content-wrapper">
             <div className="row p-0 m-0">
               {/* Heading */}
-              <div className="row m-0 p-0 form-heading">
-                <h2>Add New Trail</h2>
-                <p className="form-subheading">
-                  This form allows you to add a new trail to the website.
-                </p>
-              </div>
+              <FormType type={props.type} />
               {/* non-responsive pagination */}
               <div className="row p-0 m-0 pagination">
                 <div className="row p-0 m-0"></div>
