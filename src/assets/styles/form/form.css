@@ -25,6 +25,10 @@
   padding: 0 5px 0 5px;
 }
 
+.review-hr {
+  margin-bottom: 15px !important;
+}
+
 .btn-cancel {
   background-color: #c4c4c4;
   color: black;
@@ -72,6 +76,18 @@
   text-transform: uppercase;
   color: #3c4858;
   padding-bottom: 5px;
+}
+
+.field-review {
+  font-family: Bebas Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #60738b;
+  padding-top: 3px;
+  margin-right: 10px !important;
 }
 
 .filed-input-small {

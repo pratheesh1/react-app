@@ -46,7 +46,7 @@ function Form3() {
                           <MyDropzone />
                         </div>
                         <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
-                          <div class="col-6 col-lg-12 px-lg-3">
+                          <div className="col-6 col-lg-12 px-lg-3">
                             <button
                               type="button"
                               className="btn btn-previous btn-choose-file align-middle px-0"
@@ -54,7 +54,7 @@ function Form3() {
                               Choose File
                             </button>
                           </div>
-                          <div class="col-6 col-lg-12 px-lg-3 d-flex d-md-block justify-content-end">
+                          <div className="col-6 col-lg-12 px-lg-3 d-flex d-md-block justify-content-end">
                             <button
                               type="button"
                               className="btn my-lg-2 btn-discard align-middle"

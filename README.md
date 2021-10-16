@@ -9,6 +9,7 @@
 # Technologies used:
 
 - Bootstrap V5.1.1
+- [react-dropzone](https://github.com/react-dropzone/react-dropzone) - A simple react hook to create a HTML5-compliant drag'n'drop zone for files.
 
 # Acknowledgemnts
 
@@ -18,3 +19,4 @@
 
 2. Community at figma.com for free figma components library.
 3. YouTube community for countless free tutorials.
+4. Images from [pngwing.com](https://www.pngwing.com) and [unsplash.com](https://unsplash.com/)
