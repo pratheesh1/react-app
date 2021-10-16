@@ -6,7 +6,7 @@ import Confirmation from "./Confirmation";
 function Form5() {
   return (
     <React.Fragment>
-      <div className="row w-100 p-0 m-0">
+      <div className="row p-0 m-0">
         <div className="container form-wrapper">
           <div className="container from-content-wrapper">
             <div className="row p-0 m-0">
@@ -26,7 +26,7 @@ function Form5() {
               <div className="row p-0 m-0">
                 {/* Form */}
                 <div className="col-12 p-0 d-flex align-items-center justify-content-center confirmation-wrapper">
-                  <Confirmation confirmation={true} />
+                  <Confirmation confirmation={false} />
                 </div>
               </div>
             </div>

@@ -136,6 +136,7 @@
 .upload-file-logo {
   height: 3rem;
   width: 4.3rem;
+  opacity: 50%;
 }
 
 .upload-file-text {
