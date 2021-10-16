@@ -1,10 +1,10 @@
 import React from "react";
-import Form5 from "./form/Form-5";
+import Form2 from "./form/Form-2";
 
 export default function Form() {
   return (
     <React.Fragment>
-      <Form5 type={"edit"} confirmation={true} />
+      <Form2 type={"edit"} confirmation={true} />
     </React.Fragment>
   );
 }

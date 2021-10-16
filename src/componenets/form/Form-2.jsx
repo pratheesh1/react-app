@@ -30,6 +30,15 @@ function Form2(props) {
                         placeholder="Trail name"
                       />
                     </div>
+                    <div className="col-12 col-lg-6 my-3 my-lg-0">
+                      <p className="field-heading m-0">Country</p>
+                      <select className="filed-input-small">
+                        <option value="" disabled="true" selected="true">
+                          Select
+                        </option>
+                        {/* TODO: add country here */}
+                      </select>
+                    </div>
                   </div>
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
