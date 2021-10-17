@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import "../../assets/styles/form/form.css";
 import fileUpload from "../../assets/images/file-upload.png";
 
-export default function MyDropzone() {
+export default function FileUpload() {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();

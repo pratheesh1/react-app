@@ -2,14 +2,12 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FormType from "./Form-Type";
-import useCustomStore from "../../store";
 
 function Form2(props) {
-  useCustomStore((state) => state.fetchCountries());
-  const countries = useCustomStore((state) => state.countries);
-  const createList = (country) => {
+  //craete list of countries
+  const createList = (countries) => {
     return countries.map((country) => (
-      <option key={country.country_id} defaultValue={country.country_id}>
+      <option key={country.country_id} value={country.country_id}>
         {country.country}
       </option>
     ));
@@ -47,8 +45,8 @@ function Form2(props) {
                         <option value="" disabled={true}>
                           Select
                         </option>
-                        {/* TODO: add country here */}
-                        {createList(countries)}
+                        {/* countries list */}
+                        {createList(props.countries)}
                       </select>
                     </div>
                   </div>

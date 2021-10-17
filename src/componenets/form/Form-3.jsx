@@ -1,7 +1,7 @@
 import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
-import MyDropzone from "./File-Upload";
+import FileUpload from "./File-Upload";
 import FormType from "./Form-Type";
 
 function Form3(props) {
@@ -39,7 +39,7 @@ function Form3(props) {
                         </p>
                         <div className="col-12 col-lg-7 p-0 upload-wrapper">
                           {/* File upload */}
-                          <MyDropzone />
+                          <FileUpload />
                         </div>
                         <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
                           <div className="col-6 col-lg-12 px-lg-3">

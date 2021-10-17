@@ -2,6 +2,7 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FormType from "./Form-Type";
+import { useFormStore } from "../../store";
 
 function Form1(props) {
   return (
