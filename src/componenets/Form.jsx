@@ -15,7 +15,7 @@ export default class Form extends Component {
     var response = await fetch(countries_api_endpoint).catch((err) =>
       console.error(err)
     );
-    var countries = await response.json();
+    var countries = await response.json().catch((err) => console.error(err));
     this.setState({ countries });
   }
 

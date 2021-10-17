@@ -1,15 +1,21 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 
-const useFormStore = create(
-  devtools((set) => ({
-    formData: {},
-    formType: "edit",
-    formPage: "page2",
+const store = (set) => ({
+  formData: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    aboutYou: "",
+  },
+  formType: "edit",
+  formPage: 1,
 
-    setFormData: "",
-    setFormType: "",
-  }))
-);
+  updateForm: (target, name) =>
+    set((state) => ({ formData: { ...state.formData, [target]: name } })),
+  formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
+});
+
+const useFormStore = create(devtools(store));
 
 export { useFormStore };

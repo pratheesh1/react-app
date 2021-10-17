@@ -5,6 +5,17 @@ import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 
 function Form1(props) {
+  const { firstName, lastName, email, aboutYou } = useFormStore(
+    (state) => state.formData
+  );
+  const updateForm = useFormStore((state) => state.updateForm);
+  const formNextPage = useFormStore((state) => state.formNextPage);
+
+  //update form
+  const updateFormData = (target, value) => {
+    updateForm(target, value);
+  };
+
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -27,16 +38,26 @@ function Form1(props) {
                       <p className="field-heading m-0">first name</p>
                       <input
                         type="text"
+                        id="firstName"
                         className="filed-input-small"
                         placeholder="First name"
+                        value={firstName}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">last name</p>
                       <input
                         type="text"
+                        id="lastName"
                         className="filed-input-small"
                         placeholder="Last name"
+                        value={lastName}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -45,8 +66,13 @@ function Form1(props) {
                       <p className="field-heading m-0">email</p>
                       <input
                         type="text"
+                        id="email"
                         className="filed-input-small"
                         placeholder="Email ID"
+                        value={email}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -56,8 +82,13 @@ function Form1(props) {
                         tell us more about you
                       </p>
                       <textarea
+                        id="aboutYou"
                         className="filed-input-large"
                         placeholder="I am very into hiking and trail running. I enjoy connecting with..."
+                        value={aboutYou}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -66,6 +97,7 @@ function Form1(props) {
               <div className="row m-0">
                 {/* Buttons */}
                 <div className="col-6 d-flex justify-content-start">
+                  {/* TODO: On click action */}
                   <button
                     type="button"
                     className="btn my-2 btn-cancel align-middle"
@@ -76,13 +108,10 @@ function Form1(props) {
                 <div className="col-6 d-flex justify-content-end">
                   <button
                     type="button"
-                    className="btn my-2 btn-previous align-middle"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
                     className="btn my-2 btn-continue align-middle"
+                    onClick={() => {
+                      formNextPage();
+                    }}
                   >
                     Continue
                   </button>

@@ -11,15 +11,15 @@ export default function SwitchFormPage(props) {
   var formType = useFormStore((state) => state.formType);
   var switchFormPages = () => {
     switch (page) {
-      case "page1":
+      case 1:
         return <Form1 type={formType} />;
-      case "page2":
+      case 2:
         return <Form2 type={formType} countries={props.countries} />;
-      case "page3":
+      case 3:
         return <Form3 type={formType} />;
-      case "page4":
+      case 4:
         return <Form4 type={formType} />;
-      case "page1=5":
+      case 5:
         return <Form5 type={formType} />;
       default:
         return <Form1 type={formType} />;
