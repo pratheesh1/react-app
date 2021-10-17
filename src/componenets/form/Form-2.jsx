@@ -43,8 +43,8 @@ function Form2(props) {
                     </div>
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">Country</p>
-                      <select className="filed-input-small">
-                        <option value="" disabled="true" selected="true">
+                      <select className="filed-input-small" defaultValue="">
+                        <option value="" disabled={true}>
                           Select
                         </option>
                         {/* TODO: add country here */}
@@ -55,8 +55,8 @@ function Form2(props) {
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">difficulty level</p>
-                      <select className="filed-input-small">
-                        <option value="" disabled="true" selected="true">
+                      <select className="filed-input-small" defaultValue="">
+                        <option value="" disabled={true}>
                           Select
                         </option>
                         <option value="1">Easy</option>
