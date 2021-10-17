@@ -2,8 +2,19 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FormType from "./Form-Type";
+import useCustomStore from "../../store";
 
 function Form2(props) {
+  useCustomStore((state) => state.fetchCountries());
+  const countries = useCustomStore((state) => state.countries);
+  const createList = (country) => {
+    return countries.map((country) => (
+      <option key={country.country_id} defaultValue={country.country_id}>
+        {country.country}
+      </option>
+    ));
+  };
+
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -37,6 +48,7 @@ function Form2(props) {
                           Select
                         </option>
                         {/* TODO: add country here */}
+                        {createList(countries)}
                       </select>
                     </div>
                   </div>
