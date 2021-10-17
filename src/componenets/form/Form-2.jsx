@@ -2,9 +2,27 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FormType from "./Form-Type";
+import { useFormStore } from "../../store";
 
 function Form2(props) {
-  //craete list of countries
+  const {
+    trailName,
+    country,
+    difficultyLevel,
+    distance,
+    description,
+    timeToComplete,
+  } = useFormStore((state) => state.formData);
+  const updateForm = useFormStore((state) => state.updateForm);
+  const formNextPage = useFormStore((state) => state.formNextPage);
+  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
+
+  //update form
+  const updateFormData = (target, value) => {
+    updateForm(target, value);
+  };
+
+  //create list of countries
   const createList = (countries) => {
     return countries.map((country) => (
       <option key={country.country_id} value={country.country_id}>
@@ -35,13 +53,26 @@ function Form2(props) {
                       <p className="field-heading m-0">trail name</p>
                       <input
                         type="text"
+                        id="trailName"
                         className="filed-input-small"
                         placeholder="Trail name"
+                        value={trailName}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">Country</p>
-                      <select className="filed-input-small" defaultValue="">
+                      <select
+                        id="country"
+                        className="filed-input-small"
+                        defaultValue=""
+                        value={country}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
+                      >
                         <option value="" disabled={true}>
                           Select
                         </option>
@@ -53,7 +84,15 @@ function Form2(props) {
                   <div className="row p-0 m-0 my-lg-3 form-row">
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">difficulty level</p>
-                      <select className="filed-input-small" defaultValue="">
+                      <select
+                        className="filed-input-small"
+                        defaultValue=""
+                        id="difficultyLevel"
+                        value={difficultyLevel}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
+                      >
                         <option value="" disabled={true}>
                           Select
                         </option>
@@ -67,8 +106,13 @@ function Form2(props) {
                       <p className="field-heading m-0">distance (in m)</p>
                       <input
                         type="text"
+                        id="distance"
                         className="filed-input-small"
                         placeholder="800.5"
+                        value={distance}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -76,6 +120,11 @@ function Form2(props) {
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
                       <p className="field-heading m-0">short description</p>
                       <textarea
+                        id="description"
+                        value={description}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                         className="filed-input-large"
                         placeholder="This trail is fantastic for anyone looking to get into the more challenging routes ...."
                       />
@@ -86,8 +135,13 @@ function Form2(props) {
                       </p>
                       <input
                         type="text"
+                        id="timeToComplete"
                         className="filed-input-small"
                         placeholder="1.5"
+                        value={timeToComplete}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -107,12 +161,18 @@ function Form2(props) {
                   <button
                     type="button"
                     className="btn my-2 btn-previous align-middle"
+                    onClick={() => {
+                      formPreviousPage();
+                    }}
                   >
                     Previous
                   </button>
                   <button
                     type="button"
                     className="btn my-2 btn-continue align-middle"
+                    onClick={() => {
+                      formNextPage();
+                    }}
                   >
                     Continue
                   </button>
