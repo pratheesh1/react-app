@@ -5,7 +5,8 @@ import axios from "axios";
 //initiate axios instance
 // TODO: to move api_base_url to env variable
 const api_base_url = "http://localhost:3500";
-const countries_api_endpoint = api_base_url + "/trails";
+const trails_api_endpoint = api_base_url + "/trails";
+
 const instance = axios.create({
   baseURL: api_base_url,
   timeout: 1000,
@@ -13,6 +14,7 @@ const instance = axios.create({
 
 //global store for form
 const formStore = (set, get) => ({
+  //state variables
   formData: {
     firstName: "",
     lastName: "",
@@ -33,6 +35,7 @@ const formStore = (set, get) => ({
   formPage: 1,
   formUpdateStatus: false,
 
+  //callback functions
   updateForm: (target, name) =>
     set((state) => ({ formData: { ...state.formData, [target]: name } })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
@@ -68,7 +71,7 @@ const formStore = (set, get) => ({
       },
     };
     try {
-      await instance.post(countries_api_endpoint, newTrail).then(() => {
+      await instance.post(trails_api_endpoint, newTrail).then(() => {
         set((state) => ({
           ...state.formData,
           formUpdateStatus: true,
@@ -87,4 +90,24 @@ const formStore = (set, get) => ({
 
 const useFormStore = create(devtools(formStore));
 
-export { useFormStore };
+//global store for trails
+const trailStore = (set, get) => ({
+  //state variables
+  trailsData: [],
+
+  //callback functions
+  setTrailsData: async () => {
+    await instance
+      .get(trails_api_endpoint)
+      .then((res) => {
+        set(() => ({ trailsData: res.data }));
+      })
+      .catch((e) => console.log(e));
+  },
+});
+
+const useTrailStore = create(devtools(trailStore));
+
+export { useFormStore, useTrailStore };
+
+// (data) => set(() => ({ trailsData: "data" })),
