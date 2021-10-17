@@ -67,7 +67,6 @@ const formStore = (set, get) => ({
         aboutYou: get().formData.aboutYou,
       },
     };
-    console.log(newTrail);
     try {
       await instance.post(countries_api_endpoint, newTrail).then(() => {
         set((state) => ({

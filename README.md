@@ -10,8 +10,8 @@
 
 - Bootstrap V5.1.1
 - [react-dropzone](https://github.com/react-dropzone/react-dropzone) - A simple react hook to create a HTML5-compliant drag'n'drop zone for files.
-- [zustand](https://github.com/pmndrs/zustand/) for global state management.
-- [axios](https://github.com/axios/axios) to handle most API requests.
+- [zustand](https://github.com/pmndrs/zustand/) for global state management and to enable using custom state management hooks in non-functional components.
+- [axios](https://github.com/axios/axios) to handle most API requests. Some static data calls with fetch API.
 
 # Acknowledgemnts
 
