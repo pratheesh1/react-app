@@ -2,6 +2,13 @@ import React from "react";
 import "../../assets/styles/form/pagination.css";
 import sucess from "../../assets/images/success.png";
 import error from "../../assets/images/error.png";
+import { useFormStore } from "../../store";
+
+//button click handler
+function tryAgain() {
+  const currentPage = useFormStore.getState().formPage;
+  useFormStore.setState({ formPage: currentPage - 1 });
+}
 
 const showConfirmation = (confirmation) => {
   switch (confirmation) {
@@ -23,6 +30,7 @@ const showConfirmation = (confirmation) => {
                 >
                   New Trail added successfully.
                 </p>
+                {/* TODO: update */}
                 <button className="btn btn-confirmation success-banner">
                   Continue Browsing
                 </button>
@@ -49,7 +57,10 @@ const showConfirmation = (confirmation) => {
                 >
                   Oops! Something went wrong.
                 </p>
-                <button className="btn btn-confirmation error-banner">
+                <button
+                  className="btn btn-confirmation error-banner"
+                  onClick={() => tryAgain()}
+                >
                   Try Again
                 </button>
               </div>

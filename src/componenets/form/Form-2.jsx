@@ -22,6 +22,13 @@ function Form2(props) {
     updateForm(target, value);
   };
 
+  const setCountry = (value) => {
+    var slectedCountry = props.countries.find(
+      (country) => country.country_id === parseInt(value)
+    );
+    updateFormData("countryName", slectedCountry.country);
+  };
+
   //create list of countries
   const createList = (countries) => {
     return countries.map((country) => (
@@ -69,9 +76,10 @@ function Form2(props) {
                         className="filed-input-small"
                         defaultValue=""
                         value={country}
-                        onChange={(e) =>
-                          updateFormData(e.target.id, e.target.value)
-                        }
+                        onChange={(e) => {
+                          updateFormData(e.target.id, e.target.value);
+                          setCountry(e.target.value);
+                        }}
                       >
                         <option value="" disabled={true}>
                           Select

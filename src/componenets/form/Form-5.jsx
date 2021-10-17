@@ -3,8 +3,10 @@ import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import Confirmation from "./Confirmation";
 import FormType from "./Form-Type";
+import { useFormStore } from "../../store";
 
 function Form5(props) {
+  const formUpdateStatus = useFormStore((state) => state.formUpdateStatus);
   return (
     <React.Fragment>
       <div className="row p-0 m-0">
@@ -22,7 +24,7 @@ function Form5(props) {
               <div className="row p-0 m-0">
                 {/* Form */}
                 <div className="col-12 p-0 d-flex align-items-center justify-content-center confirmation-wrapper">
-                  <Confirmation confirmation={props.confirmation} />
+                  <Confirmation confirmation={formUpdateStatus} />
                 </div>
               </div>
             </div>

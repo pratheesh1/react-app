@@ -2,7 +2,17 @@ import create from "zustand";
 import { devtools } from "zustand/middleware";
 import axios from "axios";
 
-const formStore = (set) => ({
+//initiate axios instance
+// TODO: to move api_base_url to env variable
+const api_base_url = "http://localhost:3500";
+const countries_api_endpoint = api_base_url + "/trails";
+const instance = axios.create({
+  baseURL: api_base_url,
+  timeout: 1000,
+});
+
+//global store for form
+const formStore = (set, get) => ({
   formData: {
     firstName: "",
     lastName: "",
@@ -10,6 +20,7 @@ const formStore = (set) => ({
     aboutYou: "",
     trailName: "",
     country: "",
+    countryName: "",
     difficultyLevel: "",
     distance: "",
     description: "",
@@ -19,7 +30,8 @@ const formStore = (set) => ({
     imageLink: [],
   },
   formType: "add",
-  formPage: 4,
+  formPage: 1,
+  formUpdateStatus: false,
 
   updateForm: (target, name) =>
     set((state) => ({ formData: { ...state.formData, [target]: name } })),
@@ -35,8 +47,42 @@ const formStore = (set) => ({
     })),
   discardFile: () =>
     set((state) => ({ formData: { ...state.formData, imageLink: [] } })),
+  // submit form to api
   submitForm: async () => {
-    console.log("OK");
+    // create new object from form
+    var newTrail = {
+      trailName: get().formData.trailName,
+      description: get().formData.description,
+      country: {
+        id: parseInt(get().formData.country),
+        name: get().formData.countryName,
+      },
+      difficulty: parseInt(get().formData.difficultyLevel),
+      timeToComplete: get().formData.timeToComplete,
+      images: get().formData.imageLink,
+      createdBy: {
+        firstName: get().formData.firstName,
+        lastName: get().formData.lastName,
+        email: get().formData.email,
+        aboutYou: get().formData.aboutYou,
+      },
+    };
+    console.log(newTrail);
+    try {
+      await instance.post(countries_api_endpoint, newTrail).then(() => {
+        set((state) => ({
+          ...state.formData,
+          formUpdateStatus: true,
+          formPage: state.formPage + 1,
+        }));
+      });
+    } catch (e) {
+      set((state) => ({
+        ...state.formData,
+        formPage: state.formPage + 1,
+      }));
+      console.log(e);
+    }
   },
 });
 
