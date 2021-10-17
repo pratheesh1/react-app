@@ -54,6 +54,13 @@
   letter-spacing: -0.06em;
 }
 
+.btn-add-img {
+  background-color: #1ba1f2;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 0 0 10px;
+}
+
 .btn-choose-file {
   min-width: 100px;
 }
@@ -93,6 +100,15 @@
 .filed-input-small {
   height: 48px;
   min-width: 343px;
+  border: 1px solid #3c4858;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-left: 5px;
+  font-size: 14px !important;
+}
+
+.filed-input-modal {
+  height: 48px;
   border: 1px solid #3c4858;
   box-sizing: border-box;
   border-radius: 5px;
@@ -194,6 +210,11 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.image-links-list {
+  font-size: 13px;
+  color: rgba(39, 16, 143);
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .filed-input-xlarge,
@@ -207,6 +228,10 @@
   .filed-input-xlarge,
   .file-upload {
     width: 65vw;
+  }
+
+  .filed-input-modal {
+    min-width: 343px;
   }
 }
 

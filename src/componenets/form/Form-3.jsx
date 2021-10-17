@@ -3,8 +3,32 @@ import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FileUpload from "./File-Upload";
 import FormType from "./Form-Type";
+import { useFormStore } from "../../store";
 
 function Form3(props) {
+  const { describeTrail, imageLink, imgTempLink } = useFormStore(
+    (state) => state.formData
+  );
+  const updateForm = useFormStore((state) => state.updateForm);
+  const formNextPage = useFormStore((state) => state.formNextPage);
+  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
+  const discardFile = useFormStore((state) => state.discardFile);
+  const addImgLink = useFormStore((state) => state.addImgLink);
+
+  //update form
+  const updateFormData = (target, value) => {
+    updateForm(target, value);
+  };
+
+  //create list of images
+  const createList = () => {
+    return imageLink.map((link, index) => (
+      <p className="image-links-list m-0" key={index}>
+        {link}
+      </p>
+    ));
+  };
+
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -26,8 +50,13 @@ function Form3(props) {
                     <div className="col-12 my-3 my-lg-0">
                       <p className="field-heading m-0">describe the trail</p>
                       <textarea
+                        id="describeTrail"
                         className="filed-input-xlarge"
                         placeholder="Detailed post on the trail"
+                        value={describeTrail}
+                        onChange={(e) =>
+                          updateFormData(e.target.id, e.target.value)
+                        }
                       />
                     </div>
                   </div>
@@ -39,13 +68,21 @@ function Form3(props) {
                         </p>
                         <div className="col-12 col-lg-7 p-0 upload-wrapper">
                           {/* File upload */}
-                          <FileUpload />
+                          {imageLink.length === 0 ? (
+                            <FileUpload />
+                          ) : (
+                            <div className="row m-0 h-100 file-upload d-flex justify-content-center align-items-center">
+                              {createList()}
+                            </div>
+                          )}
                         </div>
                         <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
                           <div className="col-6 col-lg-12 px-lg-3">
                             <button
                               type="button"
                               className="btn btn-previous btn-choose-file align-middle px-0"
+                              data-bs-toggle="modal"
+                              data-bs-target="#uploadImgModal"
                             >
                               Choose File
                             </button>
@@ -54,8 +91,11 @@ function Form3(props) {
                             <button
                               type="button"
                               className="btn my-lg-2 btn-discard align-middle"
+                              onClick={() => {
+                                discardFile();
+                              }}
                             >
-                              Discard File
+                              Discard Files
                             </button>
                           </div>
                         </div>
@@ -66,6 +106,7 @@ function Form3(props) {
               </div>
               <div className="row m-0">
                 {/* Buttons */}
+                {/* TODO: On click action for cancel */}
                 <div className="col-6 d-flex justify-content-start">
                   <button
                     type="button"
@@ -78,17 +119,90 @@ function Form3(props) {
                   <button
                     type="button"
                     className="btn my-2 btn-previous align-middle"
+                    onClick={() => {
+                      formPreviousPage();
+                    }}
                   >
                     Previous
                   </button>
                   <button
                     type="button"
                     className="btn my-2 btn-continue align-middle"
+                    onClick={() => {
+                      formNextPage();
+                    }}
                   >
                     Continue
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Modal */}
+      <div
+        className="modal fade"
+        id="uploadImgModal"
+        tabIndex="-1"
+        aria-labelledby="uploadImgModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title field-heading">Add Image Links</h5>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="col-12">
+                <p className="field-heading m-0">image link</p>
+                <div className="d-flex flex-row">
+                  <input
+                    type="text"
+                    id="imgTempLink"
+                    className="filed-input-modal"
+                    placeholder="Trail name"
+                    value={imgTempLink}
+                    onChange={(e) =>
+                      updateFormData(e.target.id, e.target.value)
+                    }
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-add-img align-middle"
+                    onClick={() => {
+                      addImgLink();
+                    }}
+                  >
+                    Add Image
+                  </button>
+                </div>
+              </div>
+              <div className="col-12 my-2">{createList()}</div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn my-lg-2 btn-discard align-middle"
+                onClick={() => {
+                  discardFile();
+                }}
+              >
+                Discard Files
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
             </div>
           </div>
         </div>

@@ -13,14 +13,27 @@ const store = (set) => ({
     distance: "",
     description: "",
     timeToComplete: "",
+    describeTrail: "",
+    imgTempLink: "",
+    imageLink: [],
   },
   formType: "edit",
-  formPage: 1,
+  formPage: 4,
 
   updateForm: (target, name) =>
     set((state) => ({ formData: { ...state.formData, [target]: name } })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
   formPreviousPage: () => set((state) => ({ formPage: state.formPage - 1 })),
+  addImgLink: () =>
+    set((state) => ({
+      formData: {
+        ...state.formData,
+        imageLink: [...state.formData.imageLink, state.formData.imgTempLink],
+        imgTempLink: "",
+      },
+    })),
+  discardFile: () =>
+    set((state) => ({ formData: { ...state.formData, imageLink: [] } })),
 });
 
 const useFormStore = create(devtools(store));

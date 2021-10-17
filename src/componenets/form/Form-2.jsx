@@ -149,6 +149,7 @@ function Form2(props) {
               </div>
               <div className="row m-0">
                 {/* Buttons */}
+                {/* TODO: On click action for cancel */}
                 <div className="col-6 d-flex justify-content-start">
                   <button
                     type="button"
