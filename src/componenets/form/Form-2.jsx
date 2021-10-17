@@ -103,12 +103,12 @@ function Form2(props) {
                       </select>
                     </div>
                     <div className="col-12 col-lg-6 my-3 my-lg-0">
-                      <p className="field-heading m-0">distance (in m)</p>
+                      <p className="field-heading m-0">distance (in km)</p>
                       <input
                         type="text"
                         id="distance"
                         className="filed-input-small"
-                        placeholder="800.5"
+                        placeholder="8.5"
                         value={distance}
                         onChange={(e) =>
                           updateFormData(e.target.id, e.target.value)

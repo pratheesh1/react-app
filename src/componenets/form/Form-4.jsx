@@ -2,8 +2,51 @@ import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
 import FormType from "./Form-Type";
+import { useFormStore } from "../../store";
 
 function Form4(props) {
+  const {
+    firstName,
+    lastName,
+    email,
+    aboutYou,
+    trailName,
+    distance,
+    difficultyLevel,
+    timeToComplete,
+    description,
+    describeTrail,
+    imageLink,
+  } = useFormStore((state) => state.formData);
+
+  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
+  const submitForm = useFormStore((state) => state.submitForm);
+
+  //get difficulty level
+  const getDifficultyLevel = () => {
+    switch (difficultyLevel) {
+      case "1":
+        return "Easy";
+      case "2":
+        return "Medium";
+      case "3":
+        return "Hard";
+      case "4":
+        return "Challenging";
+      default:
+        return "";
+    }
+  };
+
+  //create list of images
+  const createList = () => {
+    return imageLink.map((link, index) => (
+      <p className="image-links-list m-0" key={index}>
+        {link}
+      </p>
+    ));
+  };
+
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -29,25 +72,17 @@ function Form4(props) {
                     <div className="col-12 col-lg-10 order-1 order-lg-2 py-0 m-0">
                       <div className="p-0 m-0 py-lg-1 d-flex flex-row">
                         <p className="field-review m-0">name:</p>
-                        {/* TODO: name here */}
-                        <span className="p-0 m-0">John Smith</span>
+                        <span className="p-0 m-0">
+                          {firstName + " " + lastName}
+                        </span>
                       </div>
                       <div className="p-0 m-0 py-lg-1 d-flex flex-row">
                         <p className="field-review m-0">email:</p>
-                        {/* TODO: emial here */}
-                        <span className="p-0 m-0">johnsmith@gemail.com</span>
+                        <span className="p-0 m-0">{email}</span>
                       </div>
                       <div className="p-0 m-0 py-lg-1 d-flex flex-row">
                         <p className="field-review m-0">description:</p>
-                        {/* TODO: description here */}
-                        <span className="p-0 m-0">
-                          {" "}
-                          Lorem ipsum dolor sit, amet consectetur adipisicing
-                          elit. Molestias iusto libero quis ad quod hic aliquid
-                          eos cumque perferendis qui? Dolorem, ad laboriosam!
-                          Nobis, voluptates quaerat. A eveniet at dicta
-                          laudantium adipisci sit cumque.
-                        </span>
+                        <span className="p-0 m-0">{aboutYou}</span>
                       </div>
                     </div>
                   </div>
@@ -61,40 +96,32 @@ function Form4(props) {
                       <div className="row p-0 m-0 d-flex flex-row">
                         <div className="col-12 col-lg-6 m-0 p-0 py-lg-1 d-flex flex-row">
                           <p className="field-review m-0">name:</p>
-                          {/* TODO: name here */}
-                          <span className="p-0 m-0">BC Hiking trail</span>
+                          <span className="p-0 m-0">{trailName}</span>
                         </div>
                         <div className="col-12 col-lg-6 m-0 p-0 py-lg-1 d-flex flex-row">
                           <p className="field-review m-0">distance:</p>
-                          {/* TODO: name here */}
-                          <span className="p-0 m-0">10.2km</span>
+                          <span className="p-0 m-0">{distance}</span>
                         </div>
                       </div>
                       <div className="row p-0 m-0 d-flex flex-row">
                         <div className="col-12 col-lg-6 m-0 p-0 py-lg-1 d-flex flex-row">
                           <p className="field-review m-0">difficulty level:</p>
-                          {/* TODO: name here */}
-                          <span className="p-0 m-0">Hard</span>
+                          <span className="p-0 m-0">
+                            {getDifficultyLevel()}
+                          </span>
                         </div>
                         <div className="col-12 col-lg-6 m-0 p-0 py-lg-1 d-flex flex-row">
                           <p className="field-review m-0">
                             avg time for completion:
                           </p>
-                          {/* TODO: name here */}
-                          <span className="p-0 m-0">1.2 Hours</span>
+                          <span className="p-0 m-0">
+                            {timeToComplete + " Hours"}
+                          </span>
                         </div>
                       </div>
                       <div className="p-0 m-0 py-lg-1 d-flex flex-row">
                         <p className="field-review m-0">description:</p>
-                        {/* TODO: description here */}
-                        <span className="p-0 m-0">
-                          {" "}
-                          Lorem ipsum dolor sit, amet consectetur adipisicing
-                          elit. Molestias iusto libero quis ad quod hic aliquid
-                          eos cumque perferendis qui? Dolorem, ad laboriosam!
-                          Nobis, voluptates quaerat. A eveniet at dicta
-                          laudantium adipisci sit cumque.
-                        </span>
+                        <span className="p-0 m-0">{description}</span>
                       </div>
                     </div>
                   </div>
@@ -110,15 +137,17 @@ function Form4(props) {
                           <p className="field-review m-0">description:</p>
                         </div>
                         <div className="col-12 col-lg-11 m-0 p-0 py-lg-1 d-flex flex-row">
-                          {/* TODO: text here */}
-                          <textarea className="filed-input-xlarge" value={""} />
+                          <textarea
+                            className="filed-input-xlarge"
+                            value={describeTrail}
+                            readOnly={true}
+                          />
                           <span></span>
                         </div>
                       </div>
                       <div className="p-0 m-0 py-lg-1 d-flex flex-row">
-                        <p className="field-review m-0">description:</p>
-                        {/* TODO: description here */}
-                        <span className="p-0 m-0">Image-of-trail.png</span>
+                        <p className="field-review m-0">images:</p>
+                        <span className="p-0 m-0">{createList()}</span>
                       </div>
                     </div>
                   </div>
@@ -139,12 +168,18 @@ function Form4(props) {
                   <button
                     type="button"
                     className="btn my-2 btn-previous align-middle"
+                    onClick={() => {
+                      formPreviousPage();
+                    }}
                   >
                     Previous
                   </button>
                   <button
                     type="button"
                     className="btn my-2 btn-continue align-middle"
+                    onClick={() => {
+                      submitForm();
+                    }}
                   >
                     Confirm
                   </button>

@@ -1,7 +1,8 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
+import axios from "axios";
 
-const store = (set) => ({
+const formStore = (set) => ({
   formData: {
     firstName: "",
     lastName: "",
@@ -17,7 +18,7 @@ const store = (set) => ({
     imgTempLink: "",
     imageLink: [],
   },
-  formType: "edit",
+  formType: "add",
   formPage: 4,
 
   updateForm: (target, name) =>
@@ -34,8 +35,11 @@ const store = (set) => ({
     })),
   discardFile: () =>
     set((state) => ({ formData: { ...state.formData, imageLink: [] } })),
+  submitForm: async () => {
+    console.log("OK");
+  },
 });
 
-const useFormStore = create(devtools(store));
+const useFormStore = create(devtools(formStore));
 
 export { useFormStore };
