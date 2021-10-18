@@ -8,7 +8,6 @@
 .img {
   width: 300px;
   height: 270px;
-  background-image: url("https://images.unsplash.com/photo-1634413656640-0bc2a33be4d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2128&q=80");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -16,7 +15,55 @@
 .trail-card-body {
   width: 300px;
   height: 100px;
-  background-color: aqua;
+}
+
+.title-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 15px;
+  padding-top: 4px;
+  max-height: 34px;
+  overflow: hidden;
+}
+
+.sub-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  padding-top: 2px;
+}
+
+.card-badge {
+  border-radius: 21px;
+}
+
+.easy {
+  background: #824df4 !important;
+}
+
+.medium {
+  background: #319e49 !important;
+}
+
+.hard {
+  background: #f44d6b !important;
+}
+
+.challenging {
+  background: red !important;
+}
+
+.rating {
+  color: rgb(240, 240, 12);
+}
+
+.sub-text-secondary {
+  font-size: 12px;
+  position: relative;
+  left: -9px;
 }
 
 /* Small devices (landscape phones, 576px and up) */

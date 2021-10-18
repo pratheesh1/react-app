@@ -2,11 +2,102 @@ import React from "react";
 import "../assets/styles/trailcard.css";
 
 export default function TrailCard(props) {
+  const renderButton = (difficulty) => {
+    const diffText =
+      difficulty === 1
+        ? "easy"
+        : difficulty === 2
+        ? "medium"
+        : difficulty === 3
+        ? "hard"
+        : difficulty === 4
+        ? "challenging"
+        : "";
+    return (
+      <span className={"badge card-badge bg-secondary " + diffText}>
+        {diffText}
+      </span>
+    );
+  };
+
+  const renderReview = (review) => {
+    const numReview = review.length;
+    const avgReview =
+      numReview > 1
+        ? review.reduce(
+            (previousValue, currentValue) => previousValue + currentValue
+          ) / numReview
+        : numReview === 1
+        ? review[0].rating
+        : 0;
+
+    var star = [];
+    for (let i = 0; i < avgReview; i++) {
+      star.push(<i class="fas fa-star rating"></i>);
+    }
+
+    if (review.length < 1) {
+      return;
+    } else {
+      return (
+        <span>
+          {star}
+          {`(${avgReview})`}
+        </span>
+      );
+    }
+  };
+
   return (
     <div className="col d-flex justify-content-center my-xxl-4">
       <div className="border bg-light trail-card">
-        <div className="img"></div>
-        <div className="trail-card-body">{props.trailName}</div>
+        <div
+          className="img"
+          style={{
+            backgroundImage: `url(${props.trail.images[0]})`,
+          }}
+        ></div>
+        <div className="trail-card-body mx-2">
+          <div className="row">
+            <div className="col-9">
+              <div className="row">
+                <span className="title-text">{props.trail.trailName}</span>
+              </div>
+              <div className="row">
+                <span className="sub-text">{props.trail.country.name}</span>
+              </div>
+            </div>
+            <div className="col-3 justify-content-end">
+              <i className="far fa-heart p-3 fa-5"></i>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <div className="row p-0 m-0">
+                {renderButton(props.trail.difficulty)}
+              </div>
+              <div className="row p-0 m-0 text-secondary">
+                <span className="sub-text-secondary py-1">
+                  Lenth: {props.trail.distance}
+                </span>
+              </div>
+            </div>
+            <div className="col-8">
+              <div className="row p-0 m-0">
+                {renderReview(props.trail.review) ? (
+                  renderReview(props.trail.review)
+                ) : (
+                  <span className="sub-text-secondary my-1">No Review</span>
+                )}
+              </div>
+              <div className="row p-0 m-0 text-secondary">
+                <span className="sub-text-secondary p-0">
+                  Ext. {props.trail.timeToComplete} Hr
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

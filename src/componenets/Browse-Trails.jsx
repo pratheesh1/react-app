@@ -11,7 +11,9 @@ export default function BrowseTrails() {
 
   const trailsData = useTrailStore((state) => state.trailsData);
   const generateTrailsCard = () => {
-    return trailsData.map((trail) => <TrailCard trail={trail} />);
+    return trailsData.map((trail) => (
+      <TrailCard key={trail._id} trail={trail} />
+    ));
   };
 
   return (
