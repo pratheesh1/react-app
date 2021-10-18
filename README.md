@@ -15,10 +15,7 @@
 
 # Acknowledgemnts
 
-1. Albert Gao for his python script to add contries and cities to mongodb from GeoNmages.org
-
-   [https://github.com/Albert-Gao/world-cities-mongodb](https://github.com/Albert-Gao/world-cities-mongodb)
-
+1. Albert Gao for his [python script](https://github.com/Albert-Gao/world-cities-mongodb) to add contries and cities to mongodb from GeoNmages.org
 2. Community at figma.com for free figma components library.
 3. YouTube community for countless free tutorials.
 4. Images from [pngwing.com](https://www.pngwing.com) and [unsplash.com](https://unsplash.com/)
