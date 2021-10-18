@@ -4,9 +4,9 @@ import SearchBar from "./componenets/Searchbar";
 import Form from "./componenets/Form";
 import Footer from "./componenets/Footer";
 import BrowseTrails from "./componenets/Browse-Trails";
-import { useGlobalStore } from "./store";
 import React from "react";
 import Details from "./componenets/Details";
+import { useGlobalStore } from "./store";
 
 function App() {
   const currentPage = useGlobalStore((state) => state.currentPage);

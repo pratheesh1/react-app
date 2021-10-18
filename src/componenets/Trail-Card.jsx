@@ -4,6 +4,7 @@ import { useGlobalStore } from "../store";
 
 export default function TrailCard(props) {
   const setPage = useGlobalStore((state) => state.setPage);
+  const setDetailedView = useGlobalStore((state) => state.setDetailedView);
   // display difficulty
   const renderButton = (difficulty) => {
     const diffText =
@@ -61,7 +62,10 @@ export default function TrailCard(props) {
   return (
     <div
       className="col d-flex justify-content-center my-xxl-4"
-      onClick={() => setPage("details")}
+      onClick={() => {
+        setPage("details");
+        setDetailedView(props.trail._id);
+      }}
     >
       <div className="border bg-light trail-card">
         <div
