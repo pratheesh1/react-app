@@ -1,10 +1,13 @@
 import React from "react";
 import "../assets/styles/trailcard.css";
 import { useGlobalStore } from "../store";
+import { useDetailedViewStore } from "../store";
 
 export default function TrailCard(props) {
   const setPage = useGlobalStore((state) => state.setPage);
-  const setDetailedView = useGlobalStore((state) => state.setDetailedView);
+  const setDetailedView = useDetailedViewStore(
+    (state) => state.setDetailedView
+  );
   // display difficulty
   const renderButton = (difficulty) => {
     const diffText =

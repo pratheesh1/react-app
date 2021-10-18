@@ -1,3 +1,32 @@
 .details-wrapper {
   min-height: 87.3vh;
 }
+
+.trail-image-detailed {
+  width: 100%;
+  height: auto;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .wrapper-container {
+    padding-left: var(--bs-gutter-x 0.75rem);
+    padding-right: var(--bs-gutter-x 0.75rem);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}

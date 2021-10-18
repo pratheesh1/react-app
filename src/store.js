@@ -6,6 +6,7 @@ import axios from "axios";
 // TODO: to move api_base_url to env variable
 const api_base_url = "http://localhost:3500";
 const trails_api_endpoint = api_base_url + "/trails";
+const trails_id_api_endpoint = api_base_url + "/trails/";
 
 const instance = axios.create({
   baseURL: api_base_url,
@@ -90,8 +91,27 @@ const formStore = (set, get) => ({
     }
   },
 });
-
 const useFormStore = create(devtools(formStore));
+
+// detailed view state
+const detailedViewStore = (set, get) => ({
+  //state variable
+  detailedView: "616c0aa6c6905716d039f210",
+  currentElelemt: {},
+
+  //callback functions
+  setDetailedView: (id) => set(() => ({ detailedView: id })),
+  setCurrentElement: async () => {
+    await instance
+      .get(trails_id_api_endpoint + get().detailedView)
+      .then((res) => {
+        set(() => ({ currentElelemt: res.data }));
+      })
+      .catch((e) => console.log(e));
+  },
+  destroyCurrentElelemt: () => set(() => ({ currentElelemt: {} })),
+});
+const useDetailedViewStore = create(devtools(detailedViewStore));
 
 //global store for trails
 const trailStore = (set, get) => ({
@@ -109,22 +129,16 @@ const trailStore = (set, get) => ({
       .catch((e) => console.log(e));
   },
 });
-
 const useTrailStore = create(devtools(trailStore));
 
 //global store
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
-  detailedView: "",
+  currentPage: "details",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
-  setDetailedView: (id) => set(() => ({ detailedView: id })),
 });
-
 const useGlobalStore = create(devtools(globalStore));
 
-export { useFormStore, useTrailStore, useGlobalStore };
-
-// (data) => set(() => ({ trailsData: "data" })),
+export { useFormStore, useTrailStore, useGlobalStore, useDetailedViewStore };
