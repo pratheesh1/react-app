@@ -6,6 +6,7 @@ import Footer from "./componenets/Footer";
 import BrowseTrails from "./componenets/Browse-Trails";
 import { useGlobalStore } from "./store";
 import React from "react";
+import Details from "./componenets/Details";
 
 function App() {
   const currentPage = useGlobalStore((state) => state.currentPage);
@@ -17,6 +18,8 @@ function App() {
         return <BrowseTrails />;
       case "form":
         return <Form />;
+      case "details":
+        return <Details />;
       default:
         return;
     }

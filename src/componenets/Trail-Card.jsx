@@ -1,7 +1,9 @@
 import React from "react";
 import "../assets/styles/trailcard.css";
+import { useGlobalStore } from "../store";
 
 export default function TrailCard(props) {
+  const setPage = useGlobalStore((state) => state.setPage);
   // display difficulty
   const renderButton = (difficulty) => {
     const diffText =
@@ -57,7 +59,10 @@ export default function TrailCard(props) {
   };
 
   return (
-    <div className="col d-flex justify-content-center my-xxl-4">
+    <div
+      className="col d-flex justify-content-center my-xxl-4"
+      onClick={() => setPage("details")}
+    >
       <div className="border bg-light trail-card">
         <div
           className="img"

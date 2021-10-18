@@ -115,7 +115,7 @@ const useTrailStore = create(devtools(trailStore));
 //global store
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
+  currentPage: "detail",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
