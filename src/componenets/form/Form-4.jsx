@@ -1,6 +1,7 @@
 import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
+import Cancel from "./Cancel";
 import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 
@@ -160,6 +161,8 @@ function Form4(props) {
                   <button
                     type="button"
                     className="btn my-2 btn-cancel align-middle"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cancelModal"
                   >
                     Cancel
                   </button>
@@ -189,6 +192,7 @@ function Form4(props) {
           </div>
         </div>
       </div>
+      <Cancel />
     </React.Fragment>
   );
 }

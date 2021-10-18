@@ -31,15 +31,17 @@ const formStore = (set, get) => ({
     imgTempLink: "",
     imageLink: [],
   },
-  formType: "add",
+  formType: "",
   formPage: 1,
   formUpdateStatus: false,
 
   //callback functions
+  setFormType: (type) => set(() => ({ formType: type })),
   updateForm: (target, name) =>
     set((state) => ({ formData: { ...state.formData, [target]: name } })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
   formPreviousPage: () => set((state) => ({ formPage: state.formPage - 1 })),
+  formReset: () => set({ formPage: 1 }),
   addImgLink: () =>
     set((state) => ({
       formData: {
@@ -61,6 +63,7 @@ const formStore = (set, get) => ({
         name: get().formData.countryName,
       },
       difficulty: parseInt(get().formData.difficultyLevel),
+      distance: parseFloat(get().formData.distance),
       timeToComplete: get().formData.timeToComplete,
       images: get().formData.imageLink,
       createdBy: {
@@ -109,6 +112,17 @@ const trailStore = (set, get) => ({
 
 const useTrailStore = create(devtools(trailStore));
 
-export { useFormStore, useTrailStore };
+//global store
+const globalStore = (set, get) => ({
+  //state variables
+  currentPage: "browseTrails",
+
+  //callback functions
+  setPage: (page) => set(() => ({ currentPage: page })),
+});
+
+const useGlobalStore = create(devtools(globalStore));
+
+export { useFormStore, useTrailStore, useGlobalStore };
 
 // (data) => set(() => ({ trailsData: "data" })),

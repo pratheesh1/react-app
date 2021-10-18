@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "../assets/styles/browsetrails.css";
 import TrailCard from "./Trail-Card";
 import { useTrailStore } from "../store";
+import { useGlobalStore } from "../store";
+import { useFormStore } from "../store";
 
 export default function BrowseTrails() {
   const setTrailsData = useTrailStore((state) => state.setTrailsData);
@@ -17,6 +19,9 @@ export default function BrowseTrails() {
     ));
   };
 
+  const setPage = useGlobalStore((state) => state.setPage);
+  const setFormType = useFormStore((state) => state.setFormType);
+
   return (
     <div className=" browse-trail-wrapper">
       <div className="row p-0 m-0">
@@ -26,7 +31,15 @@ export default function BrowseTrails() {
             Did not find what you were looking for?
           </span>
           <span className="p-0 m-0 text-decoration-underline">
-            {/* TODO: Add link to craete new trail page */} Add new trail
+            <button
+              className="btn p-0 m-0 mx-lg-2 text-decoration-underline"
+              onClick={() => {
+                setPage("form");
+                setFormType("add");
+              }}
+            >
+              Add new trail
+            </button>
           </span>
         </div>
         <div className="col-6 d-flex justify-content-end px-xxl-5 my-1">

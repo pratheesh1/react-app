@@ -3,6 +3,7 @@ import "../../assets/styles/form/pagination.css";
 import sucess from "../../assets/images/success.png";
 import error from "../../assets/images/error.png";
 import { useFormStore } from "../../store";
+import { useGlobalStore } from "../../store";
 
 //button click handler
 function tryAgain() {
@@ -10,7 +11,7 @@ function tryAgain() {
   useFormStore.setState({ formPage: currentPage - 1 });
 }
 
-const showConfirmation = (confirmation) => {
+const showConfirmation = (confirmation, setPage, formReset) => {
   switch (confirmation) {
     case true:
       return (
@@ -30,8 +31,13 @@ const showConfirmation = (confirmation) => {
                 >
                   New Trail added successfully.
                 </p>
-                {/* TODO: update */}
-                <button className="btn btn-confirmation success-banner">
+                <button
+                  className="btn btn-confirmation success-banner"
+                  onClick={() => {
+                    setPage("browseTrails");
+                    formReset();
+                  }}
+                >
                   Continue Browsing
                 </button>
               </div>
@@ -72,7 +78,11 @@ const showConfirmation = (confirmation) => {
 };
 
 export default function Confirmation(props) {
+  const setPage = useGlobalStore((state) => state.setPage);
+  const formReset = useFormStore((state) => state.formReset);
   return (
-    <React.Fragment>{showConfirmation(props.confirmation)}</React.Fragment>
+    <React.Fragment>
+      {showConfirmation(props.confirmation, setPage, formReset)}
+    </React.Fragment>
   );
 }

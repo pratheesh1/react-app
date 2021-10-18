@@ -2,6 +2,7 @@ import React from "react";
 import "../assets/styles/trailcard.css";
 
 export default function TrailCard(props) {
+  // display difficulty
   const renderButton = (difficulty) => {
     const diffText =
       difficulty === 1
@@ -20,6 +21,7 @@ export default function TrailCard(props) {
     );
   };
 
+  // display star based on average review
   const renderReview = (review) => {
     const numReview = review.length;
     const avgReview =
@@ -32,16 +34,14 @@ export default function TrailCard(props) {
         ? review[0].rating
         : 0;
 
-    console.log(numReview, avgReview);
-
     var maxStars = 5;
     var star = [];
     for (let i = 0; i < avgReview; i++) {
-      star.push(<i className="fas fa-star star-yellow"></i>);
+      star.push(<i key={i} className="fas fa-star star-yellow"></i>);
       maxStars--;
     }
     for (let i = 0; i < maxStars; i++) {
-      star.push(<i className="fas fa-star star-grey"></i>);
+      star.push(<i key={i + "grey"} className="fas fa-star star-grey"></i>);
     }
 
     if (review.length < 1) {
@@ -86,7 +86,7 @@ export default function TrailCard(props) {
               </div>
               <div className="row p-0 m-0 text-secondary">
                 <span className="sub-text-secondary py-1">
-                  Lenth: {props.trail.distance}
+                  Length: {props.trail.distance}
                 </span>
               </div>
             </div>

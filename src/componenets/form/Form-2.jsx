@@ -1,6 +1,7 @@
 import React from "react";
 import "../../assets/styles/form/form.css";
 import Pagination from "./Pagination";
+import Cancel from "./Cancel";
 import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 
@@ -74,14 +75,13 @@ function Form2(props) {
                       <select
                         id="country"
                         className="filed-input-small"
-                        defaultValue=""
                         value={country}
                         onChange={(e) => {
                           updateFormData(e.target.id, e.target.value);
                           setCountry(e.target.value);
                         }}
                       >
-                        <option value="" disabled={true}>
+                        <option value="" disabled={true} defaultValue={true}>
                           Select
                         </option>
                         {/* countries list */}
@@ -94,14 +94,13 @@ function Form2(props) {
                       <p className="field-heading m-0">difficulty level</p>
                       <select
                         className="filed-input-small"
-                        defaultValue=""
                         id="difficultyLevel"
                         value={difficultyLevel}
                         onChange={(e) =>
                           updateFormData(e.target.id, e.target.value)
                         }
                       >
-                        <option value="" disabled={true}>
+                        <option value="" disabled={true} defaultValue={true}>
                           Select
                         </option>
                         <option value="1">Easy</option>
@@ -157,11 +156,12 @@ function Form2(props) {
               </div>
               <div className="row m-0">
                 {/* Buttons */}
-                {/* TODO: On click action for cancel */}
                 <div className="col-6 d-flex justify-content-start">
                   <button
                     type="button"
                     className="btn my-2 btn-cancel align-middle"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cancelModal"
                   >
                     Cancel
                   </button>
@@ -191,6 +191,7 @@ function Form2(props) {
           </div>
         </div>
       </div>
+      <Cancel />
     </React.Fragment>
   );
 }
