@@ -94,13 +94,14 @@ const useFormStore = create(devtools(formStore));
 const trailStore = (set, get) => ({
   //state variables
   trailsData: [],
+  numberOfTrails: 0,
 
   //callback functions
   setTrailsData: async () => {
     await instance
       .get(trails_api_endpoint)
       .then((res) => {
-        set(() => ({ trailsData: res.data }));
+        set(() => ({ trailsData: res.data, numberOfTrails: res.data.length }));
       })
       .catch((e) => console.log(e));
   },

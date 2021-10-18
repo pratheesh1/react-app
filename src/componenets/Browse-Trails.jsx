@@ -10,6 +10,7 @@ export default function BrowseTrails() {
   }, []);
 
   const trailsData = useTrailStore((state) => state.trailsData);
+  const numberOfTrails = useTrailStore((state) => state.numberOfTrails);
   const generateTrailsCard = () => {
     return trailsData.map((trail) => (
       <TrailCard key={trail._id} trail={trail} />
@@ -20,13 +21,12 @@ export default function BrowseTrails() {
     <div className=" browse-trail-wrapper">
       <div className="row p-0 m-0">
         <div className="col-6 px-xxl-5 my-1">
-          <p className="row p-0 m-0">456 results</p>
+          <p className="row p-0 m-0">{numberOfTrails} results</p>
           <span className="d-none d-lg-inline-block p-0 m-0">
             Did not find what you were looking for?
           </span>
           <span className="p-0 m-0 text-decoration-underline">
-            {" "}
-            Add new trail
+            {/* TODO: Add link to craete new trail page */} Add new trail
           </span>
         </div>
         <div className="col-6 d-flex justify-content-end px-xxl-5 my-1">

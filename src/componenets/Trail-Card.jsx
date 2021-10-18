@@ -25,15 +25,23 @@ export default function TrailCard(props) {
     const avgReview =
       numReview > 1
         ? review.reduce(
-            (previousValue, currentValue) => previousValue + currentValue
+            (previousValue, currentValue) =>
+              previousValue.rating + currentValue.rating
           ) / numReview
         : numReview === 1
         ? review[0].rating
         : 0;
 
+    console.log(numReview, avgReview);
+
+    var maxStars = 5;
     var star = [];
     for (let i = 0; i < avgReview; i++) {
-      star.push(<i class="fas fa-star rating"></i>);
+      star.push(<i className="fas fa-star star-yellow"></i>);
+      maxStars--;
+    }
+    for (let i = 0; i < maxStars; i++) {
+      star.push(<i className="fas fa-star star-grey"></i>);
     }
 
     if (review.length < 1) {
@@ -42,7 +50,7 @@ export default function TrailCard(props) {
       return (
         <span>
           {star}
-          {`(${avgReview})`}
+          {`(${numReview})`}
         </span>
       );
     }
@@ -92,7 +100,7 @@ export default function TrailCard(props) {
               </div>
               <div className="row p-0 m-0 text-secondary">
                 <span className="sub-text-secondary p-0">
-                  Ext. {props.trail.timeToComplete} Hr
+                  Est. {props.trail.timeToComplete} Hr
                 </span>
               </div>
             </div>

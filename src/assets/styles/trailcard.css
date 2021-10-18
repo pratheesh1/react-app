@@ -41,23 +41,27 @@
 }
 
 .easy {
-  background: #824df4 !important;
-}
-
-.medium {
   background: #319e49 !important;
 }
 
+.medium {
+  background: #824df4 !important;
+}
+
 .hard {
-  background: #f44d6b !important;
+  background: #d843c4 !important;
 }
 
 .challenging {
   background: red !important;
 }
 
-.rating {
+.star-yellow {
   color: rgb(240, 240, 12);
+}
+
+.star-grey {
+  color: rgb(177, 170, 170);
 }
 
 .sub-text-secondary {
