@@ -7,7 +7,13 @@ export default function Pagination(props) {
       <div className="container">
         {" "}
         <div className="row row-cols-5 g-0">
-          <div className="col">
+          <div
+            className={
+              props.page === 1
+                ? "col-6 col-width-mgnt-md"
+                : "col-width-mgnt-sm col-width-mgnt-md"
+            }
+          >
             <hr
               className={
                 props.page === 1 ? "page-hr active-hr" : "page-hr done-hr"
@@ -32,7 +38,13 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div
+            className={
+              props.page === 2
+                ? "col-6 col-width-mgnt-md"
+                : "col-width-mgnt-sm col-width-mgnt-md"
+            }
+          >
             <hr
               className={
                 props.page < 2
@@ -63,7 +75,13 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div
+            className={
+              props.page === 3
+                ? "col-6 col-width-mgnt-md"
+                : "col-width-mgnt-sm col-width-mgnt-md"
+            }
+          >
             <hr
               className={
                 props.page < 3
@@ -94,7 +112,13 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div
+            className={
+              props.page === 4
+                ? "col-6 col-width-mgnt-md"
+                : "col-width-mgnt-sm col-width-mgnt-md"
+            }
+          >
             <hr
               className={
                 props.page < 4
@@ -125,7 +149,13 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
-          <div className="col">
+          <div
+            className={
+              props.page === 5
+                ? "col-6 col-width-mgnt-md"
+                : "col-width-mgnt-sm col-width-mgnt-md"
+            }
+          >
             <hr className={props.page < 5 ? "page-hr" : "page-hr active-hr"} />
             <div className="row p-0 m-0 ">
               <div className="p-0 m-0">

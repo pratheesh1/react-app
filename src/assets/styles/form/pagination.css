@@ -9,6 +9,10 @@
   opacity: 100;
 }
 
+.col-width-mgnt-sm {
+  width: 12.5%;
+}
+
 .done-hr {
   color: #646474;
   opacity: 100;
@@ -30,6 +34,10 @@
 @media (min-width: 768px) {
   .page-text-disbled {
     display: inline-block;
+  }
+
+  .col-width-mgnt-md {
+    width: 20%;
   }
 }
 

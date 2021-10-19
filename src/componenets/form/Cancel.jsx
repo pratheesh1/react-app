@@ -8,7 +8,7 @@ export default function Cancel() {
     <div
       className="modal fade"
       id="cancelModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="cancelModalLabel"
       aria-hidden="true"
     >

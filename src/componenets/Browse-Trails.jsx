@@ -44,7 +44,7 @@ export default function BrowseTrails() {
         {/* Right side */}
         {/* Buttons for filtering/sorting */}
         <div className="col-6 px-xxl-5 my-1">
-          <div class="d-md-flex justify-content-end">
+          <div className="d-md-flex justify-content-end">
             <div className="row col-md-5 col-xl-8 m-0">
               <div className="dropdown d-flex justify-content-end m-0 p-0">
                 <span
