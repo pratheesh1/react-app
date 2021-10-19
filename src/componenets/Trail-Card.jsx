@@ -1,7 +1,6 @@
 import React from "react";
 import "../assets/styles/trailcard.css";
-import { useGlobalStore } from "../store";
-import { useDetailedViewStore } from "../store";
+import { useGlobalStore, useDetailedViewStore } from "../store";
 
 export default function TrailCard(props) {
   const setPage = useGlobalStore((state) => state.setPage);

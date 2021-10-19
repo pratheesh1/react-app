@@ -2,8 +2,7 @@ import React from "react";
 import "../../assets/styles/form/pagination.css";
 import sucess from "../../assets/images/success.png";
 import error from "../../assets/images/error.png";
-import { useFormStore } from "../../store";
-import { useGlobalStore } from "../../store";
+import { useFormStore, useGlobalStore } from "../../store";
 
 //button click handler
 function tryAgain() {

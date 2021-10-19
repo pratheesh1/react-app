@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import "../assets/styles/browsetrails.css";
 import TrailCard from "./Trail-Card";
-import { useTrailStore } from "../store";
-import { useGlobalStore } from "../store";
-import { useFormStore } from "../store";
+import { useTrailStore, useGlobalStore, useFormStore } from "../store";
 
 export default function BrowseTrails() {
   const setTrailsData = useTrailStore((state) => state.setTrailsData);

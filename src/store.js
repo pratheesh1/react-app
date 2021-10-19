@@ -13,7 +13,7 @@ const instance = axios.create({
   timeout: 1000,
 });
 
-//global store for form
+/*-----------store for form-----------*/
 const formStore = (set, get) => ({
   //state variables
   formData: {
@@ -93,7 +93,7 @@ const formStore = (set, get) => ({
 });
 const useFormStore = create(devtools(formStore));
 
-// detailed view state
+/*-----------store for view state-----------*/
 const detailedViewStore = (set, get) => ({
   //state variable
   detailedView: "616c0aa6c6905716d039f210",
@@ -113,7 +113,7 @@ const detailedViewStore = (set, get) => ({
 });
 const useDetailedViewStore = create(devtools(detailedViewStore));
 
-//global store for trails
+/*-----------store for trails-----------*/
 const trailStore = (set, get) => ({
   //state variables
   trailsData: [],
@@ -131,14 +131,15 @@ const trailStore = (set, get) => ({
 });
 const useTrailStore = create(devtools(trailStore));
 
-//global store
+/*-----------store for everything else-----------*/
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "form",
+  currentPage: "details",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
 });
 const useGlobalStore = create(devtools(globalStore));
 
+//export all store
 export { useFormStore, useTrailStore, useGlobalStore, useDetailedViewStore };
