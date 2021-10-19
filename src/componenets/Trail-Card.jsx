@@ -96,7 +96,7 @@ export default function TrailCard(props) {
                 {renderButton(props.trail.difficulty)}
               </div>
               <div className="row p-0 m-0 text-secondary">
-                <span className="sub-text-secondary py-1">
+                <span className="sub-text-secondary py-1 text-nowrap">
                   Length: {props.trail.distance}
                 </span>
               </div>
