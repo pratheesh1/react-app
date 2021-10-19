@@ -18,7 +18,7 @@ function Form5(props) {
               {/* non-responsive pagination */}
               <div className="row p-0 m-0 pagination">
                 <div className="row p-0 m-0"></div>
-                <Pagination page={"page5"} />
+                <Pagination page={5} />
                 <hr className="bg-secondary form-hr" />
               </div>
               <div className="row p-0 m-0">

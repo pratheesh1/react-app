@@ -50,7 +50,7 @@ function Form2(props) {
               {/* non-responsive pagination */}
               <div className="row p-0 m-0 pagination">
                 <div className="row p-0 m-0"></div>
-                <Pagination page={"page2"} />
+                <Pagination page={2} />
                 <hr className="bg-secondary form-hr" />
               </div>
               <div className="row p-0 m-0">

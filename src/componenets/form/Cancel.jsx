@@ -1,8 +1,9 @@
 import React from "react";
-import { useGlobalStore } from "../../store";
+import { useFormStore, useGlobalStore } from "../../store";
 
 export default function Cancel() {
   const setPage = useGlobalStore((store) => store.setPage);
+  const formReset = useFormStore((store) => store.formReset);
   return (
     <div
       className="modal fade"
@@ -36,7 +37,10 @@ export default function Cancel() {
               type="button"
               className="btn btn-danger"
               data-bs-dismiss="modal"
-              onClick={() => setPage("browseTrails")}
+              onClick={() => {
+                setPage("browseTrails");
+                formReset();
+              }}
             >
               Discard Changes
             </button>

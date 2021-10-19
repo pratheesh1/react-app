@@ -1,309 +1,153 @@
 import React from "react";
 import "../../assets/styles/form/pagination.css";
 
-function selectPage(page) {
-  switch (page) {
-    case "page1":
-      return (
-        <React.Fragment>
-          <div className="d-flex flex-row">
-            <div className="col-3">
-              <hr className="page-hr active-hr" />
-              <div className="row p-0 m-0">
-                <div className="p-0 m-0">
-                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
-                  <span className="p-2 page-text">Your Info</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">Trail</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Details
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Review
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Confirmation
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    case "page2":
-      return (
-        <React.Fragment>
-          <div className="d-flex flex-row">
-            <div className="col-3">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
-                  <span className="p-2 page-text  page-text-disbled">
-                    Your Info
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr active-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
-                  <span className="p-2 page-text">Trail</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Details
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Review
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Confirmation
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    case "page3":
-      return (
-        <React.Fragment>
-          <div className="d-flex flex-row">
-            <div className="col-3">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Your Info
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">Trail</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr active-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
-                  <span className="p-2 page-text">Details</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Review
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Confirmation
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    case "page4":
-      return (
-        <React.Fragment>
-          <div className="d-flex flex-row">
-            <div className="col-3">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Your Info
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">Trail</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled ">
-                    Details
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr active-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
-                  <span className="p-2 page-text">Review</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <hr className="page-hr " />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="far fa-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Confirmation
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    case "page5":
-      return (
-        <React.Fragment>
-          <div className="d-flex flex-row">
-            <div className="col-3">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Your Info
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">Trail</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Details
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-2">
-              <hr className="page-hr done-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block"></i>
-                  <span className="p-2 page-text page-text-disbled">
-                    Review
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <hr className="page-hr active-hr" />
-              <div className="row p-0 m-0 ">
-                <div className="p-0 m-0">
-                  <i className="fas fa-check-circle d-none d-md-inline-block active-icon"></i>
-                  <span className="p-2 page-text">Confirmation</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    default:
-      return <React.Fragment>Pagination Error!</React.Fragment>;
-  }
-}
-
 export default function Pagination(props) {
   return (
     <React.Fragment>
-      <div className="row m-0">{selectPage(props.page)}</div>
+      <div className="container">
+        {" "}
+        <div className="row row-cols-5 g-0">
+          <div className="col">
+            <hr
+              className={
+                props.page === 1 ? "page-hr active-hr" : "page-hr done-hr"
+              }
+            />
+            <div className="row p-0 m-0">
+              <div className="p-0 m-0">
+                {props.page === 1 ? (
+                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
+                ) : (
+                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
+                )}
+                <span
+                  className={
+                    props.page === 1
+                      ? "p-2 page-text text-nowrap"
+                      : "p-2 page-text page-text-disbled text-nowrap"
+                  }
+                >
+                  Your Info
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <hr
+              className={
+                props.page < 2
+                  ? "page-hr"
+                  : props.page === 2
+                  ? "page-hr active-hr"
+                  : "page-hr done-hr"
+              }
+            />
+            <div className="row p-0 m-0 ">
+              <div className="p-0 m-0">
+                {props.page < 2 ? (
+                  <i className="far fa-circle d-none d-md-inline-block"></i>
+                ) : props.page === 2 ? (
+                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
+                ) : (
+                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
+                )}
+                <span
+                  className={
+                    props.page === 2
+                      ? "p-2 page-text text-nowrap"
+                      : "p-2 page-text page-text-disbled text-nowrap"
+                  }
+                >
+                  Trail
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <hr
+              className={
+                props.page < 3
+                  ? "page-hr"
+                  : props.page === 3
+                  ? "page-hr active-hr"
+                  : "page-hr done-hr"
+              }
+            />
+            <div className="row p-0 m-0 ">
+              <div className="p-0 m-0">
+                {props.page < 3 ? (
+                  <i className="far fa-circle d-none d-md-inline-block"></i>
+                ) : props.page === 3 ? (
+                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
+                ) : (
+                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
+                )}{" "}
+                <span
+                  className={
+                    props.page === 3
+                      ? "p-2 page-text text-nowrap"
+                      : "p-2 page-text page-text-disbled text-nowrap"
+                  }
+                >
+                  Details
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <hr
+              className={
+                props.page < 4
+                  ? "page-hr"
+                  : props.page === 4
+                  ? "page-hr active-hr"
+                  : "page-hr done-hr"
+              }
+            />
+            <div className="row p-0 m-0 ">
+              <div className="p-0 m-0">
+                {props.page < 4 ? (
+                  <i className="far fa-circle d-none d-md-inline-block"></i>
+                ) : props.page === 4 ? (
+                  <i className="far fa-dot-circle d-none d-md-inline-block active-icon"></i>
+                ) : (
+                  <i className="fas fa-check-circle d-none d-md-inline-block "></i>
+                )}{" "}
+                <span
+                  className={
+                    props.page === 4
+                      ? "p-2 page-text text-nowrap"
+                      : "p-2 page-text page-text-disbled text-nowrap"
+                  }
+                >
+                  Review
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <hr className={props.page < 5 ? "page-hr" : "page-hr active-hr"} />
+            <div className="row p-0 m-0 ">
+              <div className="p-0 m-0">
+                {props.page < 5 ? (
+                  <i className="far fa-circle d-none d-md-inline-block"></i>
+                ) : (
+                  <i className="fas fa-check-circle d-none d-md-inline-block active-icon"></i>
+                )}{" "}
+                <span
+                  className={
+                    props.page === 5
+                      ? "p-0 p-md-2 page-text overflow-hidden"
+                      : "p-0 p-md-2 page-text page-text-disbled text-break"
+                  }
+                >
+                  Confirmation
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </React.Fragment>
   );
 }
