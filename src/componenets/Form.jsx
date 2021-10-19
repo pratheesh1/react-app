@@ -13,11 +13,12 @@ export default class Form extends Component {
 
   async componentDidMount() {
     //get countries after component mount
-    var response = await fetch(countries_api_endpoint).catch((err) =>
-      console.error(err)
-    );
-    var countries = await response.json().catch((err) => console.error(err));
-    this.setState({ countries });
+    await fetch(countries_api_endpoint)
+      .then(async (resp) => {
+        var countries = await resp.json().catch((err) => console.error(err));
+        this.setState({ countries });
+      })
+      .catch((err) => console.error(err));
   }
 
   render() {

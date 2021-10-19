@@ -116,7 +116,7 @@ function Form4(props) {
                             avg time for completion:
                           </p>
                           <span className="p-0 m-0">
-                            {timeToComplete + " Hours"}
+                            {timeToComplete ? timeToComplete + " Hours" : ""}
                           </span>
                         </div>
                       </div>
