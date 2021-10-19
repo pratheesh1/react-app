@@ -14,7 +14,7 @@ export default function Details() {
 
   return (
     <div className="details-wrapper">
-      <div className="container p-0 wrapper-contailer">
+      <article className="container p-0 wrapper-contailer d-flex">
         <div className="row m-0">
           <div className="col-12 col-lg-8 p-0">
             <img
@@ -23,9 +23,32 @@ export default function Details() {
               alt="trail banner img"
             />
           </div>
-          <div className="col-12 col-lg-4 bg-secondary">Hello</div>
+          <div className="col-12 order-2 order-lg-3">
+            {/* main Content */}
+            <div className="row m-0">title</div>
+            <div className="row m-0">subtitle</div>
+            <div className="row m-0">
+              <div className="col-12 col-lg-6">author</div>
+              <div className="col-12 col-lg-6">rating</div>
+            </div>
+            <div className="row m-0">main</div>
+            <hr className="w-100" />
+            <div className="row m-0">review?</div>
+            <div className="row m-0">star</div>
+            <div className="row m-0">
+              <div className="col-12 col-lg-6">name</div>
+              <div className="col-12 col-lg-6">name email</div>
+            </div>
+            <div className="row m-0">add review textbox</div>
+            <div className="row m-0">button</div>
+            <hr className="w-100" />
+            <div className="row m-0">rewiew</div>
+          </div>
+          <div className="col-12 col-lg-4 bg-secondary order-3 order-lg-2">
+            {/* suggested cards here */}
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 }
