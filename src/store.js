@@ -93,7 +93,7 @@ const formStore = (set, get) => ({
 });
 const useFormStore = create(devtools(formStore));
 
-/*-----------store for view state-----------*/
+/*-----------store for detailed view-----------*/
 const detailedViewStore = (set, get) => ({
   //state variable
   detailedView: "616c0aa6c6905716d039f210",
@@ -134,7 +134,7 @@ const useTrailStore = create(devtools(trailStore));
 /*-----------store for everything else-----------*/
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "details",
+  currentPage: "browseTrails",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),

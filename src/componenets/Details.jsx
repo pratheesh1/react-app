@@ -19,9 +19,8 @@ export default function Details() {
           <div className="col-12 col-lg-8 p-0">
             <img
               className="trail-image-detailed"
-              //FIXME: Causing error because trying to access images[0] before API data loaded
-              src={currentElelemt.images[0]}
-              alt="trail running hiking"
+              src={currentElelemt.images ? currentElelemt.images[0] : ""}
+              alt="trail banner img"
             />
           </div>
           <div className="col-12 col-lg-4 bg-secondary">Hello</div>

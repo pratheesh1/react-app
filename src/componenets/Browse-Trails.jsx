@@ -23,6 +23,7 @@ export default function BrowseTrails() {
   return (
     <div className=" browse-trail-wrapper">
       <div className="row p-0 m-0">
+        {/* Left side */}
         <div className="col-6 px-xxl-5 my-1">
           <p className="row p-0 m-0">{numberOfTrails} results</p>
           <span className="d-none d-lg-inline-block p-0 m-0">
@@ -40,8 +41,67 @@ export default function BrowseTrails() {
             </button>
           </span>
         </div>
-        <div className="col-6 d-flex justify-content-end px-xxl-5 my-1">
-          Hello
+        {/* Right side */}
+        {/* Buttons for filtering/sorting */}
+        <div className="col-6 px-xxl-5 my-1">
+          <div class="d-md-flex justify-content-end">
+            <div className="row col-md-5 col-xl-8 m-0">
+              <div className="dropdown d-flex justify-content-end m-0 p-0">
+                <span
+                  className=" dropdown-toggle"
+                  type="button"
+                  id="contentTypeDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  SHOW: All Content
+                </span>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="contentTypeDropdown"
+                >
+                  <a className="dropdown-item" href="#link">
+                    Category 1
+                  </a>
+                  <a className="dropdown-item" href="#link">
+                    Category 2
+                  </a>
+                  <a className="dropdown-item" href="#link">
+                    Category 3
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="row col-md-7 col-xl-4 m-0">
+              <div className="dropdown d-flex justify-content-end m-0 p-0">
+                <span
+                  className=" dropdown-toggle"
+                  type="button"
+                  id="contentRelevanceDropdown"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  SORT BY: Relevance
+                </span>
+                <div
+                  className="dropdown-menu"
+                  aria-labelledby="contentRelevanceDropdown"
+                >
+                  <a className="dropdown-item" href="#link">
+                    Category 1
+                  </a>
+                  <a className="dropdown-item" href="#link">
+                    Category 2
+                  </a>
+                  <a className="dropdown-item" href="#link">
+                    Category 3
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="row p-0 m-0 d-flex justify-content-between">
