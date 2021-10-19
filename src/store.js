@@ -42,7 +42,6 @@ const formStore = (set, get) => ({
     set((state) => ({ formData: { ...state.formData, [target]: name } })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
   formPreviousPage: () => set((state) => ({ formPage: state.formPage - 1 })),
-  formReset: () => set({ formPage: 1 }),
   addImgLink: () =>
     set((state) => ({
       formData: {
@@ -77,19 +76,39 @@ const formStore = (set, get) => ({
     try {
       await instance.post(trails_api_endpoint, newTrail).then(() => {
         set((state) => ({
-          ...state.formData,
           formUpdateStatus: true,
           formPage: state.formPage + 1,
         }));
       });
     } catch (e) {
       set((state) => ({
-        ...state.formData,
         formPage: state.formPage + 1,
       }));
       console.log(e);
     }
   },
+  formReset: () =>
+    set({
+      formData: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        aboutYou: "",
+        trailName: "",
+        country: "",
+        countryName: "",
+        difficultyLevel: "",
+        distance: "",
+        description: "",
+        timeToComplete: "",
+        describeTrail: "",
+        imgTempLink: "",
+        imageLink: [],
+      },
+      formType: "",
+      formPage: 1,
+      formUpdateStatus: false,
+    }),
 });
 const useFormStore = create(devtools(formStore));
 
@@ -134,7 +153,7 @@ const useTrailStore = create(devtools(trailStore));
 /*-----------store for everything else-----------*/
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "details",
+  currentPage: "browseTrails",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
