@@ -38,8 +38,8 @@ const formStore = (set, get) => ({
 
   //callback functions
   setFormType: (type) => set(() => ({ formType: type })),
-  updateForm: (target, name) =>
-    set((state) => ({ formData: { ...state.formData, [target]: name } })),
+  updateForm: (target, value) =>
+    set((state) => ({ formData: { ...state.formData, [target]: value } })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
   formPreviousPage: () => set((state) => ({ formPage: state.formPage - 1 })),
   addImgLink: () =>
@@ -65,6 +65,7 @@ const formStore = (set, get) => ({
       difficulty: parseInt(get().formData.difficultyLevel),
       distance: parseFloat(get().formData.distance),
       timeToComplete: get().formData.timeToComplete,
+      describeTrail: get().formData.describeTrail,
       images: get().formData.imageLink,
       createdBy: {
         firstName: get().formData.firstName,
@@ -153,7 +154,7 @@ const useTrailStore = create(devtools(trailStore));
 /*-----------store for everything else-----------*/
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
+  currentPage: "form",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),

@@ -22,10 +22,8 @@ export default function Details() {
               src={currentElelemt.images ? currentElelemt.images[0] : ""}
               alt="trail banner img"
             />
-          </div>
-          <div className="col-12 order-2 order-lg-3">
             {/* main Content */}
-            <div className="row m-0">title</div>
+            <div className="row m-0">{currentElelemt.trailName}</div>
             <div className="row m-0">subtitle</div>
             <div className="row m-0">
               <div className="col-12 col-lg-6">author</div>
@@ -44,8 +42,9 @@ export default function Details() {
             <hr className="w-100" />
             <div className="row m-0">rewiew</div>
           </div>
-          <div className="col-12 col-lg-4 bg-secondary order-3 order-lg-2">
+          <div className="col-12 col-lg-4 bg-dark">
             {/* suggested cards here */}
+            OLA
           </div>
         </div>
       </article>
