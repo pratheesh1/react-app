@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../assets/styles/browsetrails.css";
-import TrailCard from "./Trail-Card";
+import TrailCard from "../componenets/trail-card/Trail-Card";
 import { useTrailStore, useGlobalStore, useFormStore } from "../store";
 
 export default function BrowseTrails() {

@@ -23,10 +23,12 @@ export default function Details() {
               alt="trail banner img"
             />
             {/* main Content */}
-            <div className="row m-0">{currentElelemt.trailName}</div>
-            <div className="row m-0">subtitle</div>
             <div className="row m-0">
-              <div className="col-12 col-lg-6">author</div>
+              <h3>{currentElelemt.trailName}</h3>
+            </div>
+            <div className="row m-0">{currentElelemt.description}</div>
+            <div className="row m-0">
+              <div className="col-12 col-lg-6">Name </div>
               <div className="col-12 col-lg-6">rating</div>
             </div>
             <div className="row m-0">main</div>
