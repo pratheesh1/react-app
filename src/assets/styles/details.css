@@ -5,6 +5,8 @@
 .trail-image-detailed {
   width: 100%;
   height: auto;
+  max-height: 50vh;
+  object-fit: cover;
 }
 
 .trail-heading {
@@ -142,12 +144,6 @@ input[class="star-radio"]:not(:checked) > label {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  .trail-image-detailed {
-    width: 100%;
-    max-height: 50%;
-    object-fit: cover;
-  }
-
   .submit-review-btn-wrapper {
     padding-right: 3%;
   }

@@ -61,7 +61,7 @@ export default function ReviewBreakdown() {
                   className="bar-container"
                   style={{ width: getPercentage(currentElelemt, 1) }}
                 ></canvas>
-                {getNumber(currentElelemt)}
+                {getNumber(currentElelemt, 1)}
               </span>
             </div>
           </div>
@@ -69,11 +69,13 @@ export default function ReviewBreakdown() {
             <div className="row my-4 mb-4">
               <div className="col-12 d-flex justify-content-center agv-review">
                 {currentElelemt.review
-                  ? currentElelemt.review.reduce(
-                      (previousValue, currentValue) => ({
-                        rating: previousValue.rating + currentValue.rating,
-                      })
-                    ).rating / currentElelemt.review.length
+                  ? currentElelemt.review.length > 0
+                    ? currentElelemt.review.reduce(
+                        (previousValue, currentValue) => ({
+                          rating: previousValue.rating + currentValue.rating,
+                        })
+                      ).rating / currentElelemt.review.length
+                    : 0
                   : 0}
               </div>
               <div className="col-12 d-flex justify-content-center mt-3">

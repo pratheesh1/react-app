@@ -8,7 +8,7 @@ export default function Photos() {
     const imageComponents = images.map((img, index) => {
       return (
         <div key={index} className="col-6 col-lg-4 p-0 m-0">
-          <div className="py-3 border bg-light img-details-wrapper">
+          <div className="py-3 border img-details-wrapper">
             <img src={img} aria-label="trail" className="details-images" />
           </div>
         </div>
