@@ -24,7 +24,7 @@ export default function Photos() {
           <div className="row"></div>
           <h3 className="photo-heading">Add Photos of this trail</h3>
           <div className="row px-2">
-            Photos help others preview the trail. Upload photos about this trail
+            Photos help others discover the trail. Upload photos of this trail
             to inspire others.
           </div>
         </div>

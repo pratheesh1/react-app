@@ -118,6 +118,7 @@ const detailedViewStore = (set, get) => ({
   //state variable
   detailedView: "616c0a04c6905716d039f20b",
   currentElelemt: {},
+  currentView: "review",
 
   //callback functions
   setDetailedView: (id) => set(() => ({ detailedView: id })),
@@ -129,6 +130,7 @@ const detailedViewStore = (set, get) => ({
       })
       .catch((e) => console.log(e));
   },
+  setCurrentView: (element) => set(() => ({ currentView: element })),
   destroyCurrentElelemt: () => set(() => ({ currentElelemt: {} })),
 });
 const useDetailedViewStore = create(devtools(detailedViewStore));

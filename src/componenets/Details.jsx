@@ -16,6 +16,8 @@ export default function Details() {
   const setCurrentElement = useDetailedViewStore(
     (state) => state.setCurrentElement
   );
+  const currentView = useDetailedViewStore((store) => store.currentView);
+  const setCurrentView = useDetailedViewStore((state) => state.setCurrentView);
 
   useEffect(() => {
     setCurrentElement();
@@ -88,16 +90,22 @@ export default function Details() {
             <div className="row m-0">
               <div className="col-12 p-0">
                 <div className="row m-0 title-wrapper mb-2">
-                  <div className="col-6 title py-1">
+                  <div
+                    className="col-6 title py-1"
+                    onClick={() => setCurrentView("review")}
+                  >
                     Past Review (
                     {currentElelemt.review ? currentElelemt.review.length : 0})
                   </div>
-                  <div className="col-6 title py-1">
+                  <div
+                    className="col-6 title py-1"
+                    onClick={() => setCurrentView("photos")}
+                  >
                     Photos (
                     {currentElelemt.images ? currentElelemt.images.length : 0})
                   </div>
-                  {/* <ReviewBreakdown /> */}
-                  <Photos />
+                  {/* toggle photo and review */}
+                  {currentView === "review" ? <ReviewBreakdown /> : <Photos />}
                 </div>
               </div>
               <div className="col-12 p-0"></div>
