@@ -7,8 +7,129 @@
   height: auto;
 }
 
+.trail-heading {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 40px;
+  letter-spacing: -0.333333px;
+}
+
+.trail-subtext {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: -0.333333px;
+}
+
+.main-text {
+  white-space: pre-wrap;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.333333px;
+}
+
+/* Star */
+.star-label {
+  display: inline;
+  font-size: 30px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+input[class="star-radio"] {
+  display: none;
+}
+
+input[class="star-radio"]:not(:checked) > label {
+  color: #ccc;
+}
+
+.rating > input:checked ~ label {
+  color: #ffc700;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+
+.review-text {
+  width: 345px;
+  height: 120px;
+  padding-left: 5px;
+  border: 0px;
+  background-color: #ebebeb;
+}
+
+.submit-review-btn-wrapper {
+  padding-right: 4%;
+  padding-top: 10px;
+}
+.submit-review-btn {
+  width: 150px;
+  background: #1ba1f2;
+  color: white;
+}
+
+.title {
+  background-color: #c4c4c4;
+}
+
+.agv-review {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 30px;
+  letter-spacing: -0.333333px;
+}
+
+.bar-container {
+  height: 10px;
+  background: #deb217;
+  border-radius: 15px;
+  max-width: 90%;
+}
+
+.photo-heading {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 30px;
+  letter-spacing: -0.333333px;
+}
+
+.upload-img-btn {
+  height: 38px;
+  background: #1ba1f2;
+  border-radius: 4px;
+  color: white;
+}
+
+.img-details-wrapper {
+  border: 0px !important;
+}
+
+.details-images {
+  border-radius: 20px;
+  width: 175px;
+  height: 134px;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  .submit-review-btn-wrapper {
+    padding-right: 0%;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -26,12 +147,27 @@
     max-height: 50%;
     object-fit: cover;
   }
+
+  .submit-review-btn-wrapper {
+    padding-right: 3%;
+  }
+
+  .title-wrapper {
+    padding-right: 3%;
+  }
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .review-text {
+    min-width: 725px;
+    width: 92%;
+  }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
+  .submit-review-btn-wrapper {
+    padding-right: 9%;
+  }
 }

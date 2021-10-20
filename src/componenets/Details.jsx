@@ -1,6 +1,15 @@
 import React, { useEffect } from "react";
 import "../assets/styles/details.css";
 import { useDetailedViewStore } from "../store";
+import Photos from "./details/Photos";
+import ReviewBreakdown from "./details/Review-Breakdown";
+import ReviewForm from "./details/Review-Form";
+import {
+  getDayOfWeek,
+  getMonthName,
+  renderReview,
+  renderButton,
+} from "./trail-card/Trail-Card-Utils";
 
 export default function Details() {
   const currentElelemt = useDetailedViewStore((state) => state.currentElelemt);
@@ -23,28 +32,78 @@ export default function Details() {
               alt="trail banner img"
             />
             {/* main Content */}
-            <div className="row m-0">
-              <h3>{currentElelemt.trailName}</h3>
+            <div className="row m-0 my-4">
+              <h3 className="trail-heading">{currentElelemt.trailName}</h3>
             </div>
-            <div className="row m-0">{currentElelemt.description}</div>
-            <div className="row m-0">
-              <div className="col-12 col-lg-6">Name </div>
-              <div className="col-12 col-lg-6">rating</div>
+            <div className="row m-0 my-2 px-2 trail-subtext">
+              {currentElelemt.description}
             </div>
-            <div className="row m-0">main</div>
+            <div className="row m-0 my-3">
+              <div className="col-12 col-lg-6 my-2 blockquote-footer">
+                {currentElelemt.createdBy
+                  ? `Written by 
+                  ${currentElelemt.createdBy.firstName}
+                  ${currentElelemt.createdBy.lastName},
+                  ${getDayOfWeek(currentElelemt.createdAt)}
+                  ${new Date(currentElelemt.createdAt).getDate()}
+                  ${getMonthName(currentElelemt.createdAt)}
+                  ${new Date(currentElelemt.createdAt).getFullYear()}`
+                  : ""}
+              </div>
+              <div className="col-12 col-lg-6">
+                <div className="row m-0 w-100">
+                  <div className="col-6 p-0 d-flex justify-content-around">
+                    {renderButton(currentElelemt.difficulty)}
+                  </div>
+                  <div className="col-6 p-0 text-secondary">
+                    {currentElelemt.review
+                      ? currentElelemt.review.length > 0
+                        ? renderReview(currentElelemt.review)
+                        : "No Review"
+                      : "No Review"}
+                  </div>
+                </div>
+                <div className="row m-0 w-100">
+                  <div className="col-6 text-secondary d-flex justify-content-around">
+                    <span className="sub-text-secondary py-1 text-nowrap text-dark">
+                      Length: {currentElelemt.distance}
+                    </span>
+                  </div>
+                  <div className="col-6 text-secondary">
+                    <span className="sub-text-secondary p-0 text-dark">
+                      Est. {currentElelemt.timeToComplete} Hr
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row m-0 main-text px-2">
+              {currentElelemt.describeTrail}
+            </div>
             <hr className="w-100" />
-            <div className="row m-0">review?</div>
-            <div className="row m-0">star</div>
-            <div className="row m-0">
-              <div className="col-12 col-lg-6">name</div>
-              <div className="col-12 col-lg-6">name email</div>
-            </div>
-            <div className="row m-0">add review textbox</div>
-            <div className="row m-0">button</div>
+            {/* review form */}
+            <ReviewForm />
             <hr className="w-100" />
-            <div className="row m-0">rewiew</div>
+            {/* current reviews and photos */}
+            <div className="row m-0">
+              <div className="col-12 p-0">
+                <div className="row m-0 title-wrapper mb-2">
+                  <div className="col-6 title py-1">
+                    Past Review (
+                    {currentElelemt.review ? currentElelemt.review.length : 0})
+                  </div>
+                  <div className="col-6 title py-1">
+                    Photos (
+                    {currentElelemt.images ? currentElelemt.images.length : 0})
+                  </div>
+                  {/* <ReviewBreakdown /> */}
+                  <Photos />
+                </div>
+              </div>
+              <div className="col-12 p-0"></div>
+            </div>
           </div>
-          <div className="col-12 col-lg-4 bg-dark">
+          <div className="col-12 col-lg-4 bg-secondary">
             {/* suggested cards here */}
             OLA
           </div>

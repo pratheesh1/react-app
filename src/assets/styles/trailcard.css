@@ -38,6 +38,7 @@
 
 .card-badge {
   border-radius: 21px;
+  min-width: 60px;
 }
 
 .easy {
