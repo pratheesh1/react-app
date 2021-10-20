@@ -18,7 +18,7 @@ const renderButton = (difficulty) => {
 };
 
 // display star based on average review
-const renderReview = (review) => {
+const renderReview = (review, requireCount = true) => {
   const numReview = review.length;
   const avgReview =
     numReview > 1
@@ -45,7 +45,7 @@ const renderReview = (review) => {
     return (
       <span>
         {star}
-        {`(${numReview})`}
+        {requireCount ? `(${numReview})` : null}
       </span>
     );
   }
@@ -88,6 +88,7 @@ const getMonthName = (date) => {
   return months[month];
 };
 
+//get percentage of reviews for a paricular rating
 const getPercentage = (element, number) => {
   const review = element.review ? element.review.length : 0;
   if (review) {
@@ -101,6 +102,7 @@ const getPercentage = (element, number) => {
   }
 };
 
+//get number of reviews for a paricular rating
 const getNumber = (element, number) => {
   const review = element.review ? element.review.length : 0;
   if (review) {

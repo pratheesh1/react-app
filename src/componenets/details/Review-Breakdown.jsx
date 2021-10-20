@@ -80,7 +80,7 @@ export default function ReviewBreakdown() {
               </div>
               <div className="col-12 d-flex justify-content-center mt-3">
                 {currentElelemt.review
-                  ? renderReview(currentElelemt.review)
+                  ? renderReview(currentElelemt.review, false)
                   : "No Review"}
               </div>
               <div className="col-12 d-flex justify-content-center mb-3">
