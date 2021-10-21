@@ -5,6 +5,7 @@ import FileUpload from "./File-Upload";
 import Cancel from "./Cancel";
 import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
+import { useForm } from "react-hook-form";
 
 function Form3(props) {
   const { describeTrail, imageLink, imgTempLink } = useFormStore(
@@ -16,9 +17,20 @@ function Form3(props) {
   const discardFile = useFormStore((state) => state.discardFile);
   const addImgLink = useFormStore((state) => state.addImgLink);
 
-  //update form
-  const updateFormData = (target, value) => {
-    updateForm(target, value);
+  const { register, handleSubmit, watch, error } = useForm();
+  watch((data) => {
+    for (const key in data) {
+      updateForm(key, data[key]);
+    }
+  });
+
+  const onContinue = (data) => {
+    try {
+      //TODO:form validation here
+      formNextPage();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   //create list of images
@@ -33,114 +45,110 @@ function Form3(props) {
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
-        <div className="container form-wrapper">
-          <div className="container from-content-wrapper">
-            <div className="row p-0 m-0">
-              {/* Heading */}
-              <FormType type={props.type} />
-              {/* non-responsive pagination */}
-              <div className="row p-0 m-0 pagination">
-                <div className="row p-0 m-0"></div>
-                <Pagination page={3} />
-                <hr className="bg-secondary form-hr" />
-              </div>
+        <form onSubmit={handleSubmit(onContinue)}>
+          <div className="container form-wrapper">
+            <div className="container from-content-wrapper">
               <div className="row p-0 m-0">
-                {/* Form */}
-                <div className="col-12 p-0">
-                  <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 my-3 my-lg-0">
-                      <p className="field-heading m-0">describe the trail</p>
-                      <textarea
-                        id="describeTrail"
-                        className="filed-input-xlarge"
-                        placeholder="Detailed post on the trail"
-                        value={describeTrail}
-                        onChange={(e) =>
-                          updateFormData(e.target.id, e.target.value)
-                        }
-                      />
+                {/* Heading */}
+                <FormType type={props.type} />
+                {/* non-responsive pagination */}
+                <div className="row p-0 m-0 pagination">
+                  <div className="row p-0 m-0"></div>
+                  <Pagination page={3} />
+                  <hr className="bg-secondary form-hr" />
+                </div>
+                <div className="row p-0 m-0">
+                  {/* Form */}
+                  <div className="col-12 p-0">
+                    <div className="row p-0 m-0 my-lg-3 form-row">
+                      <div className="col-12 my-3 my-lg-0">
+                        <p className="field-heading m-0">describe the trail</p>
+                        <textarea
+                          {...register("describeTrail")}
+                          className="filed-input-xlarge"
+                          placeholder="Detailed post on the trail"
+                          value={describeTrail}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="row p-0 m-0 my-lg-3 form-row">
-                    <div className="col-12 my-1 my-lg-0">
-                      <div className="row m-0 p-0">
-                        <p className="field-heading m-0 p-0 my-lg-2">
-                          Upload image
-                        </p>
-                        <div className="col-12 col-lg-7 p-0 upload-wrapper">
-                          {/* File upload */}
-                          {imageLink.length === 0 ? (
-                            <FileUpload />
-                          ) : (
-                            <div className="row m-0 h-100 file-upload d-flex justify-content-center align-items-center">
-                              {createList()}
-                            </div>
-                          )}
-                        </div>
-                        <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
-                          <div className="col-6 col-lg-12 px-lg-3">
-                            <button
-                              type="button"
-                              className="btn btn-previous btn-choose-file align-middle px-0"
-                              data-bs-toggle="modal"
-                              data-bs-target="#uploadImgModal"
-                            >
-                              Choose File
-                            </button>
+                    <div className="row p-0 m-0 my-lg-3 form-row">
+                      <div className="col-12 my-1 my-lg-0">
+                        <div className="row m-0 p-0">
+                          <p className="field-heading m-0 p-0 my-lg-2">
+                            Upload image
+                          </p>
+                          <div className="col-12 col-lg-7 p-0 upload-wrapper">
+                            {/* File upload */}
+                            {imageLink.length === 0 ? (
+                              <FileUpload />
+                            ) : (
+                              <div className="row m-0 h-100 file-upload d-flex justify-content-center align-items-center">
+                                {createList()}
+                              </div>
+                            )}
                           </div>
-                          <div className="col-6 col-lg-12 px-lg-3 d-flex d-md-block justify-content-end">
-                            <button
-                              type="button"
-                              className="btn my-lg-2 btn-discard align-middle"
-                              onClick={() => {
-                                discardFile();
-                              }}
-                            >
-                              Discard Files
-                            </button>
+                          <div className="col-12 col-lg-5 p-0 d-flex d-lg-block">
+                            <div className="col-6 col-lg-12 px-lg-3">
+                              <button
+                                type="button"
+                                className="btn btn-previous btn-choose-file align-middle px-0"
+                                data-bs-toggle="modal"
+                                data-bs-target="#uploadImgModal"
+                              >
+                                Choose File
+                              </button>
+                            </div>
+                            <div className="col-6 col-lg-12 px-lg-3 d-flex d-md-block justify-content-end">
+                              <button
+                                type="button"
+                                className="btn my-lg-2 btn-discard align-middle"
+                                onClick={() => {
+                                  discardFile();
+                                }}
+                              >
+                                Discard Files
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="row m-0">
-                {/* Buttons */}
-                <div className="col-6 d-flex justify-content-start">
-                  <button
-                    type="button"
-                    className="btn my-2 btn-cancel align-middle"
-                    data-bs-toggle="modal"
-                    data-bs-target="#cancelModal"
-                  >
-                    Cancel
-                  </button>
-                </div>
-                <div className="col-6 d-flex justify-content-end">
-                  <button
-                    type="button"
-                    className="btn my-2 btn-previous align-middle"
-                    onClick={() => {
-                      formPreviousPage();
-                    }}
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
-                    className="btn my-2 btn-continue align-middle"
-                    onClick={() => {
-                      formNextPage();
-                    }}
-                  >
-                    Continue
-                  </button>
+                <div className="row m-0">
+                  {/* Buttons */}
+                  <div className="col-6 d-flex justify-content-start">
+                    <button
+                      type="button"
+                      className="btn my-2 btn-cancel align-middle"
+                      data-bs-toggle="modal"
+                      data-bs-target="#cancelModal"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <div className="col-6 d-flex justify-content-end">
+                    <button
+                      type="button"
+                      className="btn my-2 btn-previous align-middle"
+                      onClick={() => {
+                        formPreviousPage();
+                      }}
+                    >
+                      Previous
+                    </button>
+                    <button
+                      type="submit"
+                      className="btn my-2 btn-continue align-middle"
+                    >
+                      Continue
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
       {/* Modal */}
       <div
@@ -167,13 +175,10 @@ function Form3(props) {
                 <div className="d-flex flex-row">
                   <input
                     type="text"
-                    id="imgTempLink"
+                    {...register("imgTempLink")}
                     className="filed-input-modal"
                     placeholder="Trail name"
                     value={imgTempLink}
-                    onChange={(e) =>
-                      updateFormData(e.target.id, e.target.value)
-                    }
                   />
                   <button
                     type="button"

@@ -28,7 +28,7 @@ function Form2(props) {
 
   const onContinue = (data) => {
     try {
-      //form validation here
+      //TODO:form validation here
       setCountry(data.country);
       formNextPage();
     } catch (e) {
