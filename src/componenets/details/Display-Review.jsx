@@ -7,9 +7,9 @@ export default function DisplayReview(props) {
   const reviews = props.reviewsArray;
 
   return reviews.length
-    ? reviews.map((review) => {
+    ? reviews.map((review, index) => {
         return (
-          <React.Fragment key={review.email}>
+          <React.Fragment key={index}>
             <hr />
             <div className="container">
               <div className="col-12 px-2">
