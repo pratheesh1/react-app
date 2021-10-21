@@ -18,6 +18,10 @@
   letter-spacing: -0.333333px;
 }
 
+.delete-trail-btn {
+  color: rgb(165, 18, 18);
+}
+
 .trail-subtext {
   font-family: Roboto;
   font-style: normal;
@@ -125,6 +129,13 @@ input[class="star-radio"]:not(:checked) > label {
   border-radius: 20px;
   width: 175px;
   height: 134px;
+}
+
+.profile-image {
+  height: 55px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* Small devices (landscape phones, 576px and up) */

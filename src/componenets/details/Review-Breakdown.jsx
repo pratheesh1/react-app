@@ -6,6 +6,7 @@ import {
   getPercentage,
   getNumber,
 } from "../trail-card/Trail-Card-Utils";
+import DisplayReview from "./Display-Review";
 
 export default function ReviewBreakdown() {
   const currentElelemt = useDetailedViewStore((state) => state.currentElelemt);
@@ -92,6 +93,9 @@ export default function ReviewBreakdown() {
           </div>
         </div>
       </div>
+      <DisplayReview
+        reviewsArray={currentElelemt.review ? currentElelemt.review : 0}
+      />
     </React.Fragment>
   );
 }

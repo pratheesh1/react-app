@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import "../assets/styles/details.css";
-import { useDetailedViewStore } from "../store";
+import { useDetailedViewStore, useTrailStore } from "../store";
 import Photos from "./details/Photos";
 import ReviewBreakdown from "./details/Review-Breakdown";
 import ReviewForm from "./details/Review-Form";
+import TrailCard from "./trail-card/Trail-Card";
 import {
   getDayOfWeek,
   getMonthName,
   renderReview,
   renderButton,
+  shuffle,
 } from "./trail-card/Trail-Card-Utils";
 
 export default function Details() {
@@ -16,12 +18,26 @@ export default function Details() {
   const setCurrentElement = useDetailedViewStore(
     (state) => state.setCurrentElement
   );
-  const currentView = useDetailedViewStore((store) => store.currentView);
+  const detailedView = useDetailedViewStore((state) => state.detailedView);
+  const currentView = useDetailedViewStore((state) => state.currentView);
   const setCurrentView = useDetailedViewStore((state) => state.setCurrentView);
 
   useEffect(() => {
     setCurrentElement();
-  }, []);
+  }, [detailedView]);
+
+  const allTrails = useTrailStore((state) => state.trailsData).filter(
+    (trail) => trail._id !== currentElelemt._id
+  );
+  const suggestedTrail = shuffle(allTrails).slice(0, 2);
+
+  const generateTrailsCard = () => {
+    return suggestedTrail.map((trail) => (
+      <div className="my-2 my-lg-0" key={trail._id}>
+        <TrailCard trail={trail} />
+      </div>
+    ));
+  };
 
   return (
     <div className="details-wrapper">
@@ -35,7 +51,27 @@ export default function Details() {
             />
             {/* main Content */}
             <div className="row m-0 my-4">
-              <h3 className="trail-heading">{currentElelemt.trailName}</h3>
+              <div className="col-9 m-0 p-0">
+                <h3 className="trail-heading">{currentElelemt.trailName}</h3>
+              </div>
+              <div className="col-3 m-0 p-0 d-flex flex-row justify-content-end">
+                <div
+                  className="col-6 m-0 p-0 d-flex justify-content-end"
+                  role="button"
+                >
+                  <i
+                    className="far fa-edit fs-3"
+                    onClick={() => console.log("edit button")}
+                  ></i>
+                </div>
+                <div className="col-6 m-0 p-0 d-flex justify-content-around">
+                  <i
+                    className="fas fa-trash-alt fs-3 delete-trail-btn"
+                    role="button"
+                    onClick={() => console.log("delete button")}
+                  ></i>
+                </div>
+              </div>
             </div>
             <div className="row m-0 my-2 px-2 trail-subtext">
               {currentElelemt.description}
@@ -111,9 +147,14 @@ export default function Details() {
               <div className="col-12 p-0"></div>
             </div>
           </div>
-          <div className="col-12 col-lg-4 bg-secondary">
+          <div className="col-12 col-lg-4">
             {/* suggested cards here */}
-            OLA
+            <div className="container">
+              <div className="row">
+                <h4 className="mx-lg-4 pt-3">More reading:</h4>
+              </div>
+              <div className="row">{generateTrailsCard()}</div>
+            </div>
           </div>
         </div>
       </article>

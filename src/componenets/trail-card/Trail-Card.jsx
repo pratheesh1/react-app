@@ -8,10 +8,10 @@ export default function TrailCard(props) {
   const setDetailedView = useDetailedViewStore(
     (state) => state.setDetailedView
   );
-
   return (
     <div
       className="col d-flex justify-content-center my-xxl-4"
+      role="button"
       onClick={() => {
         setPage("details");
         setDetailedView(props.trail._id);
@@ -21,7 +21,9 @@ export default function TrailCard(props) {
         <div
           className="img"
           style={{
-            backgroundImage: `url(${props.trail.images[0]})`,
+            backgroundImage: `url(${
+              props.trail.images ? props.trail.images[0] : ""
+            })`,
           }}
         ></div>
         <div className="trail-card-body mx-2">
