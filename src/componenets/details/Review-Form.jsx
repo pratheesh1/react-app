@@ -3,20 +3,17 @@ import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
 
 export default function ReviewForm() {
-  const rating = useDetailedViewStore((state) => state.rating);
-  const username = useDetailedViewStore((state) => state.username);
-  const email = useDetailedViewStore((state) => state.email);
-  const reviewText = useDetailedViewStore((state) => state.reviewText);
   const updateForm = useDetailedViewStore((state) => state.updateForm);
   const addReview = useDetailedViewStore((state) => state.addReview);
 
-  const { register, handleSubmit, error } = useForm();
+  const { register, handleSubmit, reset, error } = useForm();
 
   const onContinue = (data) => {
     try {
       //TODO:form validation here
       for (const key in data) {
         updateForm(key, data[key]);
+        reset();
       }
       addReview();
     } catch (e) {

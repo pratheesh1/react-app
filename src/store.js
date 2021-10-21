@@ -150,7 +150,13 @@ const detailedViewStore = (set, get) => ({
         `${trails_api_endpoint}/${get().detailedView}`,
         updatedRating
       );
-      set(() => ({ updated: true }));
+      set(() => ({
+        updated: true,
+        rating: "",
+        username: "",
+        reviewText: "",
+        email: "",
+      }));
     } catch (e) {
       console.log(e);
     }
