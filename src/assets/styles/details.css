@@ -103,7 +103,6 @@ input[class="star-radio"]:not(:checked) > label {
   height: 10px;
   background: #deb217;
   border-radius: 15px;
-  max-width: 90%;
 }
 
 .photo-heading {

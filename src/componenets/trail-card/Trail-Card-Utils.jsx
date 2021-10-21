@@ -95,7 +95,10 @@ const getPercentage = (element, number) => {
     const numberOfReview = element.review.filter(
       (review) => review.rating === number
     ).length;
-    const percentage = (numberOfReview / review) * 100;
+    var percentage = (numberOfReview / review) * 100;
+    if (percentage > 50) {
+      percentage = 65;
+    }
     return percentage.toString() + "%";
   } else {
     return "0%";
