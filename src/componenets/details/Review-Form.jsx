@@ -1,6 +1,14 @@
 import React from "react";
+import { useDetailedViewStore } from "../../store";
 
 export default function ReviewForm() {
+  const rating = useDetailedViewStore((state) => state.rating);
+  const username = useDetailedViewStore((state) => state.username);
+  const email = useDetailedViewStore((state) => state.email);
+  const reviewText = useDetailedViewStore((state) => state.reviewText);
+  const updateForm = useDetailedViewStore((state) => state.updateForm);
+  const addReview = useDetailedViewStore((state) => state.addReview);
+
   return (
     <React.Fragment>
       <div className="row m-0 px-2 main-text">
@@ -14,8 +22,11 @@ export default function ReviewForm() {
             id="star5"
             name="rating"
             value="5"
+            checked={rating === 5}
             className="star-radio"
-            onChange={(e) => console.log(e.target.value, e.target.name)}
+            onChange={(e) =>
+              updateForm(e.target.name, parseInt(e.target.value))
+            }
           />
           <label
             className="star-label"
@@ -30,8 +41,11 @@ export default function ReviewForm() {
             id="star4"
             name="rating"
             value="4"
+            checked={rating === 4}
             className="star-radio"
-            onChange={(e) => console.log(e.target.value, e.target.name)}
+            onChange={(e) =>
+              updateForm(e.target.name, parseInt(e.target.value))
+            }
           />
           <label
             className="star-label"
@@ -46,8 +60,11 @@ export default function ReviewForm() {
             id="star3"
             name="rating"
             value="3"
+            checked={rating === 3}
             className="star-radio"
-            onChange={(e) => console.log(e.target.value, e.target.name)}
+            onChange={(e) =>
+              updateForm(e.target.name, parseInt(e.target.value))
+            }
           />
           <label
             className="star-label"
@@ -62,8 +79,11 @@ export default function ReviewForm() {
             id="star2"
             name="rating"
             value="2"
+            checked={rating === 2}
             className="star-radio"
-            onChange={(e) => console.log(e.target.value, e.target.name)}
+            onChange={(e) =>
+              updateForm(e.target.name, parseInt(e.target.value))
+            }
           />
           <label
             className="star-label"
@@ -78,8 +98,11 @@ export default function ReviewForm() {
             id="star1"
             name="rating"
             value="1"
+            checked={rating === 1}
             className="star-radio"
-            onChange={(e) => console.log(e.target.value, e.target.name)}
+            onChange={(e) =>
+              updateForm(e.target.name, parseInt(e.target.value))
+            }
           />
           <label
             className="star-label"
@@ -96,22 +119,22 @@ export default function ReviewForm() {
           <p className="field-heading m-0">name</p>
           <input
             type="text"
-            id="reviewName"
+            name="username"
             className="filed-input-small"
             placeholder="Name"
-            value=""
-            onChange={(e) => console.log(e.target.id, e.target.value)}
+            value={username}
+            onChange={(e) => updateForm(e.target.name, e.target.value)}
           />
         </div>
         <div className="col-12 col-xl-6">
           <p className="field-heading m-0">email</p>
           <input
             type="text"
-            id="reviewEmail"
+            name="email"
             className="filed-input-small"
             placeholder="Name"
-            value=""
-            onChange={(e) => console.log(e.target.id, e.target.value)}
+            value={email}
+            onChange={(e) => updateForm(e.target.name, e.target.value)}
           />
         </div>
       </div>
@@ -119,11 +142,11 @@ export default function ReviewForm() {
         <div className="col-12">
           <textarea
             type="text"
-            id="newReviewText"
+            name="reviewText"
             className="review-text"
             placeholder="Tell us what you think"
-            value=""
-            onChange={(e) => console.log(e.target.id, e.target.value)}
+            value={reviewText}
+            onChange={(e) => updateForm(e.target.name, e.target.value)}
           />
         </div>
       </div>
@@ -132,7 +155,7 @@ export default function ReviewForm() {
           type="button"
           className="btn submit-review-btn"
           onClick={() => {
-            console.log("clicked");
+            addReview();
           }}
         >
           Submit Review

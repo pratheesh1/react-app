@@ -71,11 +71,15 @@ export default function ReviewBreakdown() {
               <div className="col-12 d-flex justify-content-center agv-review">
                 {currentElelemt.review
                   ? currentElelemt.review.length > 0
-                    ? currentElelemt.review.reduce(
-                        (previousValue, currentValue) => ({
-                          rating: previousValue.rating + currentValue.rating,
-                        })
-                      ).rating / currentElelemt.review.length
+                    ? Math.round(
+                        (currentElelemt.review.reduce(
+                          (previousValue, currentValue) => ({
+                            rating: previousValue.rating + currentValue.rating,
+                          })
+                        ).rating /
+                          currentElelemt.review.length) *
+                          100
+                      ) / 100
                     : 0
                   : 0}
               </div>

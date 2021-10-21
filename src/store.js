@@ -6,7 +6,6 @@ import axios from "axios";
 // TODO: to move api_base_url to env variable
 const api_base_url = "http://localhost:3500";
 const trails_api_endpoint = api_base_url + "/trails";
-const trails_id_api_endpoint = api_base_url + "/trails/";
 
 const instance = axios.create({
   baseURL: api_base_url,
@@ -119,16 +118,42 @@ const detailedViewStore = (set, get) => ({
   detailedView: "616c0a04c6905716d039f20b",
   currentElelemt: {},
   currentView: "review",
+  rating: 0,
+  username: "",
+  email: "",
+  reviewText: "",
+  updated: false,
 
   //callback functions
   setDetailedView: (id) => set(() => ({ detailedView: id })),
+  updateForm: (target, value) => set(() => ({ [target]: value })),
   setCurrentElement: async () => {
     await instance
-      .get(trails_id_api_endpoint + get().detailedView)
+      .get(`${trails_api_endpoint}/${get().detailedView}`)
       .then((res) => {
         set(() => ({ currentElelemt: res.data }));
       })
       .catch((e) => console.log(e));
+  },
+  addReview: async () => {
+    set(() => ({ updated: false }));
+    const rating = {
+      rating: get().rating,
+      username: get().username,
+      email: get().email,
+      reviewText: get().reviewText,
+      datetime: new Date().toISOString(),
+    };
+    const updatedRating = { review: [...get().currentElelemt.review, rating] };
+    try {
+      await instance.put(
+        `${trails_api_endpoint}/${get().detailedView}`,
+        updatedRating
+      );
+      set(() => ({ updated: true }));
+    } catch (e) {
+      console.log(e);
+    }
   },
   setCurrentView: (element) => set(() => ({ currentView: element })),
   destroyCurrentElelemt: () => set(() => ({ currentElelemt: {} })),
@@ -156,7 +181,7 @@ const useTrailStore = create(devtools(trailStore));
 /*-----------store for everything else-----------*/
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
+  currentPage: "details",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),

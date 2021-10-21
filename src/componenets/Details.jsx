@@ -21,10 +21,11 @@ export default function Details() {
   const detailedView = useDetailedViewStore((state) => state.detailedView);
   const currentView = useDetailedViewStore((state) => state.currentView);
   const setCurrentView = useDetailedViewStore((state) => state.setCurrentView);
+  const updated = useDetailedViewStore((state) => state.updated);
 
   useEffect(() => {
     setCurrentElement();
-  }, [detailedView]);
+  }, [detailedView, updated]);
 
   const allTrails = useTrailStore((state) => state.trailsData).filter(
     (trail) => trail._id !== currentElelemt._id
@@ -33,7 +34,7 @@ export default function Details() {
 
   const generateTrailsCard = () => {
     return suggestedTrail.map((trail) => (
-      <div className="my-2 my-lg-0" key={trail._id}>
+      <div className="my-2" key={trail._id}>
         <TrailCard trail={trail} />
       </div>
     ));
