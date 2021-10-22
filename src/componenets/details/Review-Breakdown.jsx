@@ -1,12 +1,9 @@
 import React from "react";
 import { useDetailedViewStore } from "../../store";
 import "../../assets/styles/details.css";
-import {
-  renderReview,
-  getPercentage,
-  getNumber,
-} from "../trail-card/Trail-Card-Utils";
+import { renderReview } from "../trail-card/Trail-Card-Utils";
 import DisplayReview from "./Display-Review";
+import { getNumber, getPercentage } from "../../utils";
 
 export default function ReviewBreakdown() {
   //get state values and functions from different stores

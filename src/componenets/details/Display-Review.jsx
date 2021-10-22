@@ -1,7 +1,8 @@
 import React from "react";
 import profile from "../../assets/images/profile.avif";
 import "../../assets/styles/details.css";
-import { getMonthName, renderReview } from "../trail-card/Trail-Card-Utils";
+import { renderReview } from "../trail-card/Trail-Card-Utils";
+import { getMonthName } from "../../utils";
 
 export default function DisplayReview(props) {
   //display reviews in reverse order (crude attempt at displaying chronologically)

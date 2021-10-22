@@ -10,13 +10,8 @@ import Photos from "./details/Photos";
 import ReviewBreakdown from "./details/Review-Breakdown";
 import ReviewForm from "./details/Review-Form";
 import TrailCard from "./trail-card/Trail-Card";
-import {
-  getDayOfWeek,
-  getMonthName,
-  renderReview,
-  renderButton,
-  shuffle,
-} from "./trail-card/Trail-Card-Utils";
+import { renderReview, renderButton } from "./trail-card/Trail-Card-Utils";
+import { getDayOfWeek, getMonthName, shuffle } from "../utils";
 
 export default function Details() {
   //get state values and functions from different stores
