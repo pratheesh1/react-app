@@ -5,33 +5,35 @@ import Cancel from "./Cancel";
 import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { formPage1 } from "../../validation";
 
 function Form1(props) {
+  //get state values and functions from different stores
   const { firstName, lastName, email, aboutYou } = useFormStore(
     (state) => state.formData
   );
   const { updateForm, formNextPage } = useFormStore();
-  const { register, handleSubmit, watch, error } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formPage1),
+  });
 
+  //watch for input value changes and update state
   watch((data) => {
     for (const key in data) {
       updateForm(key, data[key]);
     }
   });
 
-  const onContinue = (data) => {
-    try {
-      //TODO:form validation here
-      formNextPage();
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
-        <form onSubmit={handleSubmit(onContinue)}>
+        <form onSubmit={handleSubmit(formNextPage)}>
           <div className="container form-wrapper">
             <div className="container from-content-wrapper">
               <div className="row p-0 m-0">
@@ -56,6 +58,11 @@ function Form1(props) {
                           placeholder="First name"
                           value={firstName}
                         />
+                        {errors.firstName && (
+                          <p className="form-error">
+                            {errors.firstName.message}
+                          </p>
+                        )}
                       </div>
                       <div className="col-12 col-lg-6 my-3 my-lg-0">
                         <p className="field-heading m-0">last name</p>
@@ -66,6 +73,11 @@ function Form1(props) {
                           placeholder="Last name"
                           value={lastName}
                         />
+                        {errors.lastName && (
+                          <p className="form-error">
+                            {errors.lastName.message}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="row p-0 m-0 my-lg-3 form-row">
@@ -78,6 +90,9 @@ function Form1(props) {
                           placeholder="Email ID"
                           value={email}
                         />
+                        {errors.email && (
+                          <p className="form-error">{errors.email.message}</p>
+                        )}
                       </div>
                     </div>
                     <div className="row p-0 m-0 my-lg-3 form-row">

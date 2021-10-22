@@ -4,12 +4,14 @@ import { useGlobalStore, useDetailedViewStore } from "../../store";
 import { renderButton, renderReview } from "./Trail-Card-Utils";
 
 export default function TrailCard(props) {
+  //get state values and functions from different stores
   const setPage = useGlobalStore((state) => state.setPage);
   const setDetailedView = useDetailedViewStore(
     (state) => state.setDetailedView
   );
 
   return (
+    // Trail card
     <div
       className="col d-flex justify-content-center my-xxl-4"
       role="button"

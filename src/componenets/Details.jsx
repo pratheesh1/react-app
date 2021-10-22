@@ -19,6 +19,7 @@ import {
 } from "./trail-card/Trail-Card-Utils";
 
 export default function Details() {
+  //get state values and functions from different stores
   const {
     currentElelemt,
     setCurrentElement,
@@ -29,17 +30,19 @@ export default function Details() {
     deleteTrail,
   } = useDetailedViewStore();
   const setPage = useGlobalStore((state) => state.setPage);
-  const { formNextPage, setFormType, updateForm } = useFormStore();
+  const { formNextPage, setFormType, updateForm, setTrailBeingEdited } =
+    useFormStore();
 
+  //fetch data and sunscribe to state changes
   useEffect(() => {
     setCurrentElement();
   }, [detailedView, updated, setCurrentElement]);
 
+  //get 2 random trail cards as suggested reading
   const allTrails = useTrailStore((state) => state.trailsData).filter(
     (trail) => trail._id !== currentElelemt._id
   );
   const suggestedTrail = shuffle(allTrails).slice(0, 2);
-
   const generateTrailsCard = () => {
     return suggestedTrail.map((trail) => (
       <div className="my-2" key={trail._id}>
@@ -48,6 +51,7 @@ export default function Details() {
     ));
   };
 
+  //function to set form-state data to enable edit trail
   const updateEditFormState = () => {
     updateForm("_id", currentElelemt._id);
     updateForm("trailName", currentElelemt.trailName);
@@ -59,6 +63,7 @@ export default function Details() {
     updateForm("timeToComplete", currentElelemt.timeToComplete);
     updateForm("describeTrail", currentElelemt.describeTrail);
     updateForm("imageLink", currentElelemt.images);
+    setTrailBeingEdited(currentElelemt.trailName);
   };
 
   return (

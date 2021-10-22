@@ -119,8 +119,8 @@ const getNumber = (element, number) => {
 };
 
 //shuffle array
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-  // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   let currentIndex = array.length,
     randomIndex;
   while (currentIndex !== 0) {

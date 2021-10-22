@@ -3,20 +3,24 @@ import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
 
 export default function ReviewForm() {
+  //get state values and functions from different stores
   const { updateForm, addReview } = useDetailedViewStore();
-  const { register, handleSubmit, reset, error } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
 
+  //TODO: Form validation
+
+  //onsubmit callback function
   const onContinue = (data) => {
-    try {
-      //TODO:form validation here
-      for (const key in data) {
-        updateForm(key, data[key]);
-        reset();
-      }
-      addReview();
-    } catch (e) {
-      console.log(e);
+    for (const key in data) {
+      updateForm(key, data[key]);
+      reset();
     }
+    addReview();
   };
 
   return (

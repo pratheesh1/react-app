@@ -7,6 +7,7 @@ export default function Pagination(props) {
       <div className="container">
         {" "}
         <div className="row row-cols-5 g-0">
+          {/* page 1 */}
           <div
             className={
               props.page === 1
@@ -38,6 +39,7 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
+          {/* page 2 */}
           <div
             className={
               props.page === 2
@@ -75,6 +77,7 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
+          {/* page 3 */}
           <div
             className={
               props.page === 3
@@ -112,6 +115,7 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
+          {/* page 4 */}
           <div
             className={
               props.page === 4
@@ -149,6 +153,7 @@ export default function Pagination(props) {
               </div>
             </div>
           </div>
+          {/* page 5 */}
           <div
             className={
               props.page === 5

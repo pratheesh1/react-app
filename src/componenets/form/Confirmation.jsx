@@ -6,6 +6,7 @@ import { useFormStore, useGlobalStore } from "../../store";
 
 //button click handler
 function tryAgain() {
+  //getting non-reactive fresh state
   const currentPage = useFormStore.getState().formPage;
   useFormStore.setState({ formPage: currentPage - 1 });
 }
@@ -14,6 +15,7 @@ const showConfirmation = (confirmation, setPage, formReset) => {
   switch (confirmation) {
     case true:
       return (
+        //sucessfully added/updated trail
         <React.Fragment>
           <div className="row banner-wrapper">
             <div className="row banner-header success-banner">
@@ -46,6 +48,7 @@ const showConfirmation = (confirmation, setPage, formReset) => {
       );
     default:
       return (
+        //adding/updating trail failed
         <React.Fragment>
           <div className="row banner-wrapper">
             <div className="row banner-header error-banner">
@@ -76,6 +79,7 @@ const showConfirmation = (confirmation, setPage, formReset) => {
   }
 };
 
+//export non-reactive component
 export default function Confirmation(props) {
   const setPage = useGlobalStore((state) => state.setPage);
   const formReset = useFormStore((state) => state.formReset);

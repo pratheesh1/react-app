@@ -1,18 +1,18 @@
 import create from "zustand";
 import { devtools } from "zustand/middleware";
 import axios from "axios";
+import {
+  api_base_url as baseApiUrl,
+  trails_api_endpoint as trailsApiUrl,
+} from "./api";
 
 //initiate axios instance
-// TODO: to move api_base_url to env variable
-const api_base_url = "http://localhost:3500";
-const trails_api_endpoint = api_base_url + "/trails";
-
 const instance = axios.create({
-  baseURL: api_base_url,
+  baseURL: baseApiUrl,
   timeout: 1000,
 });
 
-/*-----------store for form-----------*/
+/*  -------- ** -------- | store for form |  -------- ** --------  */
 const formStore = (set, get) => ({
   //state variables
   formData: {
@@ -35,11 +35,13 @@ const formStore = (set, get) => ({
   formType: "",
   formPage: 1,
   formUpdateStatus: false,
+  trailBeingEdited: "",
 
   //callback functions
   setFormType: (type) => set(() => ({ formType: type })),
   updateForm: (target, value) =>
     set((state) => ({ formData: { ...state.formData, [target]: value } })),
+  setTrailBeingEdited: (value) => set(() => ({ trailBeingEdited: value })),
   formNextPage: () => set((state) => ({ formPage: state.formPage + 1 })),
   formPreviousPage: () => set((state) => ({ formPage: state.formPage - 1 })),
   addImgLink: () =>
@@ -75,7 +77,7 @@ const formStore = (set, get) => ({
       },
     };
     try {
-      await instance.post(trails_api_endpoint, newTrail);
+      await instance.post(trailsApiUrl, newTrail);
       set((state) => ({
         formUpdateStatus: true,
         formPage: state.formPage + 1,
@@ -87,6 +89,7 @@ const formStore = (set, get) => ({
       console.log(e);
     }
   },
+  // submit updated form to api
   submitUpdate: async () => {
     // create updated object from form
     var updatedTrail = {
@@ -103,10 +106,7 @@ const formStore = (set, get) => ({
       images: get().formData.imageLink,
     };
     try {
-      await instance.put(
-        `${trails_api_endpoint}/${get().formData._id}`,
-        updatedTrail
-      );
+      await instance.put(`${trailsApiUrl}/${get().formData._id}`, updatedTrail);
       set((state) => ({
         formUpdateStatus: true,
         formPage: state.formPage + 1,
@@ -143,10 +143,10 @@ const formStore = (set, get) => ({
 });
 const useFormStore = create(devtools(formStore));
 
-/*-----------store for detailed view-----------*/
+/*  -------- ** -------- | store for detailed view |  -------- ** --------  */
 const detailedViewStore = (set, get) => ({
   //state variable
-  detailedView: "616c0a04c6905716d039f20b",
+  detailedView: "",
   currentElelemt: {},
   currentView: "review",
   rating: 0,
@@ -161,7 +161,7 @@ const detailedViewStore = (set, get) => ({
   updateForm: (target, value) => set(() => ({ [target]: value })),
   setCurrentElement: async () => {
     await instance
-      .get(`${trails_api_endpoint}/${get().detailedView}`)
+      .get(`${trailsApiUrl}/${get().detailedView}`)
       .then((res) => {
         set(() => ({ currentElelemt: res.data }));
       })
@@ -179,7 +179,7 @@ const detailedViewStore = (set, get) => ({
     const updatedRating = { review: [...get().currentElelemt.review, rating] };
     try {
       await instance.put(
-        `${trails_api_endpoint}/${get().detailedView}`,
+        `${trailsApiUrl}/${get().detailedView}`,
         updatedRating
       );
       set(() => ({
@@ -202,7 +202,7 @@ const detailedViewStore = (set, get) => ({
     };
     try {
       await instance.put(
-        `${trails_api_endpoint}/${get().detailedView}`,
+        `${trailsApiUrl}/${get().detailedView}`,
         updatedImages
       );
       set(() => ({
@@ -215,7 +215,7 @@ const detailedViewStore = (set, get) => ({
   },
   deleteTrail: async () => {
     try {
-      await instance.delete(`${trails_api_endpoint}/${get().detailedView}`);
+      await instance.delete(`${trailsApiUrl}/${get().detailedView}`);
     } catch (e) {
       console.log(e);
     }
@@ -223,7 +223,7 @@ const detailedViewStore = (set, get) => ({
 });
 const useDetailedViewStore = create(devtools(detailedViewStore));
 
-/*-----------store for trails-----------*/
+/*  -------- ** -------- | store for trails |  -------- ** --------  */
 const trailStore = (set, get) => ({
   //state variables
   trailsData: [],
@@ -232,7 +232,7 @@ const trailStore = (set, get) => ({
   //callback functions
   setTrailsData: async () => {
     await instance
-      .get(trails_api_endpoint)
+      .get(trailsApiUrl)
       .then((res) => {
         set(() => ({ trailsData: res.data, numberOfTrails: res.data.length }));
       })
@@ -241,7 +241,7 @@ const trailStore = (set, get) => ({
 });
 const useTrailStore = create(devtools(trailStore));
 
-/*-----------store for everything else-----------*/
+/*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
   //state variables
   currentPage: "browseTrails",

@@ -4,14 +4,16 @@ import "../../assets/styles/details.css";
 import { getMonthName, renderReview } from "../trail-card/Trail-Card-Utils";
 
 export default function DisplayReview(props) {
+  //display reviews in reverse order (crude attempt at displaying chronologically)
   const reviewsArrayObj = props.reviewsArray;
-
   let reviews = [];
   for (let i = 0; i < reviewsArrayObj.length; i++) {
     reviews.push(reviewsArrayObj[i]);
   }
   reviews.reverse();
 
+  //map through the array and create review elements
+  // TODO: avarats?
   return reviews.length
     ? reviews.map((review, index) => {
         return (

@@ -9,9 +9,11 @@ import {
 import DisplayReview from "./Display-Review";
 
 export default function ReviewBreakdown() {
+  //get state values and functions from different stores
   const currentElelemt = useDetailedViewStore((state) => state.currentElelemt);
 
   return (
+    // generate a detailed breakdown of all reviews for the trail
     <React.Fragment>
       <div className="col-12 p-0">
         <div className="row m-0">

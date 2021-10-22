@@ -6,7 +6,9 @@ import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 
 function Form5(props) {
+  //get state values and functions from different stores
   const formUpdateStatus = useFormStore((state) => state.formUpdateStatus);
+
   return (
     <React.Fragment>
       <div className="row p-0 m-0">

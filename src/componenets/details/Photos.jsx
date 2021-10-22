@@ -4,10 +4,17 @@ import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
 
 export default function Photos() {
+  //get state values and functions from different stores
   const { currentElelemt, newImage, updateForm, addImage } =
     useDetailedViewStore();
-  const { register, handleSubmit, watch, error } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
+  //create image html components
   const renderImages = (images) => {
     const imageComponents = images.map((img, index) => {
       return (
@@ -27,14 +34,7 @@ export default function Photos() {
     }
   });
 
-  const onAdd = (data) => {
-    try {
-      //TODO: do validation here
-      addImage();
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  //TODO: form validation
 
   return (
     <React.Fragment>
@@ -75,7 +75,7 @@ export default function Photos() {
         aria-hidden="true"
       >
         <div className="modal-dialog modal-dialog-centered">
-          <form onSubmit={handleSubmit(onAdd)}>
+          <form onSubmit={handleSubmit(addImage)}>
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title field-heading">Add Image Links</h5>

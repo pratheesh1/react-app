@@ -2,10 +2,12 @@ import React from "react";
 import { useFormStore, useGlobalStore } from "../../store";
 
 export default function Cancel() {
+  //get state values and functions from different stores
   const { setPage, currentPage } = useGlobalStore();
   const formReset = useFormStore((store) => store.formReset);
 
   return (
+    // cancel modal
     <div
       className="modal fade"
       id="cancelModal"

@@ -7,8 +7,11 @@ import Form5 from "./Form-5";
 import { useFormStore } from "../../store";
 
 export default function SwitchFormPage(props) {
+  //get state values and functions from different stores
   var page = useFormStore((state) => state.formPage);
   var formType = useFormStore((state) => state.formType);
+
+  //render page based on page number
   var switchFormPages = () => {
     switch (page) {
       case 1:

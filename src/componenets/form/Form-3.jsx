@@ -6,8 +6,11 @@ import Cancel from "./Cancel";
 import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { formPage3 } from "../../validation";
 
 function Form3(props) {
+  //get state values and functions from different stores
   const { describeTrail, imageLink, imgTempLink } = useFormStore(
     (state) => state.formData
   );
@@ -18,22 +21,21 @@ function Form3(props) {
     discardFile,
     addImgLink,
   } = useFormStore();
-  const { register, handleSubmit, watch, error } = useForm();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(formPage3),
+  });
 
+  //watch for input value changes and update state
   watch((data) => {
     for (const key in data) {
       updateForm(key, data[key]);
     }
   });
-
-  const onContinue = (data) => {
-    try {
-      //TODO:form validation here
-      formNextPage();
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   //create list of images
   const createList = () => {
@@ -47,7 +49,7 @@ function Form3(props) {
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
-        <form onSubmit={handleSubmit(onContinue)}>
+        <form onSubmit={handleSubmit(formNextPage)}>
           <div className="container form-wrapper">
             <div className="container from-content-wrapper">
               <div className="row p-0 m-0">
@@ -71,6 +73,11 @@ function Form3(props) {
                           placeholder="Detailed post on the trail"
                           value={describeTrail}
                         />
+                        {errors.describeTrail && (
+                          <p className="form-error">
+                            {errors.describeTrail.message}
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="row p-0 m-0 my-lg-3 form-row">

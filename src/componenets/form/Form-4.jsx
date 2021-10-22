@@ -6,6 +6,7 @@ import FormType from "./Form-Type";
 import { useFormStore } from "../../store";
 
 function Form4(props) {
+  //get state values and functions from different stores
   const {
     firstName,
     lastName,
@@ -39,6 +40,11 @@ function Form4(props) {
   };
 
   //create list of images
+  /*TODO:
+  - Edit to make this more appealling
+  - Add individual remove buttons
+  - Give aliases for images (Image1 , Image 2 etc, instead of showing whole link)
+  */
   const createList = () => {
     return imageLink.map((link, index) => (
       <p className="image-links-list m-0" key={index}>

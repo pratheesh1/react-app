@@ -25,6 +25,13 @@
   padding: 0 5px 0 5px;
 }
 
+.form-error {
+  color: red;
+  padding-top: 5px;
+  font-size: 13px;
+  font-family: "Courier New", Courier, monospace;
+}
+
 .review-hr {
   margin-bottom: 15px !important;
 }
