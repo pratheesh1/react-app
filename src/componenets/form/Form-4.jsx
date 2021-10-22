@@ -19,7 +19,8 @@ function Form4(props) {
     describeTrail,
     imageLink,
   } = useFormStore((state) => state.formData);
-  const { formPreviousPage, submitForm } = useFormStore();
+  const { formPreviousPage, submitForm, submitUpdate, formType } =
+    useFormStore();
 
   //get difficulty level
   const getDifficultyLevel = () => {
@@ -64,28 +65,34 @@ function Form4(props) {
                 {/* Form */}
                 <div className="col-12 p-0">
                   {/* about you */}
-                  <div className="row p-0 m-0 my-lg-3">
-                    <div className="col-12 col-lg-2 order-2 order-lg-1 m-0 d-flex align-items-end">
-                      <p className="field-heading m-0">about you</p>
-                    </div>
-                    <div className="col-12 col-lg-10 order-1 order-lg-2 py-0 m-0">
-                      <div className="p-0 m-0 py-lg-1 d-flex flex-row">
-                        <p className="field-review m-0">name:</p>
-                        <span className="p-0 m-0">
-                          {firstName + " " + lastName}
-                        </span>
+                  {formType === "add" ? (
+                    <React.Fragment>
+                      <div className="row p-0 m-0 my-lg-3">
+                        <div className="col-12 col-lg-2 order-2 order-lg-1 m-0 d-flex align-items-end">
+                          <p className="field-heading m-0">about you</p>
+                        </div>
+                        <div className="col-12 col-lg-10 order-1 order-lg-2 py-0 m-0">
+                          <div className="p-0 m-0 py-lg-1 d-flex flex-row">
+                            <p className="field-review m-0">name:</p>
+                            <span className="p-0 m-0">
+                              {firstName + " " + lastName}
+                            </span>
+                          </div>
+                          <div className="p-0 m-0 py-lg-1 d-flex flex-row">
+                            <p className="field-review m-0">email:</p>
+                            <span className="p-0 m-0">{email}</span>
+                          </div>
+                          <div className="p-0 m-0 py-lg-1 d-flex flex-row">
+                            <p className="field-review m-0">description:</p>
+                            <span className="p-0 m-0">{aboutYou}</span>
+                          </div>
+                        </div>
                       </div>
-                      <div className="p-0 m-0 py-lg-1 d-flex flex-row">
-                        <p className="field-review m-0">email:</p>
-                        <span className="p-0 m-0">{email}</span>
-                      </div>
-                      <div className="p-0 m-0 py-lg-1 d-flex flex-row">
-                        <p className="field-review m-0">description:</p>
-                        <span className="p-0 m-0">{aboutYou}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr className="p-0 m-0 review-hr" />
+                      <hr className="p-0 m-0 review-hr" />
+                    </React.Fragment>
+                  ) : (
+                    ""
+                  )}
                   {/* trail */}
                   <div className="row p-0 m-0 my-lg-3">
                     <div className="col-12 col-lg-2 order-2 order-lg-1 m-0 d-flex align-items-end">
@@ -179,7 +186,7 @@ function Form4(props) {
                     type="button"
                     className="btn my-2 btn-continue align-middle"
                     onClick={() => {
-                      submitForm();
+                      formType === "add" ? submitForm() : submitUpdate();
                     }}
                   >
                     Confirm

@@ -10,10 +10,12 @@ function Form2(props) {
   const {
     trailName,
     country,
+    countryName,
     difficultyLevel,
     distance,
     description,
     timeToComplete,
+    formType,
   } = useFormStore((state) => state.formData);
   const { updateForm, formNextPage, formPreviousPage } = useFormStore();
   const { register, handleSubmit, watch, error } = useForm();
@@ -36,10 +38,12 @@ function Form2(props) {
 
   //set country
   const setCountry = (value) => {
-    var slectedCountry = props.countries.find(
+    const slectedCountry = props.countries.find(
       (country) => country.country_id === parseInt(value)
     );
-    updateForm("countryName", slectedCountry.country);
+    slectedCountry
+      ? updateForm("countryName", slectedCountry.country)
+      : updateForm("countryName", countryName);
   };
 
   //create list of countries
@@ -161,15 +165,17 @@ function Form2(props) {
                     </button>
                   </div>
                   <div className="col-6 d-flex justify-content-end">
-                    <button
-                      type="button"
-                      className="btn my-2 btn-previous align-middle"
-                      onClick={() => {
-                        formPreviousPage();
-                      }}
-                    >
-                      Previous
-                    </button>
+                    {formType === "add" && (
+                      <button
+                        type="button"
+                        className="btn my-2 btn-previous align-middle"
+                        onClick={() => {
+                          formPreviousPage();
+                        }}
+                      >
+                        Previous
+                      </button>
+                    )}
                     <button
                       type="submit"
                       className="btn my-2 btn-continue align-middle"

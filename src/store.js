@@ -16,6 +16,7 @@ const instance = axios.create({
 const formStore = (set, get) => ({
   //state variables
   formData: {
+    _id: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -74,12 +75,42 @@ const formStore = (set, get) => ({
       },
     };
     try {
-      await instance.post(trails_api_endpoint, newTrail).then(() => {
-        set((state) => ({
-          formUpdateStatus: true,
-          formPage: state.formPage + 1,
-        }));
-      });
+      await instance.post(trails_api_endpoint, newTrail);
+      set((state) => ({
+        formUpdateStatus: true,
+        formPage: state.formPage + 1,
+      }));
+    } catch (e) {
+      set((state) => ({
+        formPage: state.formPage + 1,
+      }));
+      console.log(e);
+    }
+  },
+  submitUpdate: async () => {
+    // create updated object from form
+    var updatedTrail = {
+      trailName: get().formData.trailName,
+      description: get().formData.description,
+      country: {
+        id: parseInt(get().formData.country),
+        name: get().formData.countryName,
+      },
+      difficulty: parseInt(get().formData.difficultyLevel),
+      distance: parseFloat(get().formData.distance),
+      timeToComplete: get().formData.timeToComplete,
+      describeTrail: get().formData.describeTrail,
+      images: get().formData.imageLink,
+    };
+    try {
+      await instance.put(
+        `${trails_api_endpoint}/${get().formData._id}`,
+        updatedTrail
+      );
+      set((state) => ({
+        formUpdateStatus: true,
+        formPage: state.formPage + 1,
+      }));
     } catch (e) {
       set((state) => ({
         formPage: state.formPage + 1,

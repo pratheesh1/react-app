@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import "../assets/styles/details.css";
-import { useDetailedViewStore, useTrailStore, useGlobalStore } from "../store";
+import {
+  useDetailedViewStore,
+  useTrailStore,
+  useGlobalStore,
+  useFormStore,
+} from "../store";
 import Photos from "./details/Photos";
 import ReviewBreakdown from "./details/Review-Breakdown";
 import ReviewForm from "./details/Review-Form";
@@ -24,6 +29,7 @@ export default function Details() {
     deleteTrail,
   } = useDetailedViewStore();
   const setPage = useGlobalStore((state) => state.setPage);
+  const { formNextPage, setFormType, updateForm } = useFormStore();
 
   useEffect(() => {
     setCurrentElement();
@@ -40,6 +46,19 @@ export default function Details() {
         <TrailCard trail={trail} />
       </div>
     ));
+  };
+
+  const updateEditFormState = () => {
+    updateForm("_id", currentElelemt._id);
+    updateForm("trailName", currentElelemt.trailName);
+    updateForm("description", currentElelemt.description);
+    updateForm("country", currentElelemt.country.id);
+    updateForm("countryName", currentElelemt.name);
+    updateForm("difficultyLevel", currentElelemt.difficulty);
+    updateForm("distance", currentElelemt.distance);
+    updateForm("timeToComplete", currentElelemt.timeToComplete);
+    updateForm("describeTrail", currentElelemt.describeTrail);
+    updateForm("imageLink", currentElelemt.images);
   };
 
   return (
@@ -64,7 +83,12 @@ export default function Details() {
                 >
                   <i
                     className="far fa-edit fs-3"
-                    onClick={() => console.log("edit button")}
+                    onClick={() => {
+                      setFormType("edit");
+                      formNextPage();
+                      updateEditFormState();
+                      setPage("form");
+                    }}
                   ></i>
                 </div>
                 <div className="col-6 m-0 p-0 d-flex justify-content-around">
