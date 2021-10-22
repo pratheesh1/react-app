@@ -89,7 +89,7 @@ function Form4(props) {
                   </div>
                   <hr className="p-0 m-0 review-hr" />
                   {/* trail */}
-                  <div className="row p-0 m-0 my-lg-3 form-row">
+                  <div className="row p-0 m-0 my-lg-3">
                     <div className="col-12 col-lg-2 order-2 order-lg-1 m-0 d-flex align-items-end">
                       <p className="field-heading m-0">trail</p>
                     </div>

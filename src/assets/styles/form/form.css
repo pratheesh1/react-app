@@ -262,10 +262,6 @@
 }
 
 @media (min-width: 1600px) {
-  .form-row {
-    margin-bottom: 55px !important;
-  }
-
   .filed-input-xlarge {
     width: 55vw;
   }
