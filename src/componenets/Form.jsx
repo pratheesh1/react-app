@@ -8,7 +8,6 @@ const countries_api_endpoint = api_base_url + "/countries";
 export default class Form extends Component {
   state = {
     countries: [],
-    formPage: 1,
   };
 
   async componentDidMount() {

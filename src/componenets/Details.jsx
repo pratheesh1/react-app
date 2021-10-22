@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../assets/styles/details.css";
-import { useDetailedViewStore, useTrailStore } from "../store";
+import { useDetailedViewStore, useTrailStore, useGlobalStore } from "../store";
 import Photos from "./details/Photos";
 import ReviewBreakdown from "./details/Review-Breakdown";
 import ReviewForm from "./details/Review-Form";
@@ -21,11 +21,13 @@ export default function Details() {
     currentView,
     setCurrentView,
     updated,
+    deleteTrail,
   } = useDetailedViewStore();
+  const setPage = useGlobalStore((state) => state.setPage);
 
   useEffect(() => {
     setCurrentElement();
-  }, [detailedView, updated]);
+  }, [detailedView, updated, setCurrentElement]);
 
   const allTrails = useTrailStore((state) => state.trailsData).filter(
     (trail) => trail._id !== currentElelemt._id
@@ -69,7 +71,8 @@ export default function Details() {
                   <i
                     className="fas fa-trash-alt fs-3 delete-trail-btn"
                     role="button"
-                    onClick={() => console.log("delete button")}
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteTrailModal"
                   ></i>
                 </div>
               </div>
@@ -159,6 +162,56 @@ export default function Details() {
           </div>
         </div>
       </article>
+      {/* Modal */}
+      <div
+        className="modal fade"
+        id="deleteTrailModal"
+        tabIndex="-1"
+        aria-labelledby="deleteTrailModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h3 className="modal-title field-heading">Delete Trail</h3>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <h6 className="modal-title field-heading">
+                Are you sure you want to delete {currentElelemt.trailName}?
+              </h6>
+              <p className="text-secondary blockquote-footer pt-4">
+                <small>This action cannot be undone.</small>
+              </p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn my-lg-2 btn-discard align-middle"
+                data-bs-dismiss="modal"
+                onClick={() => {
+                  deleteTrail();
+                  setPage("browseTrails");
+                }}
+              >
+                Confirm
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

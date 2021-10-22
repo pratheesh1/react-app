@@ -10,7 +10,7 @@ export default function BrowseTrails() {
 
   useEffect(() => {
     setTrailsData();
-  }, []);
+  }, [setTrailsData]);
 
   const generateTrailsCard = () => {
     return trailsData.map((trail) => (

@@ -182,6 +182,13 @@ const detailedViewStore = (set, get) => ({
       console.log(e);
     }
   },
+  deleteTrail: async () => {
+    try {
+      await instance.delete(`${trails_api_endpoint}/${get().detailedView}`);
+    } catch (e) {
+      console.log(e);
+    }
+  },
 });
 const useDetailedViewStore = create(devtools(detailedViewStore));
 
