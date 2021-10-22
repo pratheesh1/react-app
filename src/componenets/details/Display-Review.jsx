@@ -4,8 +4,13 @@ import "../../assets/styles/details.css";
 import { getMonthName, renderReview } from "../trail-card/Trail-Card-Utils";
 
 export default function DisplayReview(props) {
-  var reviews = props.reviewsArray;
-  // TODO: reverse array before map to show last comment first
+  const reviewsArrayObj = props.reviewsArray;
+
+  let reviews = [];
+  for (let i = 0; i < reviewsArrayObj.length; i++) {
+    reviews.push(reviewsArrayObj[i]);
+  }
+  reviews.reverse();
 
   return reviews.length
     ? reviews.map((review, index) => {
