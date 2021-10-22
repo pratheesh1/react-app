@@ -8,6 +8,7 @@ export default function TrailCard(props) {
   const setDetailedView = useDetailedViewStore(
     (state) => state.setDetailedView
   );
+
   return (
     <div
       className="col d-flex justify-content-center my-xxl-4"

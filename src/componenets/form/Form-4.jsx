@@ -19,9 +19,7 @@ function Form4(props) {
     describeTrail,
     imageLink,
   } = useFormStore((state) => state.formData);
-
-  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
-  const submitForm = useFormStore((state) => state.submitForm);
+  const { formPreviousPage, submitForm } = useFormStore();
 
   //get difficulty level
   const getDifficultyLevel = () => {

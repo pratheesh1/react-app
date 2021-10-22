@@ -15,11 +15,9 @@ function Form2(props) {
     description,
     timeToComplete,
   } = useFormStore((state) => state.formData);
-  const updateForm = useFormStore((state) => state.updateForm);
-  const formNextPage = useFormStore((state) => state.formNextPage);
-  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
-
+  const { updateForm, formNextPage, formPreviousPage } = useFormStore();
   const { register, handleSubmit, watch, error } = useForm();
+
   watch((data) => {
     for (const key in data) {
       updateForm(key, data[key]);
@@ -36,6 +34,7 @@ function Form2(props) {
     }
   };
 
+  //set country
   const setCountry = (value) => {
     var slectedCountry = props.countries.find(
       (country) => country.country_id === parseInt(value)

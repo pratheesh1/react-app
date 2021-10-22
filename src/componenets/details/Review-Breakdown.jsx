@@ -10,6 +10,7 @@ import DisplayReview from "./Display-Review";
 
 export default function ReviewBreakdown() {
   const currentElelemt = useDetailedViewStore((state) => state.currentElelemt);
+
   return (
     <React.Fragment>
       <div className="col-12 p-0">

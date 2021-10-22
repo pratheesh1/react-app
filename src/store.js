@@ -122,6 +122,7 @@ const detailedViewStore = (set, get) => ({
   username: "",
   email: "",
   reviewText: "",
+  newImage: "",
   updated: false,
 
   //callback functions
@@ -163,6 +164,24 @@ const detailedViewStore = (set, get) => ({
   },
   setCurrentView: (element) => set(() => ({ currentView: element })),
   destroyCurrentElelemt: () => set(() => ({ currentElelemt: {} })),
+  addImage: async () => {
+    set(() => ({ updated: false }));
+    const updatedImages = {
+      images: [...get().currentElelemt.images, get().newImage],
+    };
+    try {
+      await instance.put(
+        `${trails_api_endpoint}/${get().detailedView}`,
+        updatedImages
+      );
+      set(() => ({
+        updated: true,
+        newImage: "",
+      }));
+    } catch (e) {
+      console.log(e);
+    }
+  },
 });
 const useDetailedViewStore = create(devtools(detailedViewStore));
 

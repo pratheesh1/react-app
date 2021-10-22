@@ -3,9 +3,7 @@ import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
 
 export default function ReviewForm() {
-  const updateForm = useDetailedViewStore((state) => state.updateForm);
-  const addReview = useDetailedViewStore((state) => state.addReview);
-
+  const { updateForm, addReview } = useDetailedViewStore();
   const { register, handleSubmit, reset, error } = useForm();
 
   const onContinue = (data) => {

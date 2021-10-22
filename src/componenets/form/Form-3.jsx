@@ -11,13 +11,15 @@ function Form3(props) {
   const { describeTrail, imageLink, imgTempLink } = useFormStore(
     (state) => state.formData
   );
-  const updateForm = useFormStore((state) => state.updateForm);
-  const formNextPage = useFormStore((state) => state.formNextPage);
-  const formPreviousPage = useFormStore((state) => state.formPreviousPage);
-  const discardFile = useFormStore((state) => state.discardFile);
-  const addImgLink = useFormStore((state) => state.addImgLink);
-
+  const {
+    updateForm,
+    formNextPage,
+    formPreviousPage,
+    discardFile,
+    addImgLink,
+  } = useFormStore();
   const { register, handleSubmit, watch, error } = useForm();
+
   watch((data) => {
     for (const key in data) {
       updateForm(key, data[key]);
@@ -36,7 +38,7 @@ function Form3(props) {
   //create list of images
   const createList = () => {
     return imageLink.map((link, index) => (
-      <p className="image-links-list m-0" key={index}>
+      <p className="image-links-list m-0 overflow-hidden" key={index}>
         {link}
       </p>
     ));
@@ -158,7 +160,7 @@ function Form3(props) {
         aria-labelledby="uploadImgModal"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title field-heading">Add Image Links</h5>

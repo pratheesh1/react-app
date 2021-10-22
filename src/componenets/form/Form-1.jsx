@@ -10,9 +10,7 @@ function Form1(props) {
   const { firstName, lastName, email, aboutYou } = useFormStore(
     (state) => state.formData
   );
-  const updateForm = useFormStore((state) => state.updateForm);
-  const formNextPage = useFormStore((state) => state.formNextPage);
-
+  const { updateForm, formNextPage } = useFormStore();
   const { register, handleSubmit, watch, error } = useForm();
 
   watch((data) => {

@@ -1,9 +1,13 @@
 import React from "react";
 import "../../assets/styles/details.css";
 import { useDetailedViewStore } from "../../store";
+import { useForm } from "react-hook-form";
 
 export default function Photos() {
-  const currentElelemt = useDetailedViewStore((store) => store.currentElelemt);
+  const { currentElelemt, newImage, updateForm, addImage } =
+    useDetailedViewStore();
+  const { register, handleSubmit, watch, error } = useForm();
+
   const renderImages = (images) => {
     const imageComponents = images.map((img, index) => {
       return (
@@ -15,6 +19,21 @@ export default function Photos() {
       );
     });
     return imageComponents;
+  };
+
+  watch((data) => {
+    for (const key in data) {
+      updateForm(key, data[key]);
+    }
+  });
+
+  const onAdd = (data) => {
+    try {
+      //TODO: do validation here
+      addImage();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
@@ -32,9 +51,8 @@ export default function Photos() {
           <button
             type="button"
             className="btn upload-img-btn"
-            onClick={() => {
-              console.log("clicked");
-            }}
+            data-bs-toggle="modal"
+            data-bs-target="#addImgModal"
           >
             Upload
           </button>
@@ -46,6 +64,69 @@ export default function Photos() {
           <div className="row gy-3">
             {currentElelemt.images ? renderImages(currentElelemt.images) : ""}
           </div>
+        </div>
+      </div>
+      {/* Modal */}
+      <div
+        className="modal fade"
+        id="addImgModal"
+        tabIndex="-1"
+        aria-labelledby="addImgModal"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <form onSubmit={handleSubmit(onAdd)}>
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title field-heading">Add Image Links</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <div className="col-12">
+                  <p className="field-heading m-0">image link</p>
+                  <div className="d-flex flex-row">
+                    <input
+                      type="text"
+                      className="filed-input-modal"
+                      placeholder="Image link"
+                      {...register("newImage")}
+                      value={newImage}
+                    />
+                    <button
+                      type="submit"
+                      className="btn btn-add-img align-middle"
+                      data-bs-dismiss="modal"
+                    >
+                      Add Image
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn my-lg-2 btn-discard align-middle"
+                  onClick={() => {
+                    updateForm("newImage", "");
+                  }}
+                >
+                  Discard File
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </React.Fragment>

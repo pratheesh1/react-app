@@ -14,14 +14,14 @@ import {
 } from "./trail-card/Trail-Card-Utils";
 
 export default function Details() {
-  const currentElelemt = useDetailedViewStore((state) => state.currentElelemt);
-  const setCurrentElement = useDetailedViewStore(
-    (state) => state.setCurrentElement
-  );
-  const detailedView = useDetailedViewStore((state) => state.detailedView);
-  const currentView = useDetailedViewStore((state) => state.currentView);
-  const setCurrentView = useDetailedViewStore((state) => state.setCurrentView);
-  const updated = useDetailedViewStore((state) => state.updated);
+  const {
+    currentElelemt,
+    setCurrentElement,
+    detailedView,
+    currentView,
+    setCurrentView,
+    updated,
+  } = useDetailedViewStore();
 
   useEffect(() => {
     setCurrentElement();

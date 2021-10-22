@@ -4,21 +4,19 @@ import TrailCard from "../componenets/trail-card/Trail-Card";
 import { useTrailStore, useGlobalStore, useFormStore } from "../store";
 
 export default function BrowseTrails() {
-  const setTrailsData = useTrailStore((state) => state.setTrailsData);
+  const { setTrailsData, trailsData, numberOfTrails } = useTrailStore();
+  const setPage = useGlobalStore((state) => state.setPage);
+  const setFormType = useFormStore((state) => state.setFormType);
+
   useEffect(() => {
     setTrailsData();
   }, []);
 
-  const trailsData = useTrailStore((state) => state.trailsData);
-  const numberOfTrails = useTrailStore((state) => state.numberOfTrails);
   const generateTrailsCard = () => {
     return trailsData.map((trail) => (
       <TrailCard key={trail._id} trail={trail} />
     ));
   };
-
-  const setPage = useGlobalStore((state) => state.setPage);
-  const setFormType = useFormStore((state) => state.setFormType);
 
   return (
     <div className=" browse-trail-wrapper">
