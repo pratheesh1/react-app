@@ -6,6 +6,10 @@ import facebook from "../assets/images/facebook-icon.png";
 import pinterest from "../assets/images/pinterest-icon.png";
 
 function Footer() {
+  const openInNewTab = (url) => {
+    window.open(url);
+  };
+
   return (
     <footer className=" footer-wrapper">
       <div className="container ">
@@ -48,11 +52,52 @@ function Footer() {
                     data-bs-parent="#accordion-explore"
                   >
                     <div className="accordion-body d-lg-block">
-                      <p>Countries</p>
-                      <p>Regions</p>
-                      <p>Cities</p>
-                      <p>Parks</p>
-                      <p>Trails</p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.infoplease.com/world/countries"
+                          )
+                        }
+                      >
+                        Countries
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.gide.com/en/where-we-work/6-regions-of-the-world"
+                          )
+                        }
+                      >
+                        Regions
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.nationsonline.org/oneworld/cities.htm"
+                          )
+                        }
+                      >
+                        Cities
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab("https://worldnationalparks.com/")
+                        }
+                      >
+                        Parks
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab("https://www.alltrails.com/")
+                        }
+                      >
+                        Trails
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -88,11 +133,52 @@ function Footer() {
                     data-bs-parent="#accordion-discover-gear"
                   >
                     <div className="accordion-body d-lg-block">
-                      <p>Hiking</p>
-                      <p>Skiing</p>
-                      <p>Running</p>
-                      <p>Swinning</p>
-                      <p>Camping</p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab("https://www.amazon.com/s?k=hiking+gear")
+                        }
+                      >
+                        Hiking
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab("https://www.amazon.com/s?k=skiing+gear")
+                        }
+                      >
+                        Skiing
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.amazon.com/s?k=running+gear"
+                          )
+                        }
+                      >
+                        Running
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.amazon.com/s?k=swimming+gear"
+                          )
+                        }
+                      >
+                        Swimming
+                      </p>
+                      <p
+                        role="button"
+                        onClick={() =>
+                          openInNewTab(
+                            "https://www.amazon.com/s?k=camping+gear"
+                          )
+                        }
+                      >
+                        Camping
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -125,8 +211,8 @@ function Footer() {
                     data-bs-parent="#accordion-help"
                   >
                     <div className="accordion-body d-lg-block">
-                      <p>Support</p>
-                      <p>Contact Us</p>
+                      <p role="button">Support</p>
+                      <p role="button">Contact Us</p>
                     </div>
                   </div>
                 </div>
@@ -137,21 +223,25 @@ function Footer() {
                   Connect with us
                 </h3>
                 <img
+                  role="button"
                   src={instagram}
                   aria-label="instagram icon"
                   className="instagram-icon"
                 />
                 <img
+                  role="button"
                   src={twitter}
                   aria-label="twitter icon"
                   className="twitter-icon"
                 />
                 <img
+                  role="button"
                   src={facebook}
                   aria-label="facebook icon"
                   className="facebook-icon"
                 />
                 <img
+                  role="button"
                   src={pinterest}
                   aria-label="pinterest icon"
                   className="pinterest-icon"
