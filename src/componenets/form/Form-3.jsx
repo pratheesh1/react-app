@@ -40,12 +40,13 @@ function Form3(props) {
   //create list of images
   const createList = () => {
     return imageLink.map((link, index) => (
-      <p className="image-links-list m-0 overflow-hidden" key={index}>
-        {link}
+      <p className="image-links-list m-0 overflow-hidden fs-6" key={index}>
+        Image {index + 1} <i class="fas fa-times text-danger"></i>
       </p>
     ));
   };
 
+  // TODO: fix image and modal
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -89,7 +90,14 @@ function Form3(props) {
                           <div className="col-12 col-lg-7 p-0 upload-wrapper">
                             {/* File upload */}
                             {imageLink.length === 0 ? (
-                              <FileUpload />
+                              <React.Fragment>
+                                <FileUpload />
+                                {errors.imgTempLink && (
+                                  <p className="form-error">
+                                    {errors.imgTempLink.message}
+                                  </p>
+                                )}
+                              </React.Fragment>
                             ) : (
                               <div className="row m-0 h-100 file-upload d-flex justify-content-center align-items-center">
                                 {createList()}
@@ -181,6 +189,9 @@ function Form3(props) {
             <div className="modal-body">
               <div className="col-12">
                 <p className="field-heading m-0">image link</p>
+                {errors.imgTempLink && (
+                  <p className="form-error">{errors.imgTempLink.message}</p>
+                )}
                 <div className="d-flex flex-row">
                   <input
                     type="text"
@@ -190,7 +201,7 @@ function Form3(props) {
                     value={imgTempLink}
                   />
                   <button
-                    type="button"
+                    type="submit"
                     className="btn btn-add-img align-middle"
                     onClick={() => {
                       addImgLink();

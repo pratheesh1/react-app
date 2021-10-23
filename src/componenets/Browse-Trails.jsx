@@ -21,6 +21,8 @@ export default function BrowseTrails() {
     ));
   };
 
+  //TODO: Filter results
+
   return (
     <div className=" browse-trail-wrapper">
       <div className="row p-0 m-0">

@@ -230,9 +230,11 @@ const trailStore = (set, get) => ({
   numberOfTrails: 0,
 
   //callback functions
-  setTrailsData: async () => {
+  setTrailsData: async (params) => {
     await instance
-      .get(trailsApiUrl)
+      .get(trailsApiUrl, {
+        params: {},
+      })
       .then((res) => {
         set(() => ({ trailsData: res.data, numberOfTrails: res.data.length }));
       })
@@ -240,6 +242,21 @@ const trailStore = (set, get) => ({
   },
 });
 const useTrailStore = create(devtools(trailStore));
+
+/*  -------- ** -------- | store for search |  -------- ** --------  */
+const searchStore = (set, get) => ({
+  //state variables
+  search: "",
+  difficulty: [],
+  length: "",
+  rating: [],
+  sort: "",
+  show: "",
+
+  //callback functions
+  updateSearch: (target, value) => set(() => ({ [target]: value })),
+});
+const useSearchStore = create(devtools(searchStore));
 
 /*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
@@ -252,4 +269,10 @@ const globalStore = (set, get) => ({
 const useGlobalStore = create(devtools(globalStore));
 
 //export all store
-export { useFormStore, useTrailStore, useGlobalStore, useDetailedViewStore };
+export {
+  useFormStore,
+  useTrailStore,
+  useGlobalStore,
+  useDetailedViewStore,
+  useSearchStore,
+};
