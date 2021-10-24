@@ -240,6 +240,9 @@ const trailStore = (set, get) => ({
       })
       .catch((e) => console.log(e));
   },
+  setSortedData: (sortedData) => {
+    set(() => ({ trailsData: sortedData }));
+  },
 });
 const useTrailStore = create(devtools(trailStore));
 
@@ -250,8 +253,8 @@ const searchStore = (set, get) => ({
   difficulty: [],
   distance: "",
   rating: [],
-  sort: "",
-  show: "",
+  show: "All Content",
+  sort: "No Sort",
 
   //callback functions
   updateSearch: (target, value) => set(() => ({ [target]: value })),

@@ -1,20 +1,28 @@
 import React, { useEffect } from "react";
 import "../assets/styles/browsetrails.css";
 import TrailCard from "../componenets/trail-card/Trail-Card";
-import { useTrailStore, useGlobalStore, useFormStore } from "../store";
+import {
+  useTrailStore,
+  useGlobalStore,
+  useFormStore,
+  useSearchStore,
+} from "../store";
+import { filterTrailData, sortTrailData } from "../utils";
 
 export default function BrowseTrails() {
   //get state values and functions from different stores
-  const { setTrailsData, trailsData, numberOfTrails } = useTrailStore();
+  const { setTrailsData, setSortedData, trailsData, numberOfTrails } =
+    useTrailStore();
   const setPage = useGlobalStore((state) => state.setPage);
   const setFormType = useFormStore((state) => state.setFormType);
+  const { updateSearch, show, sort } = useSearchStore();
 
-  //fetch data and sunscribe to state changes
+  //fetch data and subscribe to state changes
   useEffect(() => {
     if (!trailsData.length) {
       setTrailsData();
     }
-  }, [setTrailsData]);
+  }, []);
 
   //generate trail cards
   const generateTrailsCard = () => {
@@ -22,8 +30,6 @@ export default function BrowseTrails() {
       <TrailCard key={trail._id} trail={trail} />
     ));
   };
-
-  //TODO: Filter results
 
   return (
     <div className=" browse-trail-wrapper">
@@ -60,20 +66,43 @@ export default function BrowseTrails() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  SHOW: All Content
+                  SHOW: {show}
                 </span>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="contentTypeDropdown"
                 >
-                  <a className="dropdown-item" href="#link">
-                    Category 1
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={async () => {
+                      await setTrailsData();
+                      updateSearch("show", "All Content");
+                    }}
+                  >
+                    All Content
                   </a>
-                  <a className="dropdown-item" href="#link">
-                    Category 2
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={async () => {
+                      await setTrailsData();
+                      setSortedData(filterTrailData([...trailsData], "photo"));
+                      updateSearch("show", "With Photos Only");
+                    }}
+                  >
+                    With Photos Only
                   </a>
-                  <a className="dropdown-item" href="#link">
-                    Category 3
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={async () => {
+                      await setTrailsData();
+                      setSortedData(filterTrailData([...trailsData], "review"));
+                      updateSearch("show", "With Review Only");
+                    }}
+                  >
+                    With Review Only
                   </a>
                 </div>
               </div>
@@ -88,20 +117,55 @@ export default function BrowseTrails() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  SORT BY: Relevance
+                  SORT BY: {sort}
                 </span>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="contentRelevanceDropdown"
                 >
-                  <a className="dropdown-item" href="#link">
-                    Category 1
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={() => {
+                      setSortedData(sortTrailData([...trailsData], ""));
+                      updateSearch("sort", "No Sort");
+                    }}
+                  >
+                    No Sort
                   </a>
-                  <a className="dropdown-item" href="#link">
-                    Category 2
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={() => {
+                      setSortedData(
+                        sortTrailData([...trailsData], "completionTime")
+                      );
+                      updateSearch("sort", "Time");
+                    }}
+                  >
+                    Est. Completion Time
                   </a>
-                  <a className="dropdown-item" href="#link">
-                    Category 3
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={() => {
+                      setSortedData(sortTrailData([...trailsData], "review"));
+                      updateSearch("sort", "Review");
+                    }}
+                  >
+                    Review
+                  </a>
+                  <a
+                    className="dropdown-item"
+                    href="#link"
+                    onClick={() => {
+                      setSortedData(
+                        sortTrailData([...trailsData], "difficulty")
+                      );
+                      updateSearch("sort", "Difficulty");
+                    }}
+                  >
+                    Difficulty
                   </a>
                 </div>
               </div>

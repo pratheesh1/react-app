@@ -1,3 +1,5 @@
+import { getAverageReview } from "../../utils";
+
 // display difficulty
 const renderButton = (difficulty) => {
   const diffText =
@@ -20,14 +22,7 @@ const renderButton = (difficulty) => {
 // display star based on average review
 const renderReview = (review, requireCount = true) => {
   const numReview = review.length;
-  const avgReview =
-    numReview > 1
-      ? review.reduce((previousValue, currentValue) => ({
-          rating: previousValue.rating + currentValue.rating,
-        })).rating / numReview
-      : numReview === 1
-      ? review[0].rating
-      : 0;
+  const avgReview = getAverageReview(review);
 
   var maxStars = 5;
   var star = [];

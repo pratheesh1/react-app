@@ -82,3 +82,54 @@ export const getPercentage = (element, number) => {
     return "0%";
   }
 };
+
+//calculate avg review of given trail
+export const getAverageReview = (review) => {
+  if (!review.length > 0) {
+    return 0;
+  } else {
+    const numReview = review.length;
+    if (numReview === 1) {
+      return review[0].rating;
+    } else {
+      const reviewNumber = review.map((e) => e.rating);
+      const avgReview = reviewNumber.reduce((a, b) => a + b) / numReview;
+      return avgReview;
+    }
+  }
+};
+
+//compare functions for sorting trail data based on review
+const reviewCompareFunc = (a, b) => {
+  return getAverageReview(b.review) - getAverageReview(a.review);
+};
+const completionTimeCompareFunc = (a, b) => {
+  return b.timeToComplete - a.timeToComplete;
+};
+const difficultyCompareFunc = (a, b) => {
+  return b.difficulty - a.difficulty;
+};
+
+//sort traildata based on review
+export const sortTrailData = (data, field) => {
+  let inputData = data;
+  if (field === "review") {
+    inputData.sort(reviewCompareFunc);
+  } else if (field === "completionTime") {
+    inputData.sort(completionTimeCompareFunc);
+  } else if (field === "difficulty") {
+    inputData.sort(difficultyCompareFunc);
+  }
+  return inputData;
+};
+
+//filter trails data
+export const filterTrailData = (data, filterType) => {
+  if (filterType === "photo") {
+    return data.filter((trail) => trail.images.length > 0);
+  } else if (filterType === "review") {
+    return data.filter((trail) => trail.review.length > 0);
+  } else {
+    return data;
+  }
+};
