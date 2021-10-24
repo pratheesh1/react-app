@@ -24,7 +24,6 @@ function SearchBar() {
     params.distance = distance;
     params.q = search;
   }
-
   useEffect(() => {
     setTrailsData(params);
   }, [params.difficulty, params.distance]);
@@ -78,7 +77,9 @@ function SearchBar() {
                   {/* Difficulty */}
                   <li className="nav-item dropdown search-nav-item">
                     <a
-                      className="nav-link dropdown-toggle active"
+                      className={`nav-link dropdown-toggle ${
+                        currentPage === "browseTrails" ? "active" : "disabled"
+                      }`}
                       href="#difficulty"
                       id="difficulty"
                       role="button"
@@ -164,7 +165,9 @@ function SearchBar() {
                   {/* Distance */}
                   <li className="nav-item dropdown search-nav-item">
                     <a
-                      className="nav-link dropdown-toggle active"
+                      className={`nav-link dropdown-toggle ${
+                        currentPage === "browseTrails" ? "active" : "disabled"
+                      }`}
                       href="#distance"
                       id="distance"
                       role="button"
@@ -242,116 +245,6 @@ function SearchBar() {
                             htmlFor="over-20km"
                           >
                             Over 20km
-                          </label>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* Rating */}
-                  <li className="nav-item dropdown search-nav-item">
-                    <a
-                      className="nav-link dropdown-toggle active"
-                      href="#rating"
-                      id="rating"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Rating
-                    </a>
-                    <ul className="dropdown-menu px-3" aria-labelledby="rating">
-                      <li>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value="1"
-                            id="one-star"
-                            {...register("rating")}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="one-star"
-                          >
-                            <i className="fas fa-star star"></i>
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value="2"
-                            id="two-star"
-                            {...register("rating")}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="two-star"
-                          >
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value="3"
-                            id="three-star"
-                            {...register("rating")}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="three-star"
-                          >
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value="4"
-                            id="four-star"
-                            {...register("rating")}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="four-star"
-                          >
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                          </label>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            value="5"
-                            id="five-star"
-                            {...register("rating")}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="five-star"
-                          >
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
-                            <i className="fas fa-star star"></i>
                           </label>
                         </div>
                       </li>
