@@ -1,6 +1,8 @@
 import React from "react";
 import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { addReviewForm } from "../../validation";
 
 export default function ReviewForm() {
   //get state values and functions from different stores
@@ -10,9 +12,9 @@ export default function ReviewForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
-
-  //TODO: Form validation
+  } = useForm({
+    resolver: yupResolver(addReviewForm),
+  });
 
   //onsubmit callback function
   const onContinue = (data) => {
@@ -110,6 +112,9 @@ export default function ReviewForm() {
           </div>
         </div>
         <div className="row m-0 my-3">
+          {errors.rating && (
+            <p className="form-error">{errors.rating.message}</p>
+          )}
           <div className="col-12 col-xl-6">
             <p className="field-heading m-0">name</p>
             <input
@@ -118,6 +123,9 @@ export default function ReviewForm() {
               className="filed-input-small"
               placeholder="Name"
             />
+            {errors.username && (
+              <p className="form-error">{errors.username.message}</p>
+            )}
           </div>
           <div className="col-12 col-xl-6">
             <p className="field-heading m-0">email</p>
@@ -127,6 +135,9 @@ export default function ReviewForm() {
               className="filed-input-small"
               placeholder="Name"
             />
+            {errors.email && (
+              <p className="form-error">{errors.email.message}</p>
+            )}
           </div>
         </div>
         <div className="row m-0">

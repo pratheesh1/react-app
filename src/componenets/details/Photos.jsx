@@ -2,6 +2,8 @@ import React from "react";
 import "../../assets/styles/details.css";
 import { useDetailedViewStore } from "../../store";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { addPhotoForm } from "../../validation";
 
 export default function Photos() {
   //get state values and functions from different stores
@@ -12,7 +14,9 @@ export default function Photos() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(addPhotoForm),
+  });
 
   //create image html components
   const renderImages = (images) => {
@@ -33,8 +37,6 @@ export default function Photos() {
       updateForm(key, data[key]);
     }
   });
-
-  //TODO: form validation
 
   return (
     <React.Fragment>
@@ -100,11 +102,16 @@ export default function Photos() {
                     <button
                       type="submit"
                       className="btn btn-add-img align-middle"
-                      data-bs-dismiss="modal"
+                      data-bs-dismiss={
+                        errors.newImage || newImage === "" ? "" : "modal"
+                      }
                     >
                       Add Image
                     </button>
                   </div>
+                  {errors.newImage && (
+                    <p className="form-error">{errors.newImage.message}</p>
+                  )}
                 </div>
               </div>
               <div className="modal-footer">

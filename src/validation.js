@@ -38,4 +38,25 @@ let formPage3 = yup.object().shape({
     .required("At least one image is required!"),
 });
 
-export { formPage1, formPage2, formPage3 };
+// schema for forms in detailed view page
+let addReviewForm = yup.object().shape({
+  rating: yup
+    .string()
+    .typeError("Please select a rating!")
+    .required("Please select a rating!"),
+  username: yup.string().required("Name is requred to add a new review!"),
+  email: yup
+    .string()
+    .email("Email id is not valid!")
+    .required("Email is requred to add a new review!"),
+});
+
+// schema for add photo modal in detailed view page
+let addPhotoForm = yup.object().shape({
+  newImage: yup
+    .string()
+    .required("Image url is required!")
+    .url("Image url not valid!"),
+});
+
+export { formPage1, formPage2, formPage3, addReviewForm, addPhotoForm };
