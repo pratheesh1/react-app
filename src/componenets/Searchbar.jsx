@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../assets/styles/searchbar.css";
-import { useTrailStore, useSearchStore } from "../store";
+import { useTrailStore, useSearchStore, useGlobalStore } from "../store";
 import { useForm } from "react-hook-form";
 
 function SearchBar() {
@@ -8,6 +8,7 @@ function SearchBar() {
   const { search, difficulty, distance, updateSearch } = useSearchStore();
   const { register, handleSubmit, watch } = useForm();
   const { setTrailsData } = useTrailStore();
+  const { setPage, currentPage } = useGlobalStore();
 
   //watch for input value changes and update state
   watch((data) => {
@@ -16,19 +17,24 @@ function SearchBar() {
     }
   });
 
-  // update data when user selection changes
-  const params = {
-    difficulty,
-    distance,
-    q: search,
-  };
+  // update data when user selection changes and only if page is browseTrails
+  var params = {};
+  if (currentPage === "browseTrails") {
+    params.difficulty = difficulty;
+    params.distance = distance;
+    params.q = search;
+  }
+
   useEffect(() => {
     setTrailsData(params);
-  }, [difficulty, distance]);
+  }, [params.difficulty, params.distance]);
 
   //onsubmit callback function
   const performSearch = () => {
-    setTrailsData({ q: search });
+    if (search) {
+      setPage("browseTrails");
+      setTrailsData({ q: search });
+    }
   };
 
   return (

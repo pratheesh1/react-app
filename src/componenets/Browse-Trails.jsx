@@ -11,7 +11,9 @@ export default function BrowseTrails() {
 
   //fetch data and sunscribe to state changes
   useEffect(() => {
-    setTrailsData();
+    if (!trailsData.length) {
+      setTrailsData();
+    }
   }, [setTrailsData]);
 
   //generate trail cards
