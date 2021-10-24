@@ -18,9 +18,9 @@ function SearchBar() {
 
   // update data when user selection changes
   const params = {
-    search,
     difficulty,
     distance,
+    q: search,
   };
   useEffect(() => {
     setTrailsData(params);
@@ -28,7 +28,7 @@ function SearchBar() {
 
   //onsubmit callback function
   const performSearch = () => {
-    console.log("clicked");
+    setTrailsData({ q: search });
   };
 
   return (

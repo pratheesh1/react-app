@@ -248,7 +248,7 @@ const searchStore = (set, get) => ({
   //state variables
   search: "",
   difficulty: [],
-  length: "",
+  distance: "",
   rating: [],
   sort: "",
   show: "",
