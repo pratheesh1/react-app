@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../assets/styles/searchbar.css";
 import { useTrailStore, useSearchStore } from "../store";
 import { useForm } from "react-hook-form";
 
 function SearchBar() {
   //get state values and functions from different stores
-  const { updateSearch } = useSearchStore();
+  const { search, difficulty, distance, updateSearch } = useSearchStore();
   const { register, handleSubmit, watch } = useForm();
-  //watch for input value changes and update state
+  const { setTrailsData } = useTrailStore();
 
+  //watch for input value changes and update state
   watch((data) => {
     for (const key in data) {
-      updateSearch(key, data[key]);
+      updateSearch(key, data[key] ? data[key] : "");
     }
   });
+
+  // update data when user selection changes
+  const params = {
+    search,
+    difficulty,
+    distance,
+  };
+  useEffect(() => {
+    setTrailsData(params);
+  }, [difficulty, distance]);
+
   //onsubmit callback function
   const performSearch = () => {
     console.log("clicked");
@@ -143,19 +155,22 @@ function SearchBar() {
                       </li>
                     </ul>
                   </li>
-                  {/* Length */}
+                  {/* Distance */}
                   <li className="nav-item dropdown search-nav-item">
                     <a
                       className="nav-link dropdown-toggle active"
-                      href="#length"
-                      id="length"
+                      href="#distance"
+                      id="distance"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Length
+                      Distance
                     </a>
-                    <ul className="dropdown-menu px-3" aria-labelledby="length">
+                    <ul
+                      className="dropdown-menu px-3"
+                      aria-labelledby="distance"
+                    >
                       <li>
                         <div className="form-check">
                           <input
@@ -163,7 +178,7 @@ function SearchBar() {
                             type="checkbox"
                             value="0,5"
                             id="under-5km"
-                            {...register("length")}
+                            {...register("distance")}
                           />
                           <label
                             className="form-check-label"
@@ -180,7 +195,7 @@ function SearchBar() {
                             type="checkbox"
                             value="5,10"
                             id="under-10km"
-                            {...register("length")}
+                            {...register("distance")}
                           />
                           <label
                             className="form-check-label"
@@ -197,7 +212,7 @@ function SearchBar() {
                             type="checkbox"
                             value="10,20"
                             id="under-20km"
-                            {...register("length")}
+                            {...register("distance")}
                           />
                           <label
                             className="form-check-label"
@@ -214,7 +229,7 @@ function SearchBar() {
                             type="checkbox"
                             value="20,999999"
                             id="over-20km"
-                            {...register("length")}
+                            {...register("distance")}
                           />
                           <label
                             className="form-check-label"
@@ -230,7 +245,7 @@ function SearchBar() {
                   <li className="nav-item dropdown search-nav-item">
                     <a
                       className="nav-link dropdown-toggle active"
-                      href="#length"
+                      href="#rating"
                       id="rating"
                       role="button"
                       data-bs-toggle="dropdown"

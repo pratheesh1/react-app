@@ -233,7 +233,7 @@ const trailStore = (set, get) => ({
   setTrailsData: async (params) => {
     await instance
       .get(trailsApiUrl, {
-        params: {},
+        params: params,
       })
       .then((res) => {
         set(() => ({ trailsData: res.data, numberOfTrails: res.data.length }));
