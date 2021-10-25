@@ -264,12 +264,14 @@ const useSearchStore = create(devtools(searchStore));
 /*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
+  currentPage: "main",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
 });
 const useGlobalStore = create(devtools(globalStore));
+
+/*  -------- ** -------- | store for main page |  -------- ** --------  */
 
 //export all store
 export {

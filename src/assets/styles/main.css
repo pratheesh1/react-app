@@ -1,0 +1,112 @@
+#maincarousel {
+  height: 65vh;
+}
+
+.carousel-img {
+  width: 100vw;
+  height: 65vh;
+  object-fit: cover;
+}
+
+.hero-wrapper {
+  position: absolute !important;
+  z-index: 500;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 90vw;
+}
+
+.hero-text {
+  color: white;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 35px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.hero-search {
+  width: 95%;
+  height: 65px;
+}
+
+.hero-search-input {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 26px;
+  padding-left: 55px !important;
+}
+
+.font-awesome-search {
+  top: 15px;
+  left: 2px;
+  z-index: 500;
+  font-size: 1.9em;
+  color: gray;
+}
+
+.font-awesome-search-btn {
+  top: 5px;
+  transform: translateX(100%);
+  right: 75px;
+  font-size: 3.5em;
+  color: #578f3f;
+}
+
+.hero-subtext {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-decoration-line: underline;
+
+  color: #ffffff;
+  z-index: 500;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .hero-text {
+    font-size: 28px;
+  }
+
+  .hero-wrapper {
+    width: 70vw;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .hero-text {
+    font-size: 35px;
+  }
+
+  .hero-search {
+    width: 85%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .hero-text {
+    font-size: 60px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .hero-search {
+    width: 75%;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .hero-search {
+    width: 58%;
+  }
+}

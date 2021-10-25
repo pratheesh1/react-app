@@ -6,6 +6,7 @@ import Footer from "./componenets/Footer";
 import BrowseTrails from "./componenets/Browse-Trails";
 import React from "react";
 import Details from "./componenets/Details";
+import Main from "./componenets/Main";
 import { useGlobalStore } from "./store";
 
 function App() {
@@ -13,21 +14,35 @@ function App() {
   const getPage = () => {
     switch (currentPage) {
       case "landingPage":
-        return <React.Fragment></React.Fragment>;
+        return <Main />;
       case "browseTrails":
-        return <BrowseTrails />;
+        return (
+          <React.Fragment>
+            <SearchBar />
+            <BrowseTrails />
+          </React.Fragment>
+        );
       case "form":
-        return <Form />;
+        return (
+          <React.Fragment>
+            <SearchBar />
+            <Form />{" "}
+          </React.Fragment>
+        );
       case "details":
-        return <Details />;
+        return (
+          <React.Fragment>
+            <SearchBar />
+            <Details />
+          </React.Fragment>
+        );
       default:
-        return;
+        return <Main />;
     }
   };
   return (
     <div className="App">
       <NavBar />
-      <SearchBar />
       {getPage()}
       <Footer />
     </div>
