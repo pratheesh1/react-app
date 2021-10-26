@@ -24,48 +24,15 @@ function NavBar() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a
-                    className="nav-link active p-2"
+                    className="nav-link active p-2 px-5"
                     aria-current="page"
                     href="#explore"
                   >
                     Explore
                   </a>
                 </li>
-                <li className="nav-item dropdown">
-                  <a
-                    className="nav-link active dropdown-toggle p-2"
-                    href="#account"
-                    id="navbarDropdownMenuLink"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Account
-                  </a>
-                  <ul
-                    className="dropdown-menu m-2"
-                    aria-labelledby="navbarDropdownMenuLink"
-                  >
-                    <li>
-                      <a className="dropdown-item disabled" href="#activities">
-                        Activities
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item disabled" href="completed">
-                        Completed
-                      </a>
-                    </li>
-                    <hr />
-                    <li>
-                      <a className="dropdown-item disabled" href="stats">
-                        Stats
-                      </a>
-                    </li>
-                  </ul>
-                </li>
                 <li className="nav-item">
-                  <a className="nav-link active p-2" href="#hiking-gear">
+                  <a className="nav-link active p-2 px-4" href="#hiking-gear">
                     Hiking Gear
                   </a>
                 </li>
@@ -81,21 +48,12 @@ function NavBar() {
           </div>
           {/* buttons */}
           <div className="button-wrapper col-4 d-flex flex-row justify-content-end">
-            <a
-              className="nav-link text-secondary d-none d-md-block mx-4"
+            <button
+              className="btn btn-help mx-4"
               href="#help"
               aria-disabled="true"
             >
               Help
-            </a>
-            <button type="button" className="btn btn-md btn-signup">
-              Sign Up
-            </button>
-            <button
-              type="button"
-              className="btn btn-md btn-login  d-none d-md-block"
-            >
-              Log In
             </button>
           </div>
         </div>

@@ -13,29 +13,14 @@ function App() {
   const currentPage = useGlobalStore((state) => state.currentPage);
   const getPage = () => {
     switch (currentPage) {
-      case "landingPage":
+      case "main":
         return <Main />;
       case "browseTrails":
-        return (
-          <React.Fragment>
-            <SearchBar />
-            <BrowseTrails />
-          </React.Fragment>
-        );
+        return <BrowseTrails />;
       case "form":
-        return (
-          <React.Fragment>
-            <SearchBar />
-            <Form />{" "}
-          </React.Fragment>
-        );
+        return <Form />;
       case "details":
-        return (
-          <React.Fragment>
-            <SearchBar />
-            <Details />
-          </React.Fragment>
-        );
+        return <Details />;
       default:
         return <Main />;
     }
@@ -43,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      {currentPage !== "main" ? <SearchBar /> : ""}
       {getPage()}
       <Footer />
     </div>
