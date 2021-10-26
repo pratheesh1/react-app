@@ -5,7 +5,7 @@ import { renderButton, renderReview } from "./Trail-Card-Utils";
 
 export default function TrailCard(props) {
   //get state values and functions from different stores
-  const setPage = useGlobalStore((state) => state.setPage);
+  const { setPage, currentPage } = useGlobalStore();
   const setDetailedView = useDetailedViewStore(
     (state) => state.setDetailedView
   );
@@ -20,9 +20,15 @@ export default function TrailCard(props) {
         setDetailedView(props.trail._id);
       }}
     >
-      <div className="border bg-light trail-card">
+      <div
+        className={
+          currentPage === "main"
+            ? "border bg-light trail-card-main"
+            : "border bg-light trail-card-browse"
+        }
+      >
         <div
-          className="img"
+          className={currentPage === "main" ? "img-main" : "img-browse"}
           style={{
             backgroundImage: `url(${
               props.trail.images ? props.trail.images[0] : ""
