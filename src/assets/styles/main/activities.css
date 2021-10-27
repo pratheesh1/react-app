@@ -1,0 +1,97 @@
+.activity-component {
+  background: rgba(9, 7, 7, 0.1);
+}
+
+.activity-wrapper {
+  width: 245px;
+  height: 175px;
+  border-radius: 10px;
+}
+
+.activity {
+  width: 245px;
+  height: 175px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.activity-title {
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 35px;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px black;
+}
+
+.activity-slick {
+  width: 96%;
+  margin: 0px 0 10px 0;
+  padding: 10px;
+}
+
+.activity-slick > .slick-next {
+  right: 0px !important;
+
+  background: rgb(194, 187, 187);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.activity-slick > .slick-prev {
+  left: 3px !important;
+  z-index: 1;
+
+  background: rgb(194, 187, 187);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.activities-heading {
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.activities-subheading {
+  font-size: 20px;
+  line-height: 23px;
+  color: #a7a2a2;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .activity-slick {
+    margin: 70px 0px 50px 0px;
+    padding: 0px 0px 0 0px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .activities-heading {
+    font-size: 30px;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .activity-slick {
+    margin: 70px 20px 50px 20px;
+    padding: 0px 80px 0 80px;
+  }
+}

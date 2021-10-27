@@ -22,7 +22,7 @@ export default function Reccomendations() {
     infinite: true,
     speed: 700,
     swipeToSlide: true,
-    slidesToShow: 5,
+    slidesToShow: 4.7,
     slidesToScroll: 1,
     initialSlide: 0,
     pauseOnFocus: true,

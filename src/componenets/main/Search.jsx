@@ -1,5 +1,5 @@
 import React from "react";
-import "../../assets/styles/main.css";
+import "../../assets/styles/main/main.css";
 
 export default function Search() {
   return (

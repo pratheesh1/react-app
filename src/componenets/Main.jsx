@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "./main/Carousel";
 import Reccomendations from "./main/Reccomendations";
 import { useTrailStore } from "../store";
+import Activities from "./main/Activities";
 
 export default function Main() {
   //get state values and functions from different stores
@@ -14,6 +15,7 @@ export default function Main() {
     <React.Fragment>
       <Carousel />
       <Reccomendations />
+      <Activities />
     </React.Fragment>
   );
 }

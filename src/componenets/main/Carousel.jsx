@@ -3,7 +3,7 @@ import carouselImg1 from "../../assets/images/carousel-img1.jpg";
 import carouselImg2 from "../../assets/images/carousel-img2.jpg";
 import carouselImg3 from "../../assets/images/carousel-img3.jpg";
 
-import "../../assets/styles/main.css";
+import "../../assets/styles/main/main.css";
 import Search from "./Search";
 
 export default function Carousel() {
