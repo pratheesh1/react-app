@@ -24,7 +24,7 @@ function NavBar() {
               <ul className="navbar-nav">
                 <li className="nav-item">
                   <a
-                    className="nav-link active p-2 px-5"
+                    className="nav-link active p-2 px-lg-5"
                     aria-current="page"
                     href="#explore"
                   >
@@ -32,7 +32,10 @@ function NavBar() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active p-2 px-4" href="#hiking-gear">
+                  <a
+                    className="nav-link active p-2 px-lg-4"
+                    href="#hiking-gear"
+                  >
                     Hiking Gear
                   </a>
                 </li>
