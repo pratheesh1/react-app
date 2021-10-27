@@ -1,0 +1,112 @@
+.banner-wrapper {
+  width: 100%;
+  height: 80vh;
+}
+
+.banner-img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  filter: brightness(30%);
+}
+
+.banner-heading {
+  left: 10%;
+  top: 25%;
+  overflow: hidden;
+}
+
+.banner-line {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 40px;
+}
+
+.line-1 {
+  color: white;
+}
+
+.line-2 {
+  color: #ecff0c;
+}
+
+.line-3 {
+  font-size: 20px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+/* call to action banner */
+.banner-c2a {
+  top: 31%;
+  left: 22%;
+  height: 60vh;
+  width: 50%;
+  background: white;
+  border-radius: 20px;
+}
+
+.c2a-img {
+  margin-top: 15%;
+  width: 316px;
+  height: 500px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.c2a-heading {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .banner-wrapper {
+    height: 100vh;
+  }
+  .banner-img {
+    height: 100vh;
+  }
+  .banner-heading {
+    left: 65%;
+    top: 5%;
+  }
+
+  .banner-line {
+    font-size: 60px;
+    line-height: 70px;
+  }
+  .line-3 {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+/* Very large screen */
+@media (min-width: 1700px) {
+  .banner-line {
+    font-size: 85px;
+    line-height: 85px;
+  }
+}

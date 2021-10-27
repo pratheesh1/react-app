@@ -1,8 +1,9 @@
 import React from "react";
+import { useTrailStore } from "../store";
 import Carousel from "./main/Carousel";
 import Reccomendations from "./main/Reccomendations";
-import { useTrailStore } from "../store";
 import Activities from "./main/Activities";
+import Banner from "./main/Banner";
 
 export default function Main() {
   //get state values and functions from different stores
@@ -16,6 +17,7 @@ export default function Main() {
       <Carousel />
       <Reccomendations />
       <Activities />
+      <Banner />
     </React.Fragment>
   );
 }

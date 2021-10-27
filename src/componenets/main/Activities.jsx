@@ -100,7 +100,8 @@ export default function Activities() {
               Something for everyone to discover and connect with nature.
             </p>
             <p className="activities-subheading">
-              Whatever you have in mind, we've got you covered.
+              Whereever you want to go, whatever you have in mind, we've got you
+              covered.
             </p>
           </div>
         </div>
