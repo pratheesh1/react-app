@@ -106,7 +106,7 @@ const formStore = (set, get) => ({
       images: get().formData.imageLink,
     };
     try {
-      await instance.put(`${trailsApiUrl}/${get().formData._id}`, updatedTrail);
+      await instance.put(`${trailsApiUrl}${get().formData._id}`, updatedTrail);
       set((state) => ({
         formUpdateStatus: true,
         formPage: state.formPage + 1,
@@ -161,7 +161,7 @@ const detailedViewStore = (set, get) => ({
   updateForm: (target, value) => set(() => ({ [target]: value })),
   setCurrentElement: async () => {
     await instance
-      .get(`${trailsApiUrl}/${get().detailedView}`)
+      .get(`${trailsApiUrl}${get().detailedView}`)
       .then((res) => {
         set(() => ({ currentElelemt: res.data }));
       })
@@ -178,10 +178,7 @@ const detailedViewStore = (set, get) => ({
     };
     const updatedRating = { review: [...get().currentElelemt.review, rating] };
     try {
-      await instance.put(
-        `${trailsApiUrl}/${get().detailedView}`,
-        updatedRating
-      );
+      await instance.put(`${trailsApiUrl}${get().detailedView}`, updatedRating);
       set(() => ({
         updated: true,
         rating: "",
@@ -201,10 +198,7 @@ const detailedViewStore = (set, get) => ({
       images: [...get().currentElelemt.images, get().newImage],
     };
     try {
-      await instance.put(
-        `${trailsApiUrl}/${get().detailedView}`,
-        updatedImages
-      );
+      await instance.put(`${trailsApiUrl}${get().detailedView}`, updatedImages);
       set(() => ({
         updated: true,
         newImage: "",
@@ -215,7 +209,7 @@ const detailedViewStore = (set, get) => ({
   },
   deleteTrail: async () => {
     try {
-      await instance.delete(`${trailsApiUrl}/${get().detailedView}`);
+      await instance.delete(`${trailsApiUrl}${get().detailedView}`);
     } catch (e) {
       console.log(e);
     }
