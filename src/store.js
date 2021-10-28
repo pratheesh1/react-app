@@ -258,7 +258,7 @@ const useSearchStore = create(devtools(searchStore));
 /*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "main",
+  currentPage: "browseTrails",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
