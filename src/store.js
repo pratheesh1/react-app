@@ -265,8 +265,6 @@ const globalStore = (set, get) => ({
 });
 const useGlobalStore = create(devtools(globalStore));
 
-/*  -------- ** -------- | store for main page |  -------- ** --------  */
-
 //export all store
 export {
   useFormStore,

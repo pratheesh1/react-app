@@ -4,18 +4,23 @@ import instagram from "../assets/images/instagram-icon.png";
 import twitter from "../assets/images/twitter-icon.png";
 import facebook from "../assets/images/facebook-icon.png";
 import pinterest from "../assets/images/pinterest-icon.png";
+import { openInNewTab } from "../utils";
+import { useGlobalStore } from "../store";
 
 function Footer() {
-  const openInNewTab = (url) => {
-    window.open(url);
-  };
+  //get state values and functions from different stores
+  const setPage = useGlobalStore((state) => state.setPage);
 
   return (
     <footer className=" footer-wrapper">
       <div className="container ">
         {/* logo */}
         <div className="row p-0 m-0 text-center text-md-start">
-          <div className="navbar-brand my-4">
+          <div
+            className="navbar-brand my-4"
+            role="button"
+            onClick={() => setPage("main")}
+          >
             <img id="footer-logo" src={logo} aria-label="logo" />
             <span id="footer-logo-text">Trails</span>
           </div>

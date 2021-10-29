@@ -77,7 +77,7 @@ function SearchBar() {
                   {/* Difficulty */}
                   <li className="nav-item dropdown search-nav-item">
                     <a
-                      className={`nav-link dropdown-toggle ${
+                      className={`nav-link dropdown-toggle mx-lg-5 ${
                         currentPage === "browseTrails" ? "active" : "disabled"
                       }`}
                       href="#difficulty"

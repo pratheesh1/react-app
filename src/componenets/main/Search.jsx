@@ -1,7 +1,13 @@
 import React from "react";
 import "../../assets/styles/main/main.css";
+import { useGlobalStore, useSearchStore, useTrailStore } from "../../store";
 
 export default function Search() {
+  //get state values and functions from different stores
+  const setPage = useGlobalStore((state) => state.setPage);
+  const { setTrailsData } = useTrailStore();
+  const { search, updateSearch } = useSearchStore();
+
   return (
     <div className="hero-wrapper">
       <div className="col">
@@ -20,11 +26,18 @@ export default function Search() {
                 type="text"
                 className="hero-search-input"
                 placeholder="Type to search"
+                value={search}
+                name="search"
+                onChange={(e) => updateSearch(e.target.name, e.target.value)}
               ></input>
               <i className="fas fa-search font-awesome-search position-absolute"></i>
               <i
                 className="fas fa-arrow-circle-right font-awesome-search-btn position-absolute"
                 role="button"
+                onClick={() => {
+                  setPage("browseTrails");
+                  setTrailsData({ q: search });
+                }}
               ></i>
             </div>
           </div>
@@ -33,6 +46,9 @@ export default function Search() {
           <p
             className="hero-subtext d-flex align-middle justify-content-center py-3"
             role="button"
+            onClick={() => {
+              setPage("browseTrails");
+            }}
           >
             Explore More
           </p>

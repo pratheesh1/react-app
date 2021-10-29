@@ -1,7 +1,11 @@
 import React from "react";
 import "../../assets/styles/main/banner.css";
+import { useGlobalStore } from "../../store";
 
 export default function Banner() {
+  //get state values and functions from different stores
+  const setPage = useGlobalStore((state) => state.setPage);
+
   return (
     <React.Fragment>
       <div className="banner-wrapper position-relative">
@@ -37,7 +41,12 @@ export default function Banner() {
                   <p className="c2a-heading">
                     See what people are saying about theirs’.{" "}
                   </p>
-                  <button className="btn c2a-btn">Read More</button>
+                  <button
+                    className="btn c2a-btn"
+                    onClick={() => setPage("browseTrails")}
+                  >
+                    Read More
+                  </button>
                 </div>
               </div>
             </div>
@@ -61,7 +70,12 @@ export default function Banner() {
                   <p className="c2a-heading-mobile text-center">
                     See what people are saying about theirs’.{" "}
                   </p>
-                  <button className="btn c2a-btn-mobile">Read More</button>
+                  <button
+                    className="btn c2a-btn-mobile"
+                    onClick={() => setPage("browseTrails")}
+                  >
+                    Read More
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,8 +1,13 @@
 import React from "react";
 import "../assets/styles/navbar.css";
 import logo from "../assets/images/brand-logo.png";
+import { useGlobalStore } from "../store";
+import { openInNewTab } from "../utils";
 
 function NavBar() {
+  //get state values and functions from different stores
+  const setPage = useGlobalStore((state) => state.setPage);
+
   return (
     <React.Fragment>
       <nav className="navbar navbar-wrapper navbar-expand-lg navbar-light bg-light">
@@ -23,28 +28,34 @@ function NavBar() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a
-                    className="nav-link active p-2 px-lg-5"
+                  <button
+                    className="btn nav-link active p-2 px-lg-5"
                     aria-current="page"
-                    href="#explore"
+                    onClick={() => setPage("browseTrails")}
                   >
                     Explore
-                  </a>
+                  </button>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link active p-2 px-lg-4"
-                    href="#hiking-gear"
+                  <button
+                    className=" btn nav-link active p-2 px-lg-4"
+                    onClick={() =>
+                      openInNewTab("https://www.amazon.com/s?k=skiing+gear")
+                    }
                   >
                     Hiking Gear
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
           </div>
           {/* logo */}
           <div className="col-4 d-flex justify-content-center">
-            <div className="navbar-brand navbar-brand-wrapper">
+            <div
+              className="navbar-brand navbar-brand-wrapper"
+              role="button"
+              onClick={() => setPage("main")}
+            >
               <img id="navbar-logo" src={logo} aria-label="logo" />
               <span id="navbar-logo-text">Trails</span>
             </div>

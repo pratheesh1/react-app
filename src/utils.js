@@ -52,6 +52,11 @@ export function shuffle(array) {
   return array;
 }
 
+//open url in new tab
+export function openInNewTab(url) {
+  window.open(url);
+}
+
 /*  -------- ** -------- | project specific modules |  -------- ** --------  */
 //get number of reviews for a paricular rating
 export const getNumber = (element, number) => {
