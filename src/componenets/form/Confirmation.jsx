@@ -17,12 +17,12 @@ const showConfirmation = (confirmation, setPage, formReset) => {
       return (
         //sucessfully added/updated trail
         <React.Fragment>
-          <div className="row banner-wrapper">
-            <div className="row banner-header success-banner">
+          <div className="banner-form-wrapper">
+            <div className="row banner-form-header success-banner-form">
               <canvas></canvas>
             </div>
-            <div className="row banner-body d-flex align-items-center justify-content-center">
-              <div className="row d-flex align-items-center justify-content-center">
+            <div className="row banner-form-body d-flex align-items-center justify-content-center">
+              <div className="row d-flex align-items-center justify-content-center pt-3">
                 <img src={sucess} aria-label="success" id="success-img" />
               </div>
               <div className="row m-0 d-flex align-items-center justify-content-center">
@@ -33,7 +33,7 @@ const showConfirmation = (confirmation, setPage, formReset) => {
                   New Trail added successfully.
                 </p>
                 <button
-                  className="btn btn-confirmation success-banner"
+                  className="btn btn-confirmation success-banner-form"
                   onClick={() => {
                     setPage("browseTrails");
                     formReset();
@@ -50,15 +50,15 @@ const showConfirmation = (confirmation, setPage, formReset) => {
       return (
         //adding/updating trail failed
         <React.Fragment>
-          <div className="row banner-wrapper">
-            <div className="row banner-header error-banner">
+          <div className="banner-form-wrapper">
+            <div className="row banner-form-header error-banner-form">
               <canvas></canvas>
             </div>
-            <div className="row banner-body d-flex align-items-center justify-content-center">
+            <div className="row banner-form-body d-flex align-items-center justify-content-center">
               <div className="row d-flex align-items-center justify-content-center">
                 <img src={error} aria-label="success" id="error-img" />
               </div>
-              <div className="row m-0 d-flex align-items-center justify-content-center">
+              <div className="row m-0 d-flex align-items-center justify-content-center pt-3">
                 <p
                   id="status-message"
                   className="d-flex align-items-center justify-content-center"
@@ -66,7 +66,7 @@ const showConfirmation = (confirmation, setPage, formReset) => {
                   Oops! Something went wrong.
                 </p>
                 <button
-                  className="btn btn-confirmation error-banner"
+                  className="btn btn-confirmation error-banner-form"
                   onClick={() => tryAgain()}
                 >
                   Try Again

@@ -32,10 +32,6 @@ let formPage3 = yup.object().shape({
     .string()
     .required("Detailed description on the trail is a required field!")
     .min(600, "Trail description must be at least 600 characters!"),
-  imgTempLink: yup
-    .string()
-    .url("Image url not valid!")
-    .required("At least one image is required!"),
 });
 
 // schema for forms in detailed view page

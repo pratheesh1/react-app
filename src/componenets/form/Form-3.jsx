@@ -46,7 +46,17 @@ function Form3(props) {
     ));
   };
 
-  // TODO: fix image and modal
+  //validate and add image link to state
+  //regex for url validation
+  const validateLink = (link) => {
+    const regex = /(http(s?):)([/|.|\w|\s|-])*\./g;
+    if (regex.test(link)) {
+      addImgLink(link);
+    } else {
+      alert("Invalid URL");
+    }
+  };
+
   return (
     <React.Fragment>
       <div className="row w-100 p-0 m-0">
@@ -92,11 +102,6 @@ function Form3(props) {
                             {imageLink.length === 0 ? (
                               <React.Fragment>
                                 <FileUpload />
-                                {errors.imgTempLink && (
-                                  <p className="form-error">
-                                    {errors.imgTempLink.message}
-                                  </p>
-                                )}
                               </React.Fragment>
                             ) : (
                               <div className="row m-0 h-100 file-upload d-flex justify-content-center align-items-center">
@@ -189,9 +194,6 @@ function Form3(props) {
             <div className="modal-body">
               <div className="col-12">
                 <p className="field-heading m-0">image link</p>
-                {errors.imgTempLink && (
-                  <p className="form-error">{errors.imgTempLink.message}</p>
-                )}
                 <div className="d-flex flex-row">
                   <input
                     type="text"
@@ -204,7 +206,7 @@ function Form3(props) {
                     type="submit"
                     className="btn btn-add-img align-middle"
                     onClick={() => {
-                      addImgLink();
+                      validateLink(imgTempLink);
                     }}
                   >
                     Add Image
