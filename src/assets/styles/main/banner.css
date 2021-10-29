@@ -10,9 +10,22 @@
   filter: brightness(30%);
 }
 
+.banner-img-mobile {
+  width: 80vw;
+  height: 60vh;
+  object-fit: cover;
+  border-radius: 20px;
+
+  top: -10vh;
+}
+
+.banner-mobile {
+  padding-top: 55vh;
+}
+
 .banner-heading {
-  left: 10%;
-  top: 25%;
+  top: 60%;
+  transform: translate(2%, -50%);
   overflow: hidden;
 }
 
@@ -20,8 +33,8 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
-  font-size: 40px;
-  line-height: 40px;
+  font-size: 55px;
+  line-height: 55px;
 }
 
 .line-1 {
@@ -40,18 +53,18 @@
 
 /* call to action banner */
 .banner-c2a {
-  top: 31%;
+  top: 30%;
   left: 22%;
-  height: 60vh;
-  width: 50%;
+  height: 50vh;
+  width: 45%;
   background: white;
   border-radius: 20px;
 }
 
 .c2a-img {
-  margin-top: 15%;
-  width: 316px;
-  height: 500px;
+  margin-top: 10%;
+  width: 100%;
+  height: 83%;
   border-radius: 20px;
   object-fit: cover;
 }
@@ -64,12 +77,50 @@
   line-height: 30px;
 }
 
+.c2a-heading-mobile {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.c2a-btn {
+  margin-top: 10%;
+  width: 80%;
+  height: 35px;
+  border-radius: 5px;
+  background: #1ba1f2;
+  color: white;
+}
+
+.c2a-btn-mobile {
+  margin-top: 5%;
+  width: 80%;
+  height: 35px;
+  border-radius: 5px;
+  background: #1ba1f2;
+  color: white;
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .banner-img-mobile {
+    width: 60vw;
+    height: 60vh;
+  }
+
+  .c2a-btn-mobile {
+    width: 40%;
+  }
+
+  .c2a-heading-mobile {
+    font-size: 30px;
+    line-height: 30px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -78,35 +129,24 @@
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .banner-heading {
+    top: 15%;
+    transform: translate(60vw, -50%);
+  }
+
+  .banner-line {
+    font-size: 70px;
+    line-height: 70px;
+  }
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) {
-  .banner-wrapper {
-    height: 100vh;
-  }
-  .banner-img {
-    height: 100vh;
-  }
-  .banner-heading {
-    left: 65%;
-    top: 5%;
-  }
-
-  .banner-line {
-    font-size: 60px;
-    line-height: 70px;
-  }
-  .line-3 {
-    font-size: 20px;
-    line-height: 23px;
+  .c2a-img {
+    width: 75%;
   }
 }
 
 /* Very large screen */
 @media (min-width: 1700px) {
-  .banner-line {
-    font-size: 85px;
-    line-height: 85px;
-  }
 }

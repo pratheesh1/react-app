@@ -9,7 +9,7 @@ import {
 //initiate axios instance
 const instance = axios.create({
   baseURL: baseApiUrl,
-  timeout: 1000,
+  timeout: 10000,
 });
 
 /*  -------- ** -------- | store for form |  -------- ** --------  */
@@ -258,7 +258,7 @@ const useSearchStore = create(devtools(searchStore));
 /*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
   //state variables
-  currentPage: "browseTrails",
+  currentPage: "main",
 
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
