@@ -139,11 +139,13 @@ input[class="star-radio"]:not(:checked) > label {
 
 .go-back-btn {
   background-color: white;
-  top: 0;
-  left: 0;
-  font-size: 25px;
-  padding: 10px 18px 10px 12px;
+  top: 5px;
+  left: 5px;
+  font-size: 20px;
+  padding: 8px 8px 10px 8px;
+  border-radius: 50%;
   border: 1px solid #c4c4c4;
+  box-shadow: 1px 1px 10px grey;
 }
 
 /* Small devices (landscape phones, 576px and up) */

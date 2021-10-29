@@ -1,6 +1,6 @@
 /* card for browe trails page */
 .trail-card-browse {
-  height: 370px;
+  height: 390px;
   width: 300px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   z-index: -1;
@@ -32,8 +32,9 @@
 }
 
 .trail-card-body {
+  padding-top: 5px;
   width: 300px;
-  height: 100px;
+  height: 120px;
 }
 
 .title-text {
@@ -43,6 +44,7 @@
   font-size: 14px;
   line-height: 15px;
   padding-top: 4px;
+  padding-bottom: 4px;
   max-height: 34px;
   overflow: hidden;
 }

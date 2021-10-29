@@ -36,7 +36,7 @@ export default function TrailCard(props) {
           }}
         ></div>
         <div className="trail-card-body mx-2">
-          <div className="row">
+          <div className="row pb-0 pb-0">
             <div className="col-9">
               <div className="row">
                 <span className="title-text">{props.trail.trailName}</span>

@@ -62,7 +62,7 @@ export default function Details() {
   };
 
   return (
-    <div className="details-wrapper">
+    <div className="details-wrapper pt-lg-3">
       <article className="container p-0 wrapper-contailer d-flex">
         <div className="row m-0">
           <div className="col-12 col-lg-8 p-0 position-relative">
@@ -72,13 +72,13 @@ export default function Details() {
               alt="trail banner img"
             />
             <i
-              class="fas fa-backward position-absolute go-back-btn"
+              class="fas fa-home position-absolute go-back-btn"
               role="button"
               onClick={() => setPage("browseTrails")}
             ></i>
             {/* main Content */}
-            <div className="row m-0 my-4">
-              <div className="col-9 m-0 p-0">
+            <div className="row m-0 my-2 p-0">
+              <div className="col-9 m-0 pl-3">
                 <h3 className="trail-heading">{currentElelemt.trailName}</h3>
               </div>
               <div className="col-3 m-0 p-0 d-flex flex-row justify-content-end">
@@ -106,7 +106,7 @@ export default function Details() {
                 </div>
               </div>
             </div>
-            <div className="row m-0 my-2 px-2 trail-subtext">
+            <div className="row m-0 my-2 px-3 trail-subtext">
               {currentElelemt.description}
             </div>
             <div className="row m-0 my-3">
@@ -148,7 +148,7 @@ export default function Details() {
                 </div>
               </div>
             </div>
-            <div className="row m-0 main-text px-2">
+            <div className="row m-0 main-text px-3">
               {currentElelemt.describeTrail}
             </div>
             <hr className="w-100" />
