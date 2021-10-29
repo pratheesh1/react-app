@@ -65,12 +65,17 @@ export default function Details() {
     <div className="details-wrapper">
       <article className="container p-0 wrapper-contailer d-flex">
         <div className="row m-0">
-          <div className="col-12 col-lg-8 p-0">
+          <div className="col-12 col-lg-8 p-0 position-relative">
             <img
               className="trail-image-detailed"
               src={currentElelemt.images ? currentElelemt.images[0] : ""}
               alt="trail banner img"
             />
+            <i
+              class="fas fa-backward position-absolute go-back-btn"
+              role="button"
+              onClick={() => setPage("browseTrails")}
+            ></i>
             {/* main Content */}
             <div className="row m-0 my-4">
               <div className="col-9 m-0 p-0">

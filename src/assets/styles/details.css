@@ -137,6 +137,15 @@ input[class="star-radio"]:not(:checked) > label {
   border-radius: 50%;
 }
 
+.go-back-btn {
+  background-color: white;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  padding: 10px 18px 10px 12px;
+  border: 1px solid #c4c4c4;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .submit-review-btn-wrapper {
