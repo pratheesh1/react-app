@@ -6,7 +6,9 @@ This project is a revisit and re-implementation of some of the existing trail do
 
 This project called **Trail App** is developed as a single page application that uses React as front-end framework and uses a custom API to retrieve and display trail information. The application is designed to be responsive and mobile friendly.
 
-This project is aimed at anyone looking to read-up on hiking trails or to document or leave reviews on trails they have been on.
+- Site Owner's Goals: As the site owner, I want others to be able to easily add new trails to the site, leave reviews and photos, and search for trails.
+
+- User Goals: This project is aimed at anyone looking to read-up on hiking trails or to document or leave reviews on trails they have been on.
 
 # Index
 
@@ -24,11 +26,11 @@ This project is aimed at anyone looking to read-up on hiking trails or to docume
 
 [Trail App prototype and wireframe.](https://www.figma.com/file/gC2LGUIuny82ik6EQOkCmP/Project-02)
 
-Documentation for UI/UX design, color palettes and font selection can be found in the prototype.
+Documentation for UI/UX design, color palettes and font selection can also be found in the prototype.
 
 ## 1.1 Features and Structure of Webpage
 
-The stucture and features of the web page can be found in the Figma file.
+The stucture and features of the web page are documented in the Figma file.
 
 # 2. Technologies used:
 
@@ -74,11 +76,11 @@ The stucture and features of the web page can be found in the Figma file.
 
 # 3. Backend API
 
-This project uses a custom RESTful API to retrieve and display trail information. The API is hosted on Heroku and is accessible from the front-end. The API is built using Node.js and Express.js. It uses [MongoDB](https://www.mongodb.com/) as the database and [Mongoose](https://mongoosejs.com/) as the ORM. The source code for the API can be found here: [Project 02 - Express-app](https://github.com/pratheesh1/Express-app)
+This project uses a custom RESTful API to retrieve and display trail information. It is hosted on Heroku and is accessible from the front-end. The API is built using Node.js and Express.js. It uses [MongoDB](https://www.mongodb.com/) as the database and [Mongoose](https://mongoosejs.com/) as the ODM. The source code for the API can be found here: [Project 02 - Express-app](https://github.com/pratheesh1/Express-app)
 
-The API enpoints are fully documented with Swagger and complies with the [OpenAPI 3.0](https://swagger.io/specification/) specifications. The API is hosted at: https://ps-project02-express.herokuapp.com/
+The API enpoints are fully documented with Swagger and complies with the [OpenAPI 3.0](https://spec.openapis.org/oas/v3.1.0) specifications. The API is hosted at: https://ps-project02-express.herokuapp.com/
 
-The API docmentation can be found at the link: [/api-docs](https://ps-project02-express.herokuapp.com/api-docs/)
+The API documentation can be found at [/api-docs](https://ps-project02-express.herokuapp.com/api-docs/) endpoint.
 
 # 4. Future Features to Implement
 
@@ -119,7 +121,7 @@ https://naughty-darwin-b8340c.netlify.app/
 
 # 7. Acknowledgemnts
 
-1. Albert Gao for his [python script](https://github.com/Albert-Gao/world-cities-mongodb) to add contries and cities to mongodb from GeoNmages.org
+1. Albert Gao for his [python script](https://github.com/Albert-Gao/world-cities-mongodb) to add conutries and cities to mongodb from GeoNmages.org
 2. Community at figma.com for free figma components library.
 3. YouTube community for countless free tutorials.
 4. Images from [pngwing.com](https://www.pngwing.com) and [unsplash.com](https://unsplash.com/)
