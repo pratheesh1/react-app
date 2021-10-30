@@ -1,5 +1,7 @@
-const api_base_url = "http://localhost:3500/";
-const trails_api_endpoint = "http://localhost:3500/trails/";
-const countries_api_endpoint = "http://localhost:3500/countries";
+const api_base_url = "https://ps-project02-express.herokuapp.com/";
+const trails_api_endpoint =
+  "https://ps-project02-express.herokuapp.com/trails/";
+const countries_api_endpoint =
+  "https://ps-project02-express.herokuapp.com/countries";
 
 export { api_base_url, trails_api_endpoint, countries_api_endpoint };
