@@ -9,6 +9,7 @@ import {
 //initiate axios instance
 const instance = axios.create({
   baseURL: baseApiUrl,
+  timeOut: 10000,
 });
 
 /*  -------- ** -------- | store for form |  -------- ** --------  */
