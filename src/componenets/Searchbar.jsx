@@ -21,7 +21,7 @@ function SearchBar() {
   var params = {};
   if (currentPage === "browseTrails") {
     params.difficulty = difficulty;
-    params.distance = distance;
+    params.distance = distance.length ? distance : "0,9999999999";
     params.q = search;
   }
   useEffect(() => {

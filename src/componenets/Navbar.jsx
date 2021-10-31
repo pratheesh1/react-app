@@ -36,6 +36,7 @@ function NavBar() {
                     onClick={() => {
                       setPage("browseTrails");
                       formReset();
+                      resetSearch();
                     }}
                   >
                     Explore
