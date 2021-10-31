@@ -77,7 +77,7 @@ export default function Details() {
               onClick={() => setPage("browseTrails")}
             ></i>
             {/* main Content */}
-            <div className="row m-0 my-2 p-0">
+            <div className="row m-0 my-2 p-0 pt-4">
               <div className="col-9 m-0 pl-3">
                 <h3 className="trail-heading">{currentElelemt.trailName}</h3>
               </div>
