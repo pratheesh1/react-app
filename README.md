@@ -12,13 +12,13 @@ This project called **Trail App** is developed as a single page application that
 
 # Index
 
-1. Design, UI, and UX
-2. Technologies Used
-3. Backend API
-4. Future Features to Implement
-5. Testing
-6. Deployment
-7. Credits and Acknowledgements
+1. [Design, UI, and UX](#1-design-ui-and-ux)
+2. [Technologies Used](#2-technologies-used)
+3. [Backend API](#3-backend-api)
+4. [Future Features to Implement](#4-future-features-to-implement)
+5. [Testing](#5-testing)
+6. [Deployment](#6-deployment)
+7. [Acknowledgemnts](#7-acknowledgemnts)
 
 # 1. Design, UI, and UX
 
@@ -32,7 +32,7 @@ Documentation for UI/UX design, color palettes and font selection can also be fo
 
 The stucture and features of the web page are documented in the Figma file.
 
-# 2. Technologies used:
+# 2. Technologies used
 
 - [React](https://reactjs.org/)
 
@@ -111,8 +111,6 @@ The API documentation can be found at [/api-docs](https://ps-project02-express.h
 There is no automated testing for this project. The project is developed using a combination of manual testing and unit testing. The testing done for the critical functionality of this project is documented at the link below:
 
 [Testing Documentation - Google Docs Link](https://docs.google.com/spreadsheets/d/1NdmoMiVTOYa_6QQPF1DB9nj-Geq7PeTOHpTLVGu_r94/edit#gid=0&range=B2:E37)
-
-<!-- TODO: To add link for testing documentation file here -->
 
 # 6. Deployment
 
