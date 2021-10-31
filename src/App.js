@@ -9,6 +9,7 @@ import Details from "./componenets/Details";
 import Main from "./componenets/Main";
 import { useGlobalStore } from "./store";
 import Help from "./componenets/Help";
+import E404 from "./404";
 
 function App() {
   const currentPage = useGlobalStore((state) => state.currentPage);
@@ -25,7 +26,7 @@ function App() {
       case "help":
         return <Help />;
       default:
-        return <Main />;
+        return <E404 />;
     }
   };
   return (

@@ -86,15 +86,16 @@ The API documentation can be found at [/api-docs](https://ps-project02-express.h
 
 ## 4.1 Additional Features to be implemented in the future
 
-| Feature                        | Description                                                           |
-| ------------------------------ | --------------------------------------------------------------------- |
-| Login/Signup                   | User can login/signup to the application.                             |
-| Customize Trail                | User can customize the trail information.                             |
-| Session Management             | User can manage their session.                                        |
-| Email Verification             | User can verify their email address.                                  |
-| Access Control for Edit/Delete | User can only edit/delete their own information.                      |
-| Email Newsletter               | User can subscribe to the newsletter.                                 |
-| Photo Upload                   | User can upload photos to the application and save them to S3 bucket. |
+| Feature                        | Description                                                             |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| Login/Signup                   | User can login/signup to the application.                               |
+| Customize Trail                | User can customize the trail information.                               |
+| Session Management             | User can manage their session.                                          |
+| Email Verification             | User can verify their email address.                                    |
+| Access Control for Edit/Delete | User can only edit/delete their own information.                        |
+| Email Newsletter               | User can subscribe to the newsletter.                                   |
+| Photo Upload                   | User can upload photos to the application and save them to S3 bucket.   |
+| Search Autocomplete            | Suggestions for search autocomplete is provided based on the api query. |
 
 ## 4.2 Feature fixes to be implemented in the future
 
@@ -109,7 +110,7 @@ The API documentation can be found at [/api-docs](https://ps-project02-express.h
 
 There is no automated testing for this project. The project is developed using a combination of manual testing and unit testing. The testing done for the critical functionality of this project is documented at the link below:
 
-[Testing Documentation - Google Drive Link](https://docs.google.com/spreadsheets/d/1NdmoMiVTOYa_6QQPF1DB9nj-Geq7PeTOHpTLVGu_r94/edit?usp=sharing)
+[Testing Documentation - Google Docs Link](https://docs.google.com/spreadsheets/d/1NdmoMiVTOYa_6QQPF1DB9nj-Geq7PeTOHpTLVGu_r94/edit#gid=0&range=B2:E37)
 
 <!-- TODO: To add link for testing documentation file here -->
 
@@ -121,7 +122,7 @@ https://naughty-darwin-b8340c.netlify.app/
 
 # 7. Acknowledgemnts
 
-1. Albert Gao for his [python script](https://github.com/Albert-Gao/world-cities-mongodb) to add conutries and cities to mongodb from GeoNmages.org
-2. Community at figma.com for free figma components library.
-3. YouTube community for countless free tutorials.
+1. Albert Gao for his [python script](https://github.com/Albert-Gao/world-cities-mongodb) to add conutries and cities to mongodb from [GeoNamges.org](http://www.geonames.org)
+2. Community at [figma.com](https://www.figma.com/community) for free figma components library.
+3. YouTube and stackoverflow community for countless free tutorials.
 4. Images from [pngwing.com](https://www.pngwing.com) and [unsplash.com](https://unsplash.com/)

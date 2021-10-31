@@ -46,7 +46,7 @@ function NavBar() {
                   <button
                     className=" btn nav-link active p-2 px-lg-4"
                     onClick={() =>
-                      openInNewTab("https://www.amazon.com/s?k=skiing+gear")
+                      openInNewTab("https://www.amazon.com/s?k=hiking+gear")
                     }
                   >
                     Hiking Gear
