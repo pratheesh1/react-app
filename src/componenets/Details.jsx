@@ -72,7 +72,7 @@ export default function Details() {
               alt="trail banner img"
             />
             <i
-              class="fas fa-home position-absolute go-back-btn"
+              className="fas fa-home position-absolute go-back-btn"
               role="button"
               onClick={() => setPage("browseTrails")}
             ></i>

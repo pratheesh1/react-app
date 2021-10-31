@@ -34,6 +34,7 @@ export default function Carousel() {
         ></button>
       </div>
       <div className="carousel-inner position-relative">
+        {/* Search Component */}
         <Search />
         <div className="carousel-item ">
           <img

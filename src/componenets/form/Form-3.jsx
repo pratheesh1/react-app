@@ -41,7 +41,7 @@ function Form3(props) {
   const createList = () => {
     return imageLink.map((link, index) => (
       <p className="image-links-list m-0 overflow-hidden fs-6" key={index}>
-        Image {index + 1} <i class="fas fa-times text-danger"></i>
+        Image {index + 1} <i className="fas fa-times text-danger"></i>
       </p>
     ));
   };

@@ -1,9 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
 import "../../assets/styles/main/activities.css";
+import { useGlobalStore, useTrailStore, useSearchStore } from "../../store";
 
 export default function Activities() {
   //get state values and functions from different stores
+  const setPage = useGlobalStore((state) => state.setPage);
+  const setTrailsData = useTrailStore((state) => state.setTrailsData);
+  const updateSearch = useSearchStore((state) => state.updateSearch);
 
   // array of activities
   const activities = [
@@ -43,7 +47,15 @@ export default function Activities() {
       return (
         <div key={index}>
           <div className="d-flex justify-content-center">
-            <div className="activity-wrapper position-relative" role="button">
+            <div
+              className="activity-wrapper position-relative"
+              role="button"
+              onClick={() => {
+                updateSearch("search", activity.name);
+                setPage("browseTrails");
+                setTrailsData({ q: activity.name });
+              }}
+            >
               <img
                 src={activity.img}
                 aria-label="activity"

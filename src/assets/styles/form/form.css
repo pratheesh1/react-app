@@ -195,7 +195,8 @@
 #error-img {
   width: 150px;
   height: 128px;
-  opacity: 80%;
+  opacity: 80% !important;
+  z-index: 50;
 }
 
 #status-message {

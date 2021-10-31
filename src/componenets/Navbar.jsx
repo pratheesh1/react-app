@@ -1,12 +1,14 @@
 import React from "react";
 import "../assets/styles/navbar.css";
 import logo from "../assets/images/brand-logo.png";
-import { useGlobalStore } from "../store";
+import { useGlobalStore, useFormStore, useSearchStore } from "../store";
 import { openInNewTab } from "../utils";
 
 function NavBar() {
   //get state values and functions from different stores
   const setPage = useGlobalStore((state) => state.setPage);
+  const formReset = useFormStore((state) => state.formReset);
+  const resetSearch = useSearchStore((state) => state.resetSearch);
 
   return (
     <React.Fragment>
@@ -31,7 +33,10 @@ function NavBar() {
                   <button
                     className="btn nav-link active p-2 px-lg-5"
                     aria-current="page"
-                    onClick={() => setPage("browseTrails")}
+                    onClick={() => {
+                      setPage("browseTrails");
+                      formReset();
+                    }}
                   >
                     Explore
                   </button>
@@ -54,7 +59,11 @@ function NavBar() {
             <div
               className="navbar-brand navbar-brand-wrapper"
               role="button"
-              onClick={() => setPage("main")}
+              onClick={() => {
+                setPage("main");
+                formReset();
+                resetSearch();
+              }}
             >
               <img id="navbar-logo" src={logo} aria-label="logo" />
               <span id="navbar-logo-text">Trails</span>

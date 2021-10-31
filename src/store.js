@@ -252,6 +252,15 @@ const searchStore = (set, get) => ({
 
   //callback functions
   updateSearch: (target, value) => set(() => ({ [target]: value })),
+  resetSearch: () =>
+    set(() => ({
+      search: "",
+      difficulty: [],
+      distance: "",
+      rating: [],
+      show: "All Content",
+      sort: "No Sort",
+    })),
 });
 const useSearchStore = create(devtools(searchStore));
 

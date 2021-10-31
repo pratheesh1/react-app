@@ -50,8 +50,14 @@ function SearchBar() {
                   id="search-text-box"
                   placeholder="Type to search"
                   aria-label="search box"
+                  disabled={currentPage === "form"}
                 />
-                <button id="search-btn" aria-label="search" type="submit">
+                <button
+                  id="search-btn"
+                  aria-label="search"
+                  type="submit"
+                  disabled={currentPage === "form"}
+                >
                   Search
                 </button>
               </div>
