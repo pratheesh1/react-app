@@ -170,7 +170,7 @@ export default function BrowseTrails() {
         <div className="">
           <div
             className="
-          row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-5 g-xxl-3"
+          row row-cols-1 row-cols-md-2 row-cols-xxl-4 g-5 g-xxl-3"
           >
             {generateTrailsCard()}
           </div>

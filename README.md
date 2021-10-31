@@ -109,7 +109,7 @@ The API documentation can be found at [/api-docs](https://ps-project02-express.h
 
 There is no automated testing for this project. The project is developed using a combination of manual testing and unit testing. The testing done for the critical functionality of this project is documented at the link below:
 
-[Testing Documentation - Google Drive Link](Link)
+[Testing Documentation - Google Drive Link](https://docs.google.com/spreadsheets/d/1NdmoMiVTOYa_6QQPF1DB9nj-Geq7PeTOHpTLVGu_r94/edit?usp=sharing)
 
 <!-- TODO: To add link for testing documentation file here -->
 

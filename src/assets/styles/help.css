@@ -1,0 +1,45 @@
+.help-container {
+  margin-top: 5vh;
+}
+
+.btn-help-back {
+  top: 18vh;
+  left: 1vw;
+}
+
+.btn-help-back {
+  background: #1ba1f2;
+  border-radius: 5px;
+  border: none;
+}
+
+.help-page-heading {
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: underline;
+}
+
+.help-page-text {
+  font-family: "Times New Roman", serif;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .btn-help-back {
+    left: 4vw;
+  }
+}

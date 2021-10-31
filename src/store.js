@@ -141,7 +141,7 @@ const formStore = (set, get) => ({
       formUpdateStatus: false,
     }),
 });
-const useFormStore = create(devtools(formStore));
+const useFormStore = create(devtools(formStore, { name: "Form Store" }));
 
 /*  -------- ** -------- | store for detailed view |  -------- ** --------  */
 const detailedViewStore = (set, get) => ({
@@ -215,7 +215,9 @@ const detailedViewStore = (set, get) => ({
     }
   },
 });
-const useDetailedViewStore = create(devtools(detailedViewStore));
+const useDetailedViewStore = create(
+  devtools(detailedViewStore, { name: "Detailed View Store" })
+);
 
 /*  -------- ** -------- | store for trails |  -------- ** --------  */
 const trailStore = (set, get) => ({
@@ -238,7 +240,9 @@ const trailStore = (set, get) => ({
     set(() => ({ trailsData: sortedData }));
   },
 });
-const useTrailStore = create(devtools(trailStore));
+const useTrailStore = create(
+  devtools(trailStore, { name: "All Trails Store" })
+);
 
 /*  -------- ** -------- | store for search |  -------- ** --------  */
 const searchStore = (set, get) => ({
@@ -262,7 +266,7 @@ const searchStore = (set, get) => ({
       sort: "No Sort",
     })),
 });
-const useSearchStore = create(devtools(searchStore));
+const useSearchStore = create(devtools(searchStore, { name: "Search Store" }));
 
 /*  -------- ** -------- | store for everything else |  -------- ** --------  */
 const globalStore = (set, get) => ({
@@ -272,7 +276,7 @@ const globalStore = (set, get) => ({
   //callback functions
   setPage: (page) => set(() => ({ currentPage: page })),
 });
-const useGlobalStore = create(devtools(globalStore));
+const useGlobalStore = create(devtools(globalStore, { name: "Global Store" }));
 
 //export all store
 export {

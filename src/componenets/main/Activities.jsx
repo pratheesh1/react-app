@@ -53,7 +53,9 @@ export default function Activities() {
               onClick={() => {
                 updateSearch("search", activity.name);
                 setPage("browseTrails");
-                setTrailsData({ q: activity.name });
+                setTrailsData({
+                  q: activity.name,
+                });
               }}
             >
               <img

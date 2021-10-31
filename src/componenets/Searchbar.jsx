@@ -20,7 +20,7 @@ function SearchBar() {
   // update data when user selection changes and only if page is browseTrails
   var params = {};
   if (currentPage === "browseTrails") {
-    params.difficulty = difficulty;
+    params.difficulty = difficulty.length ? difficulty : "";
     params.distance = distance.length ? distance : "0,9999999999";
     params.q = search;
   }

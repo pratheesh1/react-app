@@ -216,8 +216,15 @@ function Footer() {
                     data-bs-parent="#accordion-help"
                   >
                     <div className="accordion-body d-lg-block">
-                      <p role="button">Support</p>
-                      <p role="button">Contact Us</p>
+                      <p role="button" onClick={() => setPage("help")}>
+                        Navigation
+                      </p>
+                      <a
+                        className="text-decoration-none text-dark"
+                        href="mailto:pratheesh@gmail.com"
+                      >
+                        Contact Us
+                      </a>
                     </div>
                   </div>
                 </div>

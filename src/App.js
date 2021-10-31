@@ -8,6 +8,7 @@ import React from "react";
 import Details from "./componenets/Details";
 import Main from "./componenets/Main";
 import { useGlobalStore } from "./store";
+import Help from "./componenets/Help";
 
 function App() {
   const currentPage = useGlobalStore((state) => state.currentPage);
@@ -21,6 +22,8 @@ function App() {
         return <Form />;
       case "details":
         return <Details />;
+      case "help":
+        return <Help />;
       default:
         return <Main />;
     }
