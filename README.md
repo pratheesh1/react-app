@@ -24,7 +24,7 @@ This project called **Trail App** is developed as a single page application that
 
 ### Figma File with the wireframe and high fidelity prototype of the application can be found at the link below:
 
-    https://www.figma.com/file/gC2LGUIuny82ik6EQOkCmP/Project-02
+https://www.figma.com/file/gC2LGUIuny82ik6EQOkCmP/Project-02
 
 Documentation for UI/UX design, color palettes and font selection can also be found in the prototype.
 
